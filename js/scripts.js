@@ -8,9 +8,7 @@
 // Scripts
 // 
 
-
-
-const profileCards = document.getElementById('profile-container');
+const profileCards = document.getElementById('experience-container');
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -38,7 +36,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-const profile = [
+const experiences = [
     {
         "id" : 1,
         "companyName" : "Elevated Play Philippines Inc.",
@@ -90,9 +88,9 @@ const profile = [
 
 ]
 
-displayProfile = profile.reverse();
+dto = experiences.reverse();
 
-displayProfile.forEach(
+dto.forEach(
     ({position, companyName, location, duration, description }) => {
         profileCards.innerHTML += `
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
