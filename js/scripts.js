@@ -64,7 +64,7 @@ const experiences = [
     {
         "id" : 4,
         "companyName" : "1902 Software Development Corporation",
-        "position" : "Senior QA Tester · Web Application",
+        "position" : "Senior QA Tester · Web Application Testing",
         "location" : "Alabang · Philippines",
         "duration" : "Mar 2017 · Mar 2020",
         "description" : "Transitioning from mobile games and applications to web-based platforms, I have focused primarily on e-commerce projects built with Magento and WordPress (WooCommerce). This allowed me to expand my expertise in testing complex web applications, ensuring seamless user experiences, and optimizing the performance of online retail platforms. This transition also enabled me to delve into test automation using Selenium and later Cypress, as well as explore web application vulnerability testing to enhance overall software quality and security."
