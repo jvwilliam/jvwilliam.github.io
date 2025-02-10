@@ -144,6 +144,44 @@ const languages = [
     },
 ]
 
+const platforms = [
+    {
+        "id": 1,
+        "title" : "Android",
+        "class" : "fab fa-android"
+    },
+    {
+        "id": 2,
+        "title" : "Apple",
+        "class" : "fab fa-apple"
+    },
+    {
+        "id": 3,
+        "title" : "Linux",
+        "class" : "fab fa-linux"
+    },
+    {
+        "id": 4,
+        "title" : "Windows",
+        "class" : "fab fa-windows"
+    },
+    {
+        "id": 5,
+        "title" : "WordPress",
+        "class" : "fab fa-wordpress"
+    },
+    {
+        "id": 6,
+        "title" : "Magento",
+        "class" : "fab fa-magento"
+    },
+    {
+        "id": 7,
+        "title" : "Shopify",
+        "class" : "fab fa-html5"
+    },
+]
+
 dto = experiences.reverse();
 
 dto.forEach(
