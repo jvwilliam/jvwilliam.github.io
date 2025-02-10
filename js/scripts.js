@@ -85,7 +85,63 @@ const experiences = [
         "duration" : "May 2024 · Present",
         "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
     },
+]
 
+const coreCompetencies = [
+    {
+        "id": 1,
+        "title": "Functional Testing & Test Automation"
+    },
+    {
+        "id": 2,
+        "title": "Test Engineering & Management"
+    },
+    {
+        "id": 3,
+        "title": "Team Management & Leadership"
+    },
+    {
+        "id": 4,
+        "title": "Web Application Security"
+    },
+]
+
+const languages = [
+    {
+        "id": 1,
+        "title" : "git",
+        "class" : "fab fa-git-square"
+    },
+    {
+        "id": 2,
+        "title" : "HTML",
+        "class" : "fab fa-html5"
+    },
+    {
+        "id": 3,
+        "title" : "CSS",
+        "class" : "fab fa-css3-alt"
+    },
+    {
+        "id": 4,
+        "title" : "Figma",
+        "class" : "fab fa-figma"
+    },
+    {
+        "id": 5,
+        "title" : "JavaScript",
+        "class" : "fab fa-js-square"
+    },
+    {
+        "id": 6,
+        "title" : "Python",
+        "class" : "fab fa-python"
+    },
+    {
+        "id": 7,
+        "title" : "Jira",
+        "class" : "fab fa-jira"
+    },
 ]
 
 dto = experiences.reverse();
