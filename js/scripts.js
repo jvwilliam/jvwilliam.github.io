@@ -80,7 +80,7 @@ const experiences = [
     {
         "id" : 6,
         "companyName" : "Norlinq LLC",
-        "position" : "Test Engineer · Web App Tester",
+        "position" : "Test Engineer · Web Application Testing",
         "location" : "Abu Dhabi · United Arab Emirates",
         "duration" : "May 2024 · Present",
         "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
