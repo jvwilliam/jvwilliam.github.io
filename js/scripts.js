@@ -180,7 +180,7 @@ const platforms = [
     {
         "id": 7,
         "title" : "Shopify",
-        "icon" : "fab fa-html5"
+        "icon" : "fab fa-shopify"
     },
 ]
 
