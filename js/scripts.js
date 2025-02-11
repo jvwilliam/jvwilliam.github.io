@@ -1,4 +1,3 @@
-
 /*!
 * Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
 * Copyright 2013-2023 Start Bootstrap
@@ -9,6 +8,9 @@
 // 
 
 const profileCards = document.getElementById('experience-container');
+const competencyList = document.getElementById('competency-list');
+const languageList = document.getElementById('language-list');
+const platformList = document.getElementById('platform-list');
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -36,7 +38,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-const experiences = [
+const workProfile = [
     {
         "id" : 1,
         "companyName" : "Elevated Play Philippines Inc.",
@@ -110,37 +112,37 @@ const languages = [
     {
         "id": 1,
         "title" : "git",
-        "class" : "fab fa-git-square"
+        "icon" : "fab fa-git-square"
     },
     {
         "id": 2,
         "title" : "HTML",
-        "class" : "fab fa-html5"
+        "icon" : "fab fa-html5"
     },
     {
         "id": 3,
         "title" : "CSS",
-        "class" : "fab fa-css3-alt"
+        "icon" : "fab fa-css3-alt"
     },
     {
         "id": 4,
         "title" : "Figma",
-        "class" : "fab fa-figma"
+        "icon" : "fab fa-figma"
     },
     {
         "id": 5,
         "title" : "JavaScript",
-        "class" : "fab fa-js-square"
+        "icon" : "fab fa-js-square"
     },
     {
         "id": 6,
         "title" : "Python",
-        "class" : "fab fa-python"
+        "icon" : "fab fa-python"
     },
     {
         "id": 7,
         "title" : "Jira",
-        "class" : "fab fa-jira"
+        "icon" : "fab fa-jira"
     },
 ]
 
@@ -148,43 +150,42 @@ const platforms = [
     {
         "id": 1,
         "title" : "Android",
-        "class" : "fab fa-android"
+        "icon" : "fab fa-android"
     },
     {
         "id": 2,
         "title" : "Apple",
-        "class" : "fab fa-apple"
+        "icon" : "fab fa-apple"
     },
     {
         "id": 3,
         "title" : "Linux",
-        "class" : "fab fa-linux"
+        "icon" : "fab fa-linux"
     },
     {
         "id": 4,
         "title" : "Windows",
-        "class" : "fab fa-windows"
+        "icon" : "fab fa-windows"
     },
     {
         "id": 5,
         "title" : "WordPress",
-        "class" : "fab fa-wordpress"
+        "icon" : "fab fa-wordpress"
     },
     {
         "id": 6,
         "title" : "Magento",
-        "class" : "fab fa-magento"
+        "icon" : "fab fa-magento"
     },
     {
         "id": 7,
         "title" : "Shopify",
-        "class" : "fab fa-html5"
+        "icon" : "fab fa-html5"
     },
 ]
 
-dto = experiences.reverse();
-
-dto.forEach(
+profileDto = workProfile.reverse();
+profileDto.forEach(
     ({position, companyName, location, duration, description }) => {
         profileCards.innerHTML += `
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -197,6 +198,34 @@ dto.forEach(
             </div>
         `
 })
+
+
+coreCompetencies.forEach(
+    ({title}) => {
+        competencyList.innerHTML += `
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            ${title}
+        </li>
+        `
+    }
+)
+
+languages.forEach(
+    ({title, icon}) => {
+        languageList.innerHTML += `
+        <li class="list-inline-item" title="${title}"><i class="${icon}"></i></li>
+        `
+    }
+)
+
+platforms.forEach(
+    ({title, icon}) => {
+        platformList.innerHTML += `
+        <li class="list-inline-item" title="${title}"><i class="${icon}"></i></li>
+        `
+    }
+)
 
 
 
