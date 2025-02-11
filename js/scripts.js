@@ -1,3 +1,5 @@
+import myData from '../assets/data/profile.json' with {type: 'json'};
+
 /*!
 * Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
 * Copyright 2013-2023 Start Bootstrap
@@ -184,7 +186,10 @@ const platforms = [
     },
 ]
 
-profileDto = workProfile.reverse();
+const reverseArray = myData['workProfile-test'].reverse();
+console.log(reverseArray);
+
+const profileDto = workProfile.reverse();
 profileDto.forEach(
     ({position, companyName, location, duration, description }) => {
         profileCards.innerHTML += `
