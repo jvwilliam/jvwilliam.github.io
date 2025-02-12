@@ -173,11 +173,6 @@ const platforms = [
         "icon" : "fab fa-wordpress"
     },
     {
-        "id": 6,
-        "title" : "Magento",
-        "icon" : "fab fa-magento"
-    },
-    {
         "id": 7,
         "title" : "Shopify",
         "icon" : "fab fa-shopify"
