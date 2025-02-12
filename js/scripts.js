@@ -173,7 +173,7 @@ const platforms = [
         "icon" : "fab fa-wordpress"
     },
     {
-        "id": 7,
+        "id": 6,
         "title" : "Shopify",
         "icon" : "fab fa-shopify"
     },
