@@ -7,14 +7,12 @@
 // Scripts
 // 
 
-import data from "../assets/json/data.json" with {type: "json"};
+//import data from "../assets/json/data.json" with {type: "json"};
 
 const profileCards = document.getElementById('experience-container');
 const competencyList = document.getElementById('competency-list');
 const languageList = document.getElementById('language-list');
 const platformList = document.getElementById('platform-list');
-
-console.log(data.testData);
 
 window.addEventListener('DOMContentLoaded', event => {
 
