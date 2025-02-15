@@ -7,10 +7,14 @@
 // Scripts
 // 
 
+import data from "./data.json" with {type: "json"};
+
 const profileCards = document.getElementById('experience-container');
 const competencyList = document.getElementById('competency-list');
 const languageList = document.getElementById('language-list');
 const platformList = document.getElementById('platform-list');
+
+console.log(data.testData);
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -227,5 +231,5 @@ platforms.forEach(
     }
 )
 
-//need to push something
+
 
