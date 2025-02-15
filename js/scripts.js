@@ -188,7 +188,7 @@ const platforms = [
     }
 ]
 
-profileDto = workProfile.reverse();
+const profileDto = workProfile.reverse();
 profileDto.forEach(
     ({position, companyName, location, duration, description }) => {
         profileCards.innerHTML += `
