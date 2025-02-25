@@ -1,5 +1,5 @@
 {
-    "workProfile-test" : [
+    "workProfile" : [
         {
             "id" : 1,
             "companyName" : "Elevated Play Philippines Inc.",
@@ -48,6 +48,99 @@
             "duration" : "May 2024 · Present",
             "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
         }
+    ],
+    "coreCompetencies" : [
+        {
+            "id": 1,
+            "title": "Functional Testing & Test Automation"
+        },
+        {
+            "id": 2,
+            "title": "Quality Engineering and Test Management"
+        },
+        {
+            "id": 3,
+            "title": "Team Management & Leadership"
+        },
+        {
+            "id": 4,
+            "title": "Web Application Security"
+        }
+    ],
+    "programmingLang" : [
+        {
+            "id": 1,
+            "title" : "git",
+            "icon" : "fab fa-git-square"
+        },
+        {
+            "id": 2,
+            "title" : "HTML",
+            "icon" : "fab fa-html5"
+        },
+        {
+            "id": 3,
+            "title" : "CSS",
+            "icon" : "fab fa-css3-alt"
+        },
+        {
+            "id": 4,
+            "title" : "Figma",
+            "icon" : "fab fa-figma"
+        },
+        {
+            "id": 5,
+            "title" : "JavaScript",
+            "icon" : "fab fa-js-square"
+        },
+        {
+            "id": 6,
+            "title" : "Python",
+            "icon" : "fab fa-python"
+        },
+        {
+            "id": 7,
+            "title" : "Jira",
+            "icon" : "fab fa-jira"
+        }
+    ],
+    "platforms" : [
+        {
+            "id": 1,
+            "title" : "Android",
+            "icon" : "fab fa-android"
+        },
+        {
+            "id": 2,
+            "title" : "Apple",
+            "icon" : "fab fa-apple"
+        },
+        {
+            "id": 3,
+            "title" : "Linux",
+            "icon" : "fab fa-linux"
+        },
+        {
+            "id": 4,
+            "title" : "Windows",
+            "icon" : "fab fa-microsoft"
+        },
+        {
+            "id": 5,
+            "title" : "WordPress",
+            "icon" : "fab fa-wordpress"
+        },
+        {
+            "id": 6,
+            "title" : "Magento",
+            "icon" : "fab fa-magento"
+        },
+        {
+            "id": 7,
+            "title" : "Shopify",
+            "icon" : "fab fa-shopify"
+        }
+
     ]
 }
 
