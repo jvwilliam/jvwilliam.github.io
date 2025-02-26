@@ -7,10 +7,12 @@
 // Scripts
 // 
 
-const workProfile = document.getElementById('experience-container');
-const competencyList = document.getElementById('competency-list');
-const languageList = document.getElementById('language-list');
-const platformList = document.getElementById('platform-list');
+const workProfileContainer = document.getElementById('experience-container');
+const competencyListContainer = document.getElementById('competency-list');
+const languageListContainer = document.getElementById('language-list');
+const platformListContainer = document.getElementById('platform-list');
+const certContainer = document.getElementById('certificate-list');
+const trainingContainer = document.getElementById('training-list');
 
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -45,10 +47,9 @@ fetch('../assets/data/profile.json')
     // do stuff with the data
 
     const sortedWorkProfile = data['workProfile'].reverse();
-
     sortedWorkProfile.forEach(
         ({position, companyName, location, duration, description}) => {
-            workProfile.innerHTML += `
+            workProfileContainer.innerHTML += `
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0">${position}</h3>
@@ -59,37 +60,63 @@ fetch('../assets/data/profile.json')
                 </div>           
             `
         }
-    )
+    );
 
     const coreCompetencies = data['coreCompetencies'];
     coreCompetencies.forEach(
         ({title}) => {
-            competencyList.innerHTML += `
+            competencyListContainer.innerHTML += `
             <li>
                 <span class="fa-li"><i class="fas fa-check"></i></span>
                 ${title}
             </li>
             `
         }
-    )
+    );
 
     const programmingLang = data['programmingLang'];
     programmingLang.forEach(
         ({title, icon}) => {
-            languageList.innerHTML += `
+            languageListContainer.innerHTML += `
             <li class="list-inline-item" title="${title}"><i class="${icon}"></i></li>
             `
         }
-    )
+    );
 
     const platforms = data['platforms'];
     platforms.forEach(
         ({title, icon}) => {
-            platformList.innerHTML += `
+            platformListContainer.innerHTML += `
             <li class="list-inline-item" title="${title}"><i class="${icon}"></i></li>
             `
         }
-    )
+    );
+
+    const certList = data['certificate-list'];
+    certList.forEach(
+        ({title, institute, year, url}) => {
+            certContainer.innerHTML += `
+            <li>
+                <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
+                ${title} - ${institute} <a href="${url}" target="_blank">(${year})</a>
+            </li>
+            `
+        }
+    );
+    
+
+    const trainingList = data['trainings'].reverse();
+    trainingList.forEach(
+        ({title, institute, year}) => {
+            trainingContainer.innerHTML += `
+            <li>
+                <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
+                ${title} - ${institute} (${year})
+            </li>
+            `
+        }
+    );
+    
   });
 
 

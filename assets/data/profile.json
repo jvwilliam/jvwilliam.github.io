@@ -141,6 +141,109 @@
             "icon" : "fab fa-shopify"
         }
 
+    ],
+    "certificate-list" : [
+        {
+            "id": 1,
+            "title": "Certified Tester Foundation Level (CTFL)",
+            "institute" : "ISTQB",
+            "year" : "2019",
+            "url" : "http://scr.istqb.org/?name=JV+William+Andal&number=460717&orderBy=firstName&orderDirection=ASC&dateStart=&dateEnd=&expiryStart=&expiryEnd=&certificationBody=&examProvider=&certificationLevel=&country=&resultsPerPage=25"
+        }
+    ],
+    "trainings" : [
+        {
+            "id": 1,
+            "title": "Mobile App Security",
+            "institute" : "Cybrary",
+            "year": "2020",
+            "url": ""
+        },
+        {
+            "id": 2,
+            "title": "Introduction to IT & Cybersecurity - Cybrary",
+            "institute" : "Cybrary",
+            "year": "2020",
+            "url": ""
+        },
+        {
+            "id": 3,
+            "title": "Version Control with Git",
+            "institute" : "Coursera",
+            "year": "2020",
+            "url": "https://www.coursera.org/account/accomplishments/verify/FLQDYBX2JYBE"
+        },
+        {
+            "id": 4,
+            "title": "Introduction to Cybersecurity",
+            "institute" : "Cisco",
+            "year": "2021",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 5,
+            "title": "Cybersecurity Essentials",
+            "institute" : "Cisco",
+            "year": "2021",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 5,
+            "title": "Pre Security Learning Path",
+            "institute" : "TryHackMe",
+            "year": "2022",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 6,
+            "title": "Web Fundamentals Learning Path",
+            "institute" : "TryHackMe",
+            "year": "2022",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 7,
+            "title": "Web Application Security Testing with OWASP ZAP",
+            "institute" : "Coursera",
+            "year": "2022",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 8,
+            "title": "Agile with Atlassian Jira",
+            "institute" : "Coursera",
+            "year": "2022",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 9,
+            "title": "Testing for Web Accessibility w/ Accessibility Insights",
+            "institute" : "Coursera",
+            "year": "2023",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 10,
+            "title": "API Testing a real web applications via Postman",
+            "institute" : "Coursera",
+            "year": "2023",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 11,
+            "title": "Jr. Penetration Tester Learning Path",
+            "institute" : "TryHackMe",
+            "year": "2023",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 12,
+            "title": "Practical Bug Bounty (Web App Security)",
+            "institute" : "TCM Security",
+            "year": "2024",
+            "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        }
+        
     ]
 }
 
