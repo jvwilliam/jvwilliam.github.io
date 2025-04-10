@@ -242,6 +242,13 @@
             "institute" : "TCM Security",
             "year": "2024",
             "url": "https://www.credly.com/badges/97f33441-344a-41a0-9f5a-cdc75dde5fb7?source=linked_in_profile"
+        },
+        {
+            "id": 13,
+            "title": "JavaScript Algorithms & Data Structures",
+            "institute" : "freeCodeCamp",
+            "year": "2025",
+            "url": "https://www.freecodecamp.org/certification/jvwilliam/javascript-algorithms-and-data-structures-v8"
         }
         
     ]

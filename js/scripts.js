@@ -98,7 +98,7 @@ fetch('../assets/data/profile.json')
             certContainer.innerHTML += `
             <li>
                 <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
-                ${title} - ${institute} <a href="${url}" target="_blank">(${year})</a>
+                ${title} - <a href="${url}" target="_blank">${institute}</a> (${year})
             </li>
             `
         }
