@@ -249,7 +249,15 @@
             "institute" : "freeCodeCamp",
             "year": "2025",
             "url": "https://www.freecodecamp.org/certification/jvwilliam/javascript-algorithms-and-data-structures-v8"
+        },
+        {
+            "id": 14,
+            "title": "API Security Fundamentals '25",
+            "institute" : "APISEC University",
+            "year": "2025",
+            "url": ""
         }
+
         
     ]
 }
