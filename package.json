@@ -1,0 +1,14 @@
+{
+  "name": "jvwilliam.github.io",
+  "version": "1.0.0",
+  "description": "As part of my continuous learning objectives, I've created this personal website and online resume, showcasing my professional experience, current skills, portfolio, interests and to practice and develop my programming and coding skills. This site serves as a digital representation of my career, providing easy access to my background, projects, and contact information.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.7"
+  }
+}
