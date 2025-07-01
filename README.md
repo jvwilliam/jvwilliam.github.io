@@ -8,7 +8,7 @@ As part of my continuous learning objectives, I've created this personal website
 - **Skills:** A Showcase of my technical and professional skills.
 - **Trainings & Certifications:** A list highlighting my career interests and development.
 - **Contact:** A link that directs to my LinkedIn and GitHub profile.
-- **Automation** Automated assertions via GitHub actions.
+- **Automated Tests:** Automated assertions via Playwright integrated with GitHub actions.
 
 ## Tech Stack
 - **Frontend:** HTML, CSS, JavaScript
