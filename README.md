@@ -26,4 +26,4 @@ As part of my continuous learning objectives, I've created this personal website
 Licensed under [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
 
 ## Contact
-Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/jvwilliamandal/) or email at [contact@jvwilliam.com](mailto:contact@jvwilliam.com)
+Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jvwilliamandal/) or email me at [contact@jvwilliam.com](mailto:contact@jvwilliam.com)
