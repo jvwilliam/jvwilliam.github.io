@@ -21,8 +21,10 @@ test('Navigate and check Experience section contents.', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Experience' })).toBeVisible();
 
   // Expects page to have the role Test Enginner.
-  //await expect(page.getByRole('heading', { name: 'Test Engineer · Web' })).toBeVisible();
-  await expect(page.getByRole('heading')).toHaveText('Test Engineer');
+  const currentPosition = 'Test Engineer · Web Application Testing';
+  await expect(page.getByTestId('exp-subheading')
+    .first())
+    .toHaveText(currentPosition);
 });
 
 test('Navigate and check Skills section content', async({page}) => {
@@ -32,7 +34,8 @@ test('Navigate and check Skills section content', async({page}) => {
   await page.getByRole('link', {name: 'Skills'}).click();
 
   await expect(page.getByRole('heading', {name: 'Competencies & Tools'})).toBeVisible();
-
-
-
+  
+  await expect(page.getByTestId('competence-list'))
+    .toHaveCount(4);
+  
 });

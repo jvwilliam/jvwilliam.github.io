@@ -52,7 +52,7 @@ fetch('../assets/data/profile.json')
             workProfileContainer.innerHTML += `
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0">${position}</h3>
+                        <h3 class="mb-0" data-testid="exp-subheading">${position}</h3>
                         <div class="subheading mb-3">${companyName} · ${location}</div>
                         <p>${description}</p>
                     </div>
@@ -66,7 +66,7 @@ fetch('../assets/data/profile.json')
     coreCompetencies.forEach(
         ({title}) => {
             competencyListContainer.innerHTML += `
-            <li>
+            <li data-testid="competence-list">
                 <span class="fa-li"><i class="fas fa-check"></i></span>
                 ${title}
             </li>
