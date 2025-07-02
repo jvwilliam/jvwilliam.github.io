@@ -1,40 +1,43 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('Navigate to Homepage.', async ({ page }) => {
+test('Homepage loads with correct title', async ({ page }) => {
+
+  const expectedTitle = 'JV William | QA Engineer | Web App Testing Specialist';
+
   await page.goto('/');
-
-  // Check first that the correct webpage is loaded.
   await expect(page).toHaveURL('/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle('JV William | QA Engineer | Web App Testing Specialist');
+  await expect(page).toHaveTitle(expectedTitle);
 });
 
-test('Navigate and check Experience section contents.', async ({ page }) => {
+test('Main sections are visible', async ({page}) => {
+  
   await page.goto('/');
+  await expect(page.locator('h1')).toBeVisible();
+  await expect(page.locator('nav')).toBeVisible();
 
-  // Click the get started link.
+})
+
+test('Latest work experience is shown in the Experience section', async ({ page }) => {
+  
+  const currentPosition = 'Test Engineer · Web Application Testing';
+  
+  await page.goto('/');
   await page.getByRole('link', { name: 'Experience' }).click();
-
-  // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Experience' })).toBeVisible();
 
   // Expects page to have the role Test Enginner.
-  const currentPosition = 'Test Engineer · Web Application Testing';
   await expect(page.getByTestId('exp-subheading')
     .first())
     .toHaveText(currentPosition);
 });
 
-test('Navigate and check Skills section content', async({page}) => {
+test('Competency & Tools section contents are displayed', async({page}) => {
 
   await page.goto('/');
 
   await page.getByRole('link', {name: 'Skills'}).click();
-
   await expect(page.getByRole('heading', {name: 'Competencies & Tools'})).toBeVisible();
-  
   await expect(page.getByTestId('competence-list'))
     .toHaveCount(4);
   
