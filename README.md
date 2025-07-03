@@ -17,10 +17,10 @@ As part of my continuous learning objectives, I've created this personal website
 - **Version Control:** Git, GitHub
 
 ## Future Enhancements
-- Improve implementations to utilize dynamic functions from static implementations
+- Improve implementations to utilize dynamic functions from static implementations.
 - Add a blog section for sharing insights and experiences.
 - Integrate a contact form with email handling.
-- Improve SEO and performance optimization.
+- Improve SEO and performance optimizations.
 
 ## License
 Licensed under [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
