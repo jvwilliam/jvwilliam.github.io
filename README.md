@@ -20,7 +20,8 @@ As part of my continuous learning objectives, I've created this personal website
 - Improve implementations to utilize dynamic functions from static implementations.
 - Add a blog section for sharing insights and experiences.
 - Integrate a contact form with email handling.
-- Improve SEO and performance optimizations.
+- Improve SEO and performance optimization.
+- Add environment config logic to dynamically switch from local host to production URL on execution.
 
 ## License
 Licensed under [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
