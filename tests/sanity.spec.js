@@ -23,33 +23,27 @@ test('Latest work experience is shown in the Experience section', async ({ page 
   const latestPosition = 'Test Engineer · Web Application Testing';
   
   await page.goto('/');
-  await page.getByRole('link', { name: 'Experience' }).click();
-  await expect(page.getByRole('heading', { name: 'Experience' })).toBeVisible();
-
-  // Expects page to have the role Test Enginner.
+  await expect(page.getByTestId('experience-section-heading'))
+    .toHaveText('Experience');
+  // Expects section to have the role Test Enginner as the latest position.
   await expect(page.getByTestId('exp-subheading')
     .first())
     .toHaveText(latestPosition);
 });
 
 test('Competency & Tools section and contents are displayed', async({page}) => {
-
   await page.goto('/');
-
-  await page.getByRole('link', {name: 'Skills'}).click();
-  await expect(page.getByRole('heading', {name: 'Competencies & Tools'})).toBeVisible();
+  await expect(page.getByTestId('skills-section-heading'))
+    .toHaveText('Competencies & Tools');
   await expect(page.getByTestId('competence-list'))
     .toHaveCount(4);
-  
 });
 
 test('Trainings & Certifications section and contents are displayed', async({page}) => {
   
   const latestCertification = /Certified Tester Foundation Level/, latestTraining = /API Security Fundamentals \'25/;
 
-  
   await page.goto('/');
-  await page.getByRole('link', {name: 'Trainings'}).click();
   await expect(page.getByRole('heading', {name: 'Trainings & Certifications'})).toBeVisible();
   await expect(page.getByTestId('certification-sub-heading')).toBeVisible();
   await expect(page.getByTestId('training-sub-heading')).toBeVisible();
