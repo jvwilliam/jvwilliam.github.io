@@ -96,7 +96,7 @@ fetch('../assets/data/profile.json')
     certList.forEach(
         ({title, institute, year, url}) => {
             certContainer.innerHTML += `
-            <li>
+            <li data-testid="certificate-list">
                 <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
                 ${title} - <a href="${url}" target="_blank">${institute}</a> (${year})
             </li>
@@ -109,7 +109,7 @@ fetch('../assets/data/profile.json')
     trainingList.forEach(
         ({title, institute, year}) => {
             trainingContainer.innerHTML += `
-            <li>
+            <li data-testid="training-list">
                 <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
                 ${title} - ${institute} (${year})
             </li>
