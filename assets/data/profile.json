@@ -256,7 +256,15 @@
             "institute" : "APISEC University",
             "year": "2025",
             "url": ""
+        },
+        {
+            "id": 15,
+            "title": "Web Application Pentesting",
+            "institute": "TryHackMe",
+            "year": "2025",
+            "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-MZTQMCRWHS.pdf"
         }
+
 
         
     ]
