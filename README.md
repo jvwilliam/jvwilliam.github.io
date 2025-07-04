@@ -22,6 +22,7 @@ As part of my continuous learning objectives, I've created this personal website
 - Integrate a contact form with email handling.
 - Improve SEO and performance optimization.
 - Add environment config logic to dynamically switch from local host to production URL on execution.
+- Set utilize API responses and add dynamic logic when asserting copies to reduce the need to update assertion scripts.
 
 ## License
 Licensed under [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)

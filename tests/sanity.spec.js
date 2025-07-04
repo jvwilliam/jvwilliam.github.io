@@ -41,7 +41,7 @@ test('Competency & Tools section and contents are displayed', async({page}) => {
 
 test('Trainings & Certifications section and contents are displayed', async({page}) => {
   
-  const latestCertification = /Certified Tester Foundation Level/, latestTraining = /API Security Fundamentals \'25/;
+  const latestCertification = /Certified Tester Foundation Level/, latestTraining = /Web Application Pentesting/;
 
   await page.goto('/');
   await expect(page.getByRole('heading', {name: 'Trainings & Certifications'})).toBeVisible();
