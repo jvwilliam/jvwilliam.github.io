@@ -18,11 +18,9 @@ As part of my continuous learning objectives, I've created this personal website
 - **CI:** GitHub Actions
 
 ## Future Enhancements
-- Improve implementations to utilize dynamic functions from static implementations.
 - Add a blog section for sharing insights and experiences.
 - Integrate a contact form with email handling.
 - Improve SEO and performance optimization.
-- Add environment config logic to dynamically switch from local host to production URL on execution.
 - Set utilize API responses and add dynamic logic when asserting copies to reduce the need to update assertion scripts.
 
 ## License
