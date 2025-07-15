@@ -21,7 +21,7 @@ function escapeHTML(str) {
 }
 
 function renderWorkProfile(workProfile = []) {
-    let html = '';
+    let html = '<h2 class="mb-5" data-testid="experience-section-heading">Experience</h2>';
     workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}) => {
         html += `
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
