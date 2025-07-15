@@ -15,8 +15,94 @@ const certContainer = document.getElementById('certificate-list');
 const trainingContainer = document.getElementById('training-list');
 
 
-window.addEventListener('DOMContentLoaded', event => {
+// Utility: Safely escape HTML (for user-generated content)
+function escapeHTML(str) {
+    return str?.replace(/[&<>'"]/g, tag => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[tag])) || '';
+}
 
+function renderWorkProfile(workProfile = []) {
+    let html = '';
+    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}) => {
+        html += `
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0" data-testid="exp-subheading">${escapeHTML(position)}</h3>
+                    <div class="subheading mb-3">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
+                    <p>${escapeHTML(description)}</p>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">${escapeHTML(duration)}</span></div>
+            </div>           
+        `;
+    });
+    workProfileContainer.innerHTML = html;
+}
+
+function renderCoreCompetencies(coreCompetencies = []) {
+    let html = '';
+    coreCompetencies.forEach(({title}) => {
+        html += `
+        <li data-testid="competence-list">
+            <span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>
+            ${escapeHTML(title)}
+        </li>
+        `;
+    });
+    competencyListContainer.innerHTML = html;
+}
+
+function renderProgrammingLang(programmingLang = []) {
+    let html = '';
+    programmingLang.forEach(({title, icon}) => {
+        html += `
+        <li class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        `;
+    });
+    languageListContainer.innerHTML = html;
+}
+
+function renderPlatforms(platforms = []) {
+    let html = '';
+    platforms.forEach(({title, icon}) => {
+        html += `
+        <li class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        `;
+    });
+    platformListContainer.innerHTML = html;
+}
+
+function renderCertificates(certList = []) {
+    let html = '';
+    certList.forEach(({title, institute, year, url}) => {
+        html += `
+        <li data-testid="certificate-list">
+            <span class="fa-li"><i class="fas fa-certificate text-warning" aria-hidden="true"></i></span>
+            ${escapeHTML(title)}
+            ${institute ? ' - ' : ''}
+            ${url ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(institute)} certificate">${escapeHTML(institute)}</a>` : escapeHTML(institute) || ''}
+            ${year ? ` (${escapeHTML(year)})` : ''}
+        </li>
+        `;
+    });
+    certContainer.innerHTML = html;
+}
+
+function renderTrainings(trainingList = []) {
+    let html = '';
+    trainingList.slice().reverse().forEach(({title, institute, year, url}) => {
+        html += `
+        <li data-testid="training-list">
+            <span class="fa-li"><i class="fas fa-certificate text-warning" aria-hidden="true"></i></span>
+            ${escapeHTML(title)}
+            ${institute ? ' - ' : ''}
+            ${url ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(institute)} training">${escapeHTML(institute)}</a>` : escapeHTML(institute)}
+            ${year ? ` (${escapeHTML(year)})` : ''}
+        </li>
+        `;
+    });
+    trainingContainer.innerHTML = html;
+}
+
+window.addEventListener('DOMContentLoaded', event => {
     // Activate Bootstrap scrollspy on the main nav element
     const sideNav = document.body.querySelector('#sideNav');
     if (sideNav) {
@@ -24,8 +110,7 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#sideNav',
             rootMargin: '0px 0px -40%',
         });
-    };
-
+    }
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
@@ -39,85 +124,23 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Fetch and render profile data
+    fetch('../assets/data/profile.json')
+      .then((res) => res.json())
+      .then((data) => {
+        renderWorkProfile(data['workProfile']);
+        renderCoreCompetencies(data['coreCompetencies']);
+        renderProgrammingLang(data['programmingLang']);
+        renderPlatforms(data['platforms']);
+        renderCertificates(data['certificate-list']);
+        renderTrainings(data['trainings']);
+      })
+      .catch(error => {
+        console.error('Failed to load profile data:', error);
+        // Optionally show a user-friendly message in the UI
+        if (workProfileContainer) workProfileContainer.innerHTML = '<p>Failed to load profile data.</p>';
+      });
 });
-
-fetch('../assets/data/profile.json')
-  .then((res) => res.json())
-  .then((data) => {
-    // do stuff with the data
-
-    const sortedWorkProfile = data['workProfile'].reverse();
-    sortedWorkProfile.forEach(
-        ({position, companyName, location, duration, description}) => {
-            workProfileContainer.innerHTML += `
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0" data-testid="exp-subheading">${position}</h3>
-                        <div class="subheading mb-3">${companyName} · ${location}</div>
-                        <p>${description}</p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">${duration}</span></div>
-                </div>           
-            `
-        }
-    );
-
-    const coreCompetencies = data['coreCompetencies'];
-    coreCompetencies.forEach(
-        ({title}) => {
-            competencyListContainer.innerHTML += `
-            <li data-testid="competence-list">
-                <span class="fa-li"><i class="fas fa-check"></i></span>
-                ${title}
-            </li>
-            `
-        }
-    );
-
-    const programmingLang = data['programmingLang'];
-    programmingLang.forEach(
-        ({title, icon}) => {
-            languageListContainer.innerHTML += `
-            <li class="list-inline-item" title="${title}"><i class="${icon}"></i></li>
-            `
-        }
-    );
-
-    const platforms = data['platforms'];
-    platforms.forEach(
-        ({title, icon}) => {
-            platformListContainer.innerHTML += `
-            <li class="list-inline-item" title="${title}"><i class="${icon}"></i></li>
-            `
-        }
-    );
-
-    const certList = data['certificate-list'];
-    certList.forEach(
-        ({title, institute, year, url}) => {
-            certContainer.innerHTML += `
-            <li data-testid="certificate-list">
-                <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
-                ${title} - <a href="${url}" target="_blank">${institute}</a> (${year})
-            </li>
-            `
-        }
-    );
-    
-
-    const trainingList = data['trainings'].reverse();
-    trainingList.forEach(
-        ({title, institute, year}) => {
-            trainingContainer.innerHTML += `
-            <li data-testid="training-list">
-                <span class="fa-li"><i class="fas fa-certificate text-warning"></i></span>
-                ${title} - ${institute} (${year})
-            </li>
-            `
-        }
-    );
-    
-  });
 
 
 

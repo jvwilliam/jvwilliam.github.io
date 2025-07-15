@@ -15,6 +15,7 @@ As part of my continuous learning objectives, I've created this personal website
 - **Frameworks/Libraries:** Boostrap
 - **Hosting:** GitHub Pages
 - **Version Control:** Git, GitHub
+- **CI:** GitHub Actions
 
 ## Future Enhancements
 - Improve implementations to utilize dynamic functions from static implementations.
