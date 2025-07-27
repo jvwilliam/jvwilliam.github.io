@@ -9,28 +9,45 @@ test.describe('Sanity Tests', () => {
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page);
     await homePage.goto();
-  })
+  });
 
-  test.only('Homepage loads with correct title', async () => {
+  test('Check that the Homepage loads with correct title', async () => {
     const title = await homePage.getTitle();
-    console.log(` Actual Title: ${title}`);
     expect (title).toBe(homePage.expectedTitle);
-    console.log(` Expected Title: ${homePage.expectedTitle}`);
-  })
+  });
 
-  test('Main sections are visible', async () => {
+  test('Check that the Main sections are visible', async () => {
+    await homePage.isMainSectionsVisible();
+  });
+
+  test('Check that the About section contains key information', async () => {
+    await homePage.sectionContainsText('about', 'JV William Andal');
+    await homePage.sectionContainsText('about', 'Web App Testing Specialist');
+    await homePage.sectionContainsText('about', 'contact@jvwilliam.com');
+  });
+
+  test('Check that the Services section contains key information', async () => {
+    await homePage.sectionContainsText('services', 'Services Offered');
+    await homePage.sectionContainsText('services', 'independent QA support');
+    await homePage.sectionContainsText('services', 'Fiverr');
+    await homePage.sectionContainsText('services', 'LinkedIn');
+  });
+
+  test.only('Check that the Experience section contains key information', async () => {
+
+    const expectedLatestExperience = 'Test Engineer · Web Application Testing';
+
+    // check how many experiences are listed
+    console.log(homePage.getExperienceCount());
+
     
+    const latestExperience = await homePage.getLatestExperience();
+    expect(latestExperience).toBe(expectedLatestExperience);
+
   })
   
 })
 
-// test('Main sections are visible', async ({page}) => {
-  
-//   await page.goto('/');
-//   await expect(page.locator('h1')).toBeVisible();
-//   await expect(page.locator('nav')).toBeVisible();
-
-// })
 
 // test('Latest work experience is shown in the Experience section', async ({ page }) => {
   
