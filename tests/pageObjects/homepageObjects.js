@@ -30,6 +30,10 @@ class HomePage {
         await expect(this.page).toHaveURL('/');
     }
 
+    async getCurrentUrl() {
+        return this.page.url();
+    }
+
     async getTitle() {
         return this.expectedTitle;
     }

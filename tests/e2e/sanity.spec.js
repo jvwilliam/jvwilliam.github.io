@@ -12,7 +12,11 @@ test.describe('Sanity Tests', () => {
   });
 
   test('Check that the Homepage loads with correct title', async () => {
+    const currentUrl = await homePage.getCurrentUrl();
+    console.log(`Current URL: ${currentUrl}`);
+    
     const title = await homePage.getTitle();
+    console.log(`Page title:${title}`);
     expect (title).toBe(homePage.expectedTitle);
   });
 
@@ -33,12 +37,13 @@ test.describe('Sanity Tests', () => {
     await homePage.sectionContainsText('services', 'LinkedIn');
   });
 
-  test.only('Check that the Experience section contains key information', async () => {
+  test('Check that the Experience section contains key information', async () => {
 
     const expectedLatestExperience = 'Test Engineer · Web Application Testing';
 
     // check how many experiences are listed
-    console.log(homePage.getExperienceCount());
+    const experienceCount = await homePage.getExperienceCount();
+    console.log(`Number of experiences listed: ${experienceCount}`);
 
     
     const latestExperience = await homePage.getLatestExperience();
