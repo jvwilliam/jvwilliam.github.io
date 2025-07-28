@@ -7,27 +7,27 @@
 // Scripts
 // 
 
-const workProfileContainer = document.getElementById('experience-section-container');
-const competencyListContainer = document.getElementById('competency-list');
-const languageListContainer = document.getElementById('language-list');
-const platformListContainer = document.getElementById('platform-list');
-const certContainer = document.getElementById('certificate-list');
-const trainingContainer = document.getElementById('training-list');
+const workProfileContainer = document.getElementById('section-experience-container');
+const competencyListContainer = document.getElementById('section-competency-list');
+const languageListContainer = document.getElementById('section-language-list');
+const platformListContainer = document.getElementById('section-platform-list');
+const certContainer = document.getElementById('section-certificate-list');
+const trainingContainer = document.getElementById('section-trainings-list');
 
 
 // Utility: Safely escape HTML (for user-generated content)
 function escapeHTML(str) {
     return str?.replace(/[&<>'"]/g, tag => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[tag])) || '';
 }
-
+// Section ID pattern - {section}-{sectionName}-{sectionPurporse}
 function renderWorkProfile(workProfile = []) {
-    let html = '<h2 class="mb-5" data-testid="experience-section-heading">Experience</h2>';
+    let html = '<h2 class="mb-5" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>';
     workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}) => {
         html += `
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0" data-testid="exp-subheading">${escapeHTML(position)}</h3>
-                    <div class="subheading mb-3">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
+                    <h3 class="mb-0" id="section-experience-workTitle data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
+                    <div class="subheading mb-3" id="section-experience-companyName" data-testid="section-experience-companyName">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
                     <p>${escapeHTML(description)}</p>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary">${escapeHTML(duration)}</span></div>
@@ -41,7 +41,7 @@ function renderCoreCompetencies(coreCompetencies = []) {
     let html = '';
     coreCompetencies.forEach(({title}) => {
         html += `
-        <li data-testid="competence-list">
+        <li id="section-competency-item" data-testid="section-competency-item">
             <span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>
             ${escapeHTML(title)}
         </li>
@@ -54,7 +54,7 @@ function renderProgrammingLang(programmingLang = []) {
     let html = '';
     programmingLang.forEach(({title, icon}) => {
         html += `
-        <li class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        <li id="section-language-item" data-testid="section-language-item" class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
         `;
     });
     languageListContainer.innerHTML = html;
@@ -64,7 +64,7 @@ function renderPlatforms(platforms = []) {
     let html = '';
     platforms.forEach(({title, icon}) => {
         html += `
-        <li class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        <li id="section-platform-item" data-testid="section-platform-item"class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
         `;
     });
     platformListContainer.innerHTML = html;
@@ -74,7 +74,7 @@ function renderCertificates(certList = []) {
     let html = '';
     certList.forEach(({title, institute, year, url}) => {
         html += `
-        <li data-testid="certificate-list">
+        <li id="section-certificate-item" data-testid="section-certificate-item">
             <span class="fa-li"><i class="fas fa-certificate text-warning" aria-hidden="true"></i></span>
             ${escapeHTML(title)}
             ${institute ? ' - ' : ''}
@@ -90,7 +90,7 @@ function renderTrainings(trainingList = []) {
     let html = '';
     trainingList.slice().reverse().forEach(({title, institute, year, url}) => {
         html += `
-        <li data-testid="training-list">
+        <li id=section-trainings-item" data-testid="section-trainings-item">
             <span class="fa-li"><i class="fas fa-certificate text-warning" aria-hidden="true"></i></span>
             ${escapeHTML(title)}
             ${institute ? ' - ' : ''}
