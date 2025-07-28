@@ -37,12 +37,13 @@ test.describe('Sanity Tests', () => {
     await homePage.sectionContainsText('services', 'LinkedIn');
   });
 
-  test.only('Check that the Experience section contains key information', async () => {
+  test('Check that the Experience section contains key information', async () => {
 
     const expectedLatestExperience = 'Test Engineer · Web Application Testing';
+    const locatorName = 'section-experience-workTitle';
 
     // check how many experiences are listed
-    const experienceCount = await homePage.getItemListCount('exp-subheading');
+    const experienceCount = await homePage.getItemListCount(locatorName);
     expect(experienceCount).toBe(6);
     console.log(`Number of experiences listed: ${experienceCount}`);
 
@@ -53,20 +54,21 @@ test.describe('Sanity Tests', () => {
   });
 
   test.only('Check that the Competency & Tools section contains key information', async () => {
-    const competencyCount = await homePage.getItemListCount('competence');
-    expect(competencyCount).toBe(4);
-    console.log(`Number of competencies listed: ${competencyCount}`);
-  })
-  
-})
+    
+    const locatorName = 'section-competency-item';
+    const competencyElements = await homePage.page.getByTestId(locatorName).all();
+    
+    expect(competencyElements).toHaveLength(4);
+    console.log(`Number of competencies listed: ${competencyElements.length}`);
 
-// test('Competency & Tools section and contents are displayed', async({page}) => {
-//   await page.goto('/');
-//   await expect(page.getByTestId('skills-section-heading'))
-//     .toHaveText('Competencies & Tools');
-//   await expect(page.getByTestId('competence-list'))
-//     .toHaveCount(4);
-// });
+    expect(competencyElements[0]).toHaveText('Functional Testing & Test Automation');
+    expect(competencyElements[1]).toHaveText('Quality Engineering and Test Management');
+    expect(competencyElements[2]).toHaveText('Team Management & Leadership');
+    expect(competencyElements[3]).toHaveText('Web Application Security');
+  });
+  
+});
+
 
 // test('Trainings & Certifications section and contents are displayed', async({page}) => {
   

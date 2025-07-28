@@ -10,11 +10,11 @@ class HomePage {
 
         // Locators
         /** Section Locators */
-        this.aboutSection = this.page.locator('section[data-testid="about-section"]');
-        this.servicesSection = this.page.locator('section[data-testid="services-section"]')
-        this.experienceSection = this.page.locator('section[data-testid="experience-section"]');
-        this.competencySection = this.page.locator('section[data-testid="competency-section"]');
-        this.trainingsSection = this.page.locator('section[data-testid="trainings-section"]');
+        this.aboutSection = this.page.locator('section[data-testid="section-about"]');
+        this.servicesSection = this.page.locator('section[data-testid="section-services"]')
+        this.experienceSection = this.page.locator('section[data-testid="section-experience"]');
+        this.competencySection = this.page.locator('section[data-testid="section-competency"]');
+        this.trainingsSection = this.page.locator('section[data-testid="section-trainings"]');
 
         /** Item List Locators */
         this.competencyList = this.page.locator('section[data-testid="competency-section"] ul li');
@@ -64,22 +64,17 @@ class HomePage {
     }
 
     async sectionContainsText(sectionName, expectedText) {
-        const section = this.page.getByTestId(`${sectionName}-section`);
+        const section = this.page.getByTestId(`section-${sectionName}`);
         await expect(section).toContainText(expectedText);
     }
 
     async getItemListCount(sectionName) {
-        const itemList = this.page.getByTestId(`${sectionName}-list`);
+        const itemList = this.page.getByTestId(sectionName);
         return await itemList.count();
     }
 
-    async getExperienceCount() {
-        const experienceItems = this.page.getByTestId('exp-subheading');
-        return await experienceItems.count();
-    }
-
     async getLatestExperience() {
-        const latestExperience = this.page.getByTestId('exp-subheading-list').first();
+        const latestExperience = this.page.getByTestId('section-experience-workTitle').first();
         return await latestExperience.textContent();
     }
 
