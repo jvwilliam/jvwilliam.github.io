@@ -9,11 +9,16 @@ class HomePage {
         this.page = page;
 
         // Locators
+        /** Section Locators */
         this.aboutSection = this.page.locator('section[data-testid="about-section"]');
         this.servicesSection = this.page.locator('section[data-testid="services-section"]')
         this.experienceSection = this.page.locator('section[data-testid="experience-section"]');
         this.competencySection = this.page.locator('section[data-testid="competency-section"]');
         this.trainingsSection = this.page.locator('section[data-testid="trainings-section"]');
+
+        /** Item List Locators */
+        this.competencyList = this.page.locator('section[data-testid="competency-section"] ul li');
+        this.trainingsList = this.page.locator('section[data-testid="trainings-section"] ul li');
 
         // Expected Values
         this.expectedTitle = 'JV William | QA Engineer | Web App Testing Specialist';
@@ -64,12 +69,17 @@ class HomePage {
     }
 
     async getItemListCount(sectionName) {
-        const itemListCount = this.page.getByTestId('exp-subheading');
+        const itemList = this.page.getByTestId(`${sectionName}-list`);
+        return await itemList.count();
+    }
+
+    async getExperienceCount() {
+        const experienceItems = this.page.getByTestId('exp-subheading');
         return await experienceItems.count();
     }
 
     async getLatestExperience() {
-        const latestExperience = this.page.getByTestId('exp-subheading').first();
+        const latestExperience = this.page.getByTestId('exp-subheading-list').first();
         return await latestExperience.textContent();
     }
 

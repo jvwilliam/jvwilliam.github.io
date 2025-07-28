@@ -37,12 +37,12 @@ test.describe('Sanity Tests', () => {
     await homePage.sectionContainsText('services', 'LinkedIn');
   });
 
-  test('Check that the Experience section contains key information', async () => {
+  test.only('Check that the Experience section contains key information', async () => {
 
     const expectedLatestExperience = 'Test Engineer · Web Application Testing';
 
     // check how many experiences are listed
-    const experienceCount = await homePage.getExperienceCount();
+    const experienceCount = await homePage.getItemListCount('exp-subheading');
     expect(experienceCount).toBe(6);
     console.log(`Number of experiences listed: ${experienceCount}`);
 
@@ -51,6 +51,12 @@ test.describe('Sanity Tests', () => {
     expect(latestExperience).toBe(expectedLatestExperience);
     console.log(`Latest experience listed: ${latestExperience}`);
   });
+
+  test.only('Check that the Competency & Tools section contains key information', async () => {
+    const competencyCount = await homePage.getItemListCount('competence');
+    expect(competencyCount).toBe(4);
+    console.log(`Number of competencies listed: ${competencyCount}`);
+  })
   
 })
 

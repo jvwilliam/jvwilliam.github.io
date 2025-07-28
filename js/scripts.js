@@ -26,7 +26,7 @@ function renderWorkProfile(workProfile = []) {
         html += `
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0" data-testid="exp-subheading">${escapeHTML(position)}</h3>
+                    <h3 class="mb-0" data-testid="exp-subheading-list">${escapeHTML(position)}</h3>
                     <div class="subheading mb-3">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
                     <p>${escapeHTML(description)}</p>
                 </div>
