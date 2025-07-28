@@ -63,8 +63,8 @@ class HomePage {
         await expect(section).toContainText(expectedText);
     }
 
-    async getExperienceCount() {
-        const experienceItems = this.page.getByTestId('exp-subheading');
+    async getItemListCount(sectionName) {
+        const itemListCount = this.page.getByTestId('exp-subheading');
         return await experienceItems.count();
     }
 

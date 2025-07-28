@@ -43,29 +43,16 @@ test.describe('Sanity Tests', () => {
 
     // check how many experiences are listed
     const experienceCount = await homePage.getExperienceCount();
+    expect(experienceCount).toBe(6);
     console.log(`Number of experiences listed: ${experienceCount}`);
 
     
     const latestExperience = await homePage.getLatestExperience();
     expect(latestExperience).toBe(expectedLatestExperience);
-
-  })
+    console.log(`Latest experience listed: ${latestExperience}`);
+  });
   
 })
-
-
-// test('Latest work experience is shown in the Experience section', async ({ page }) => {
-  
-//   const latestPosition = 'Test Engineer · Web Application Testing';
-  
-//   await page.goto('/');
-//   await expect(page.getByTestId('experience-section-heading'))
-//     .toHaveText('Experience');
-//   // Expects section to have the role Test Enginner as the latest position.
-//   await expect(page.getByTestId('exp-subheading')
-//     .first())
-//     .toHaveText(latestPosition);
-// });
 
 // test('Competency & Tools section and contents are displayed', async({page}) => {
 //   await page.goto('/');

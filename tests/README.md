@@ -1,8 +1,22 @@
-# Introduction
-The purpose of this document is to provide guidance on the implementations and best practices.
+# Overview
+The purporse of this document is to provide guidance on how to use this test framework. This project uses Playwright for its end-to-end testing.
 
 # Tech Stack
 The tests are written using [Playwright](https://playwright.dev/) & JavaScript.
+
+# Project Structure
+```
+├── tests/                      # Test files organized by feature
+│   └── sanity.spec.js
+│
+├── pageObject/                 # Page Object Model (POM) classes
+│   └── pageObjects.js
+│
+├── utils/                      # Custom test utils and fixtures
+│
+├── playwright.config.ts        # Playwright global config
+└── README.md
+```
 
 ## Running the tests
 Navigate to the folder tests/e2e and run this command: 
