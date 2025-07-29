@@ -44,7 +44,6 @@ test.describe('Sanity Tests', () => {
     expect(experienceCount).toBe(6);
     const latestExperience = await homePage.getLatestExperience();
     expect(latestExperience).toBe(expectedLatestExperience);
-    console.log(`Latest experience listed: ${latestExperience}`);
   });
 
   test('Check that the Competency & Tools section contains key information', async () => {
