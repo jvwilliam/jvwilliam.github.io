@@ -12,10 +12,7 @@ test.describe('Sanity Tests', () => {
   });
 
   test('Check that the Homepage loads with correct title', async () => {
-    const currentUrl = await homePage.getCurrentUrl();
-    const title = await homePage.getTitle();
-
-    expect (title).toBe(homePage.expectedTitle);
+    await homePage.checkTitle();
   });
 
   test('Check that the Main sections are visible', async () => {

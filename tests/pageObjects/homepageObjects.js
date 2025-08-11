@@ -1,29 +1,40 @@
 import { expect } from '@playwright/test';
 
-class HomePage { 
-
+export class HomePage { 
     /**
      * @param {import('playwright').Page} page
      */
     constructor(page) {
         this.page = page;
 
-        // Locators
-        /** Section Locators */
-        this.aboutSection = this.page.locator('section[data-testid="section-about"]');
-        this.servicesSection = this.page.locator('section[data-testid="section-services"]')
-        this.experienceSection = this.page.locator('section[data-testid="section-experience"]');
-        this.competencySection = this.page.locator('section[data-testid="section-competency"]');
-        this.trainingsSection = this.page.locator('section[data-testid="section-trainings"]');
+        /** Set up locators */
+        this.mainSections = {
+            aboutSection: page.getByTestId('section-about'),
+            servicesSection: page.getByTestId('section-services'),
+            experienceSection: page.getByTestId('section-experience'),
+            competencySection: page.getByTestId('section-competency'),
+            trainingSection: page.getByTestId('section-trainings'),
+        }
+
+        this.expectedValues = {
+            pageTitle: 'JV William | QA Engineer | Web App Testing Specialist',
+            contactDetails: 'contact@jvwilliam.com',
+            servicesSectionHeading: 'Services Offered',
+            experienceSectionHeading: 'Experience',
+            competencySectionHeading: 'Competencies & Tools',
+            latestCertification: /Certified Tester Foundation Level/,
+            latestTraining: /Web Application Pentesting/
+        }
 
         /** Item List Locators */
         this.competencyList = this.page.locator('section[data-testid="competency-section"] ul li');
         this.trainingsList = this.page.locator('section[data-testid="trainings-section"] ul li');
-
+        
         //Trainings & Certifications
         this.certificateItem = this.page.locator('section[data-testid="section-certificate-item"]');
         this.trainingItem = this.page.locator('section[data-testid="section-trainings-item"]');
-
+        
+        
         /** Expected Values */
         // About Section
         this.expectedTitle = 'JV William | QA Engineer | Web App Testing Specialist';
@@ -50,16 +61,23 @@ class HomePage {
         return this.page.url();
     }
 
-    async getTitle() {
-        return this.expectedTitle;
+    async getPageTitle() {
+        const pageTitle = await this.page.title();
+        return pageTitle;
     }
 
+    async checkTitle() {
+        const title = await this.getPageTitle();
+        expect(title).toBe(this.expectedValues.pageTitle);
+    }
+
+    
+
     async isMainSectionsVisible() {
-        await expect(this.aboutSection).toBeVisible()
-        await expect(this.servicesSection).toBeVisible();
-        await expect(this.experienceSection).toBeVisible();
-        await expect(this.competencySection).toBeVisible();
-        await expect(this.trainingsSection).toBeVisible();
+        for (const [sectionName, locator] of Object.entries(this.mainSections)) {
+            console.log(`Checking ${sectionName}`);
+            await expect(locator).toBeVisible();
+        }
     }
 
     async getSectionHeadingText(section) {
@@ -102,5 +120,3 @@ class HomePage {
     // Add more methods for actions/assertions as needed
 
 }
-
-export { HomePage };
