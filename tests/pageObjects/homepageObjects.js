@@ -25,31 +25,6 @@ export class HomePage {
             latestCertification: /Certified Tester Foundation Level/,
             latestTraining: /Web Application Pentesting/
         }
-
-        /** Item List Locators */
-        this.competencyList = this.page.locator('section[data-testid="competency-section"] ul li');
-        this.trainingsList = this.page.locator('section[data-testid="trainings-section"] ul li');
-        
-        //Trainings & Certifications
-        this.certificateItem = this.page.locator('section[data-testid="section-certificate-item"]');
-        this.trainingItem = this.page.locator('section[data-testid="section-trainings-item"]');
-        
-        
-        /** Expected Values */
-        // About Section
-        this.expectedTitle = 'JV William | QA Engineer | Web App Testing Specialist';
-        this.aboutSectionHeading = "contact@jvwilliam.com";
-        //Services Section
-        this.servicesSectionHeading = "Services Offered";
-        //Experience Section
-        this.experienceSectionHeading = "Experience";
-        //Competency & Tools section
-        this.competencySectionHeading = "Competencies & Tools";
-        //Trainings & Certifications
-        this.certificateItem = /Certified Tester Foundation Level/;
-        this.trainingItem = /Web Application Pentesting/;
-
-        // Add more locators as needed
     }
 
     async goto() {
