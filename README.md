@@ -21,7 +21,49 @@ As part of my continuous learning objectives, I've created this personal website
 - Add a blog section for sharing insights and experiences.
 - Integrate a contact form with email handling.
 - Improve SEO and performance optimization.
-- Set utilize API responses and add dynamic logic when asserting copies to reduce the need to update assertion scripts.
+- Utilize API responses and add dynamic logic when asserting copies to reduce the need to update assertion scripts.
+
+## Testing Stack
+This project uses [Playwright](https://playwright.dev/) for automated end-to-end testing to ensure the website’s functionality and reliability. While this project is a static website, its main purpose is to demonstrate the integration of automated testing. The focus is on applying Page Object Model (POM) design patterns, exploring different class structures, and setting up Continuous Integration (CI) pipelines using GitHub Actions.
+
+### Project Structure
+- All Playwright tests are located in the `/e2e` directory.
+- Test files follow the naming convention: `*.spec.js` or `*.spec.ts`.
+
+### Installation
+
+Install dependencies: 
+``` 
+npm install 
+```
+
+Install Playwright browsers: 
+```
+npx playwright install
+```
+
+### Running Tests
+
+To run all tests: 
+```
+npx playwright test
+```
+
+To run test in headed mode: 
+```
+npx playwright --headed
+```
+
+To view the HTML test report
+```
+npx playwright show-report
+```
+
+### Continuous Integration
+- Tests are automatically run in CI using GitHub Actions on each push and pull request.
+
+### Support
+For Playwright documentation, visit [playwright.dev/docs](https://playwright.dev/docs/intro).
 
 ## License
 Licensed under [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
