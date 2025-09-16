@@ -25,6 +25,18 @@ export class HomePage {
             latestCertification: /Certified Tester Foundation Level/,
             latestTraining: /Web Application Pentesting/
         }
+
+        
+    }
+
+    async getMainSection() {
+        return {
+            aboutSection: this.page.getByTestId('section-about'),
+            servicesSection: this.page.getByTestId('section-services'),
+            experienceSection: this.page.getByTestId('section-experience'),
+            competencySection: this.page.getByTestId('section-competency'),
+            trainingSection: this.page.getByTestId('section-trainings')
+        }
     }
 
     async goto() {

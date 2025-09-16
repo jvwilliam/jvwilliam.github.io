@@ -11,7 +11,7 @@ test.describe('Sanity Tests', () => {
     await homePage.goto();
   });
 
-  test.only('Check for correct page title.', {
+  test('Check for correct page title.', {
     annotation: [
       {type: 'Description', description: 'Checks that the user is redirected to the correct landing page.'}
     ]} , async () => {
@@ -34,12 +34,23 @@ test.describe('Sanity Tests', () => {
       })
   });
 
-  test('Check the Main sections are visible', {
+  test.only('Check the Main sections are visible', {
     annotation: [
       {type: 'Description', description: 'Checks that the Main sections are rendering.'}
-    ]} , async () => {
+    ]} , async ({page}) => {
+
+      const section = await homePage.getMainSection();
+      const aboutSection = section.aboutSection;
+      const servicesSection = section.servicesSection;
+      const experienceSection = section.experienceSection;
+
+      await expect(aboutSection).toBeVisible();
+      await page.getByRole('link', { name: 'Services' }).click();
+      await expect(servicesSection).toBeVisible();
+      await expect(experienceSection).toBeVisible();
+
       test.step('Check that the Main sections are visible.', async () => {
-        await homePage.isMainSectionsVisible();
+        //await homePage.isMainSectionsVisible();
       });
   });
 
