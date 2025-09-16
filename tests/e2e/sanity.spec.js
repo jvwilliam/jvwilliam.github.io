@@ -11,12 +11,36 @@ test.describe('Sanity Tests', () => {
     await homePage.goto();
   });
 
-  test('Check that the Homepage loads with correct title', async () => {
-    await homePage.checkTitle();
+  test.only('Check for correct page title.', {
+    annotation: [
+      {type: 'Description', description: 'Checks that the user is redirected to the correct landing page.'}
+    ]} , async () => {
+
+      // This is an over complication to demonstrate how we can use the test.step function to organize and document the sections of the test code.
+
+      const pageTitle = await homePage.getPageTitle();
+      const expectedPageTitle = await homePage.getExpectedPageTitle();
+
+      test.step('Get the current page title.', async () => {
+        console.log(`Getting the current Page Title... Got..${pageTitle}.`);
+      });
+
+      test.step('Get the expected page title.', async () => {
+        console.log(`Expected Page Title...${expectedPageTitle}`);
+      })
+
+      test.step('Assert the current page title by comparing it to the expected page title.', async () => {
+        expect(pageTitle).toBe(expectedPageTitle);
+      })
   });
 
-  test('Check that the Main sections are visible', async () => {
-    await homePage.isMainSectionsVisible();
+  test('Check the Main sections are visible', {
+    annotation: [
+      {type: 'Description', description: 'Checks that the Main sections are rendering.'}
+    ]} , async () => {
+      test.step('Check that the Main sections are visible.', async () => {
+        await homePage.isMainSectionsVisible();
+      });
   });
 
   test('Check that the About section contains key information', async () => {

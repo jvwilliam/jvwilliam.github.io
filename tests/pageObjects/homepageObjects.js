@@ -46,6 +46,10 @@ export class HomePage {
         expect(title).toBe(this.expectedValues.pageTitle);
     }
 
+    async getExpectedPageTitle() {
+        return this.expectedValues.pageTitle;
+    }
+
     
 
     async isMainSectionsVisible() {
