@@ -16,16 +16,21 @@ test.describe('Sanity Tests', () => {
       {type: 'Description', description: 'Checks that the user is redirected to the correct landing page.'}
     ]} , async () => {
 
-      // This is an over complication to demonstrate how we can use the test.step function to organize and document the sections of the test code.
+      /** 
+       * This is an over complication to demonstrate how we can use the test.step function 
+       * to organize and document the sections of the test code. This also helps with the readability of the test report.
+       */ 
 
-      const pageTitle = await homePage.getPageTitle();
-      const expectedPageTitle = await homePage.getExpectedPageTitle();
+      let pageTitle;
+      let expectedPageTitle;
 
       test.step('Get the current page title.', async () => {
+        pageTitle = await homePage.getPageTitle();
         console.log(`Getting the current Page Title... Got..${pageTitle}.`);
       });
 
       test.step('Get the expected page title.', async () => {
+        expectedPageTitle = await homePage.getExpectedPageTitle()
         console.log(`Expected Page Title...${expectedPageTitle}`);
       })
 
@@ -39,17 +44,39 @@ test.describe('Sanity Tests', () => {
       {type: 'Description', description: 'Checks that the Main sections are rendering.'}
     ]} , async ({page}) => {
 
-      const section = await homePage.getMainSection();
-      const aboutSection = section.aboutSection;
-      const servicesSection = section.servicesSection;
-      const experienceSection = section.experienceSection;
+      const {
+        aboutSection,
+        servicesSection,
+        experienceSection,
+        skillsSection,
+        trainingsSection
+      } = await homePage.getMainSection();
 
-      await expect(aboutSection).toBeVisible();
-      await page.getByRole('link', { name: 'Services' }).click();
-      await expect(servicesSection).toBeVisible();
+      const {
+        aboutSectionHeading,
+        servicesSectionHeading,
+        experienceSectionHeading,
+        skillsSectionHeading,
+        trainingsSectionHeading
+      } = await homePage.getSectionHeadings();
+
+      const {
+        aboutSectionNavigation,
+        servicesSectionNavigation,
+        experience,
+        skills,
+        trainings
+      } = await homePage.getNavigationElements();
+
+      await expect(aboutSection).toBeInViewport({ratio: 0.5});
+      //await page.getByRole('link', { name: 'Services' }).click();
+      await servicesSectionNavigation.click();
+      await expect(servicesSection).toBeInViewport({ratio: 0.5});
+      //await expect(servicesSectionHeading).toBeInViewport({ratio: 0.5});
+
       await expect(experienceSection).toBeVisible();
 
-      test.step('Check that the Main sections are visible.', async () => {
+      test.step('Click each section from the navigation and verify sections are display accordingly.', async () => {
         //await homePage.isMainSectionsVisible();
       });
   });

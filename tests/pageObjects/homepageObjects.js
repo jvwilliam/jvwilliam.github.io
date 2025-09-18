@@ -29,6 +29,16 @@ export class HomePage {
         
     }
 
+    async getNavigationElements() {
+        return {
+            aboutSectionNavigation: this.page.getByTestId('nav-about'),
+            servicesSectionNavigation: this.page.getByTestId('nav-services'),
+            experienceSectionNavigation: this.page.getByTestId('nav-experience'),
+            skillsSectionNavigation: this.page.getByTestId('nav-skills'),
+            trainingSectionNavigation: this.page.getByTestId('nav-trainings'),
+        }
+    }
+
     async getMainSection() {
         return {
             aboutSection: this.page.getByTestId('section-about'),
@@ -36,6 +46,16 @@ export class HomePage {
             experienceSection: this.page.getByTestId('section-experience'),
             competencySection: this.page.getByTestId('section-competency'),
             trainingSection: this.page.getByTestId('section-trainings')
+        }
+    }
+
+    async getSectionHeadings() {
+        return {
+            aboutSectionHeading: this.page.getByTestId('section-about-heading'),
+            serviceSectionHeading: this.page.getByTestId('section-services-heading'),
+            experienceSectionHeading: this.page.getByTestId('section-experience-heading'),
+            competencySectionHeading: this.page.getByTestId('section-skills-primaryHeading'),
+            trainingSectionHeading: this.page.getByTestId('section-trainings-primaryHeading')
         }
     }
 
