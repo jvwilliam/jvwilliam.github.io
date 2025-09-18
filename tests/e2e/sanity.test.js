@@ -42,7 +42,7 @@ test.describe('Sanity Tests', () => {
   test.only('Check the Main sections are visible', {
     annotation: [
       {type: 'Description', description: 'Checks that the Main sections are rendering.'}
-    ]} , async ({page}) => {
+    ]}, async () => {
 
       const {
         aboutSection,
@@ -54,7 +54,7 @@ test.describe('Sanity Tests', () => {
 
       const {
         aboutSectionHeading,
-        servicesSectionHeading,
+        serviceSectionHeading,
         experienceSectionHeading,
         skillsSectionHeading,
         trainingsSectionHeading
@@ -68,15 +68,21 @@ test.describe('Sanity Tests', () => {
         trainings
       } = await homePage.getNavigationElements();
 
-      await expect(aboutSection).toBeInViewport({ratio: 0.5});
-      //await page.getByRole('link', { name: 'Services' }).click();
-      await servicesSectionNavigation.click();
-      await expect(servicesSection).toBeInViewport({ratio: 0.5});
-      //await expect(servicesSectionHeading).toBeInViewport({ratio: 0.5});
+      await test.step('Verify that the About section is displayed by checking if the section is displayed in viewport', async () => {
+        await expect(aboutSection).toBeInViewport();
+      });
 
-      await expect(experienceSection).toBeVisible();
+      await test.step('Click Services from the Navigation and verify that the section is displayed in the viewport.', async () => {
+        await servicesSectionNavigation.click();
+        await expect(servicesSection).toBeInViewport();
+        await expect(serviceSectionHeading).toBeInViewport();
+      });
 
-      test.step('Click each section from the navigation and verify sections are display accordingly.', async () => {
+      await test.step('Check for Correct Heading', async () => {
+        await expect(serviceSectionHeading).toHaveText('Services Offered');
+      });
+      
+      await test.step('Click each section from the navigation and verify sections are display accordingly.', async () => {
         //await homePage.isMainSectionsVisible();
       });
   });

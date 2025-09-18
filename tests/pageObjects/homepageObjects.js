@@ -90,19 +90,7 @@ export class HomePage {
             await expect(locator).toBeVisible();
         }
     }
-
-    async getSectionHeadingText(section) {
-        switch (section) {
-            case 'about': 
-                return this.aboutSectionHeading;
-            case 'services':
-                return this.servicesSectionHeading;
-            case 'experience':
-                return this.experienceSectionHeading;
-            case 'competency':
-        }
-    }
-
+    
     async sectionContainsText(sectionName, expectedText) {
         const section = this.page.getByTestId(`section-${sectionName}`);
         await expect(section).toContainText(expectedText);
