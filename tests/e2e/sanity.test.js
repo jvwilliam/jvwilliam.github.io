@@ -41,7 +41,7 @@ test.describe('Sanity Tests', () => {
 
   test.only('Check the Main sections are visible', {
     annotation: [
-      {type: 'Description', description: 'Checks that the Main sections are rendering.'}
+      {type: 'Description', description: 'Checks that the Main sections are rendering as expected.'}
     ]}, async () => {
 
       const {
@@ -63,28 +63,44 @@ test.describe('Sanity Tests', () => {
       const {
         aboutSectionNavigation,
         servicesSectionNavigation,
-        experience,
-        skills,
-        trainings
+        experienceSectionNavigation,
+        skillsSectionNavigation,
+        trainingsSectionNavigation
       } = await homePage.getNavigationElements();
 
-      await test.step('Verify that the About section is displayed by checking if the section is displayed in viewport', async () => {
+      await test.step('Verify About section is visible and has correct heading', async () => {
         await expect(aboutSection).toBeInViewport();
+        await expect(aboutSectionHeading).toHaveText('JV William Andal');
       });
 
-      await test.step('Click Services from the Navigation and verify that the section is displayed in the viewport.', async () => {
+      await test.step('Navigate to Services section and verify visibility and heading', async () => {
         await servicesSectionNavigation.click();
         await expect(servicesSection).toBeInViewport();
         await expect(serviceSectionHeading).toBeInViewport();
-      });
-
-      await test.step('Check for Correct Heading', async () => {
         await expect(serviceSectionHeading).toHaveText('Services Offered');
       });
-      
-      await test.step('Click each section from the navigation and verify sections are display accordingly.', async () => {
-        //await homePage.isMainSectionsVisible();
+
+      await test.step('Navigate to Experience section and verify visibility and heading', async () => {
+        await experienceSectionNavigation.click();
+        await expect(experienceSection).toBeInViewport();
+        await expect(experienceSectionHeading).toBeInViewport();
+        await expect(experienceSectionHeading).toHaveText('Experience');
       });
+
+      await test.step('Navigate to Skills section and verify visiblity and heading', async () => {
+        await skillsSectionNavigation.click();
+        await expect(skillsSection).toBeInViewport();
+        await expect(skillsSectionHeading).toBeInViewport();
+        await expect(skillsSectionHeading).toHaveText('Competencies & Tools');
+      });
+
+      await test.step('Navigate to Trainings and verify visiblity and heading', async () => {
+        await trainingsSectionNavigation.click();
+        await expect(trainingsSection).toBeInViewport();
+        await expect(trainingsSectionHeading).toBeInViewport();
+        await expect(trainingsSectionHeading).toHaveText('Trainings & Certifications');
+      });
+      
   });
 
   test('Check that the About section contains key information', async () => {

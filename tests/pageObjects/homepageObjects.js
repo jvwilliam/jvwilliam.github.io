@@ -35,7 +35,7 @@ export class HomePage {
             servicesSectionNavigation: this.page.getByTestId('nav-services'),
             experienceSectionNavigation: this.page.getByTestId('nav-experience'),
             skillsSectionNavigation: this.page.getByTestId('nav-skills'),
-            trainingSectionNavigation: this.page.getByTestId('nav-trainings'),
+            trainingsSectionNavigation: this.page.getByTestId('nav-trainings'),
         }
     }
 
@@ -44,8 +44,8 @@ export class HomePage {
             aboutSection: this.page.getByTestId('section-about'),
             servicesSection: this.page.getByTestId('section-services'),
             experienceSection: this.page.getByTestId('section-experience'),
-            competencySection: this.page.getByTestId('section-competency'),
-            trainingSection: this.page.getByTestId('section-trainings')
+            skillsSection: this.page.getByTestId('section-competency'),
+            trainingsSection: this.page.getByTestId('section-trainings')
         }
     }
 
@@ -53,9 +53,9 @@ export class HomePage {
         return {
             aboutSectionHeading: this.page.getByTestId('section-about-heading'),
             serviceSectionHeading: this.page.getByTestId('section-services-heading'),
-            experienceSectionHeading: this.page.getByTestId('section-experience-heading'),
-            competencySectionHeading: this.page.getByTestId('section-skills-primaryHeading'),
-            trainingSectionHeading: this.page.getByTestId('section-trainings-primaryHeading')
+            experienceSectionHeading: this.page.getByTestId('section-experience-primaryHeading'),
+            skillsSectionHeading: this.page.getByTestId('section-skills-primaryHeading'),
+            trainingsSectionHeading: this.page.getByTestId('section-trainings-primaryHeading')
         }
     }
 
@@ -90,7 +90,7 @@ export class HomePage {
             await expect(locator).toBeVisible();
         }
     }
-    
+
     async sectionContainsText(sectionName, expectedText) {
         const section = this.page.getByTestId(`section-${sectionName}`);
         await expect(section).toContainText(expectedText);
