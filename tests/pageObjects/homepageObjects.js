@@ -7,15 +7,6 @@ export class HomePage {
     constructor(page) {
         this.page = page;
 
-        /** Set up locators */
-        this.mainSections = {
-            aboutSection: page.getByTestId('section-about'),
-            servicesSection: page.getByTestId('section-services'),
-            experienceSection: page.getByTestId('section-experience'),
-            competencySection: page.getByTestId('section-competency'),
-            trainingSection: page.getByTestId('section-trainings'),
-        }
-
         this.expectedValues = {
             pageTitle: 'JV William | QA Engineer | Web App Testing Specialist',
             contactDetails: 'contact@jvwilliam.com',
@@ -73,22 +64,8 @@ export class HomePage {
         return pageTitle;
     }
 
-    async checkTitle() {
-        const title = await this.getPageTitle();
-        expect(title).toBe(this.expectedValues.pageTitle);
-    }
-
     async getExpectedPageTitle() {
         return this.expectedValues.pageTitle;
-    }
-
-    
-
-    async isMainSectionsVisible() {
-        for (const [sectionName, locator] of Object.entries(this.mainSections)) {
-            console.log(`Checking ${sectionName}`);
-            await expect(locator).toBeVisible();
-        }
     }
 
     async sectionContainsText(sectionName, expectedText) {

@@ -39,7 +39,7 @@ test.describe('Sanity Tests', () => {
       })
   });
 
-  test.only('Check the Main sections are visible', {
+  test('Check the Main sections are visible', {
     annotation: [
       {type: 'Description', description: 'Checks that the Main sections are rendering as expected.'}
     ]}, async () => {
