@@ -16,8 +16,6 @@ export class HomePage {
             latestCertification: /Certified Tester Foundation Level/,
             latestTraining: /Web Application Pentesting/
         }
-
-        
     }
 
     async getNavigationElements() {

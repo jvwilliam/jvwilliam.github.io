@@ -4,6 +4,8 @@ import { HomePage } from '../pageObjects/homepageObjects';
 
 
 test.describe('Sanity Tests', () => {
+
+  /** @type {HomePage} */
   let homePage;
 
   test.beforeEach(async ({ page }) => {
@@ -13,15 +15,15 @@ test.describe('Sanity Tests', () => {
 
   test('Check for correct page title.', {
     annotation: [
-      {type: 'Description', description: 'Checks that the user is redirected to the correct landing page.'}
+      {type: 'Description', description: `Checks that the user is redirected to the correct landing page. Ideally at ${process.env.BASE_URL}`}
     ]} , async () => {
 
-      /** 
-       * This is an over complication to demonstrate how we can use the test.step function 
-       * to organize and document the sections of the test code. This also helps with the readability of the test report.
-       */ 
+       // This is an over complication to demonstrate how we can use the test.step function 
+       // to organize and document the sections of the test code. This also helps with the readability of the test report.
 
+      /** @type {String} */
       let pageTitle;
+      /** @type {String} */
       let expectedPageTitle;
 
       test.step('Get the current page title.', async () => {
@@ -61,7 +63,6 @@ test.describe('Sanity Tests', () => {
       } = await homePage.getSectionHeadings();
 
       const {
-        aboutSectionNavigation,
         servicesSectionNavigation,
         experienceSectionNavigation,
         skillsSectionNavigation,
