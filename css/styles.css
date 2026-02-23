@@ -11046,8 +11046,8 @@ section.resume-section .resume-section-content {
 .service-card-btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #bd5d38;
-  color: #bd5d38;
+  border: 2px solid #495057;
+  color: #495057;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
@@ -11056,7 +11056,7 @@ section.resume-section .resume-section-content {
 }
 
 .service-card-btn:hover {
-  background-color: #bd5d38;
+  background-color: #4F7C82;
   color: #ffffff;
 }
 
