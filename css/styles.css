@@ -11069,7 +11069,7 @@ section.resume-section .resume-section-content {
 
 .hero-cta {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   margin-right: 1rem;
   flex-wrap: wrap;
 }
