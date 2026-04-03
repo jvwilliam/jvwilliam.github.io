@@ -11130,3 +11130,59 @@ section.resume-section .resume-section-content {
   vertical-align: top;
   width: 250px;
 }
+
+/* Test Section Cards */
+.test-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.test-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.test-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: #bd5d38;
+  transform: translateY(-4px);
+}
+
+.test-card-icon {
+  font-size: 3rem;
+  color: #bd5d38;
+  margin-bottom: 1.5rem;
+}
+
+.test-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.test-card-description {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .test-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .test-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
