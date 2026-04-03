@@ -11121,3 +11121,12 @@ section.resume-section .resume-section-content {
     font-size: 0.9rem;
   }
 }
+
+#animated-heading {
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 1.75em;
+  height: 1.75em;
+  vertical-align: top;
+  width: 250px;
+}

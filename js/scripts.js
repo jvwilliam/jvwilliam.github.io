@@ -140,6 +140,45 @@ window.addEventListener('DOMContentLoaded', event => {
         // Optionally show a user-friendly message in the UI
         if (workProfileContainer) workProfileContainer.innerHTML = '<p>Failed to load profile data.</p>';
       });
+
+    // Typing animation for the heading
+    const texts = [
+        'Web App Testing Specialist',
+        'QA Engineer',
+        '10+ Years Experience'
+    ];
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100; // ms per character
+    const deletingSpeed = 50;
+    const pauseTime = 2000; // pause before deleting
+    const animatedHeading = document.getElementById('animated-heading');
+
+    function typeWriter() {
+        const currentText = texts[currentTextIndex];
+        if (isDeleting) {
+            animatedHeading.textContent = currentText.substring(0, currentCharIndex--);
+            if (currentCharIndex < 0) {
+                isDeleting = false;
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                setTimeout(typeWriter, 500); // pause before next text
+            } else {
+                setTimeout(typeWriter, deletingSpeed);
+            }
+        } else {
+            animatedHeading.textContent = currentText.substring(0, currentCharIndex++);
+            if (currentCharIndex > currentText.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, pauseTime);
+            } else {
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
+    }
+
+    // Start the animation after a short delay
+    setTimeout(typeWriter, 1000);
 });
 
 
