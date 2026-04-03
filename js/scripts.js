@@ -143,9 +143,11 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // Typing animation for the heading
     const texts = [
+        'On-Demand QA',
         'Web App Testing Specialist',
         'QA Engineer',
-        '10+ Years Experience'
+        '10+ Years of Experience',
+        'Process Driven'
     ];
     let currentTextIndex = 0;
     let currentCharIndex = 0;
