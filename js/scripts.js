@@ -143,16 +143,15 @@ window.addEventListener('DOMContentLoaded', event => {
 
     // Typing animation for the heading
     const texts = [
-        'On-Demand QA',
         'Web App Testing Specialist',
-        'QA Engineer',
         '10+ Years of Experience',
-        'Process Driven'
+        'Helping teams ship bug-free, secure web applications',
+        'Shipping confidence through testing'
     ];
     let currentTextIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
-    const typingSpeed = 100; // ms per character
+    const typingSpeed = 50; // ms per character
     const deletingSpeed = 50;
     const pauseTime = 2000; // pause before deleting
     const animatedHeading = document.getElementById('animated-heading');
