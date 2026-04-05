@@ -10978,95 +10978,6 @@ section.resume-section .resume-section-content {
   }
 }
 
-/* Services Grid & Card Styles */
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-@media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-}
-
-.service-card {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.service-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transform: translateY(-4px);
-}
-
-.service-card-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.service-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-card-image img {
-  transform: scale(1.05);
-}
-
-.service-card-content {
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.service-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #212529;
-  margin: 0 0 1rem 0;
-  line-height: 1.4;
-}
-
-.service-card-description {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
-  flex-grow: 1;
-}
-
-.service-card-btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #495057;
-  color: #495057;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  align-self: flex-start;
-}
-
-.service-card-btn:hover {
-  background-color: #4F7C82;
-  color: #495057;
-}
-
 .hero-cta {
   display: flex;
   gap: 2rem;
@@ -11083,7 +10994,7 @@ section.resume-section .resume-section-content {
   border-radius: 50px;
   font-weight: 700;
   transition: aa 0.3s ease;
-  align-self: flex-start;
+  align-self: flex-end;
   background: transparent;
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -11108,20 +11019,6 @@ section.resume-section .resume-section-content {
   }
 }
 
-@media (max-width: 767px) {
-  .service-card-image {
-    height: 180px;
-  }
-
-  .service-card-title {
-    font-size: 1.1rem;
-  }
-
-  .service-card-description {
-    font-size: 0.9rem;
-  }
-}
-
 #animated-heading {
   display: inline-block;
   white-space: nowrap;
@@ -11131,36 +11028,43 @@ section.resume-section .resume-section-content {
   width: 250px;
 }
 
-/* Test Section Cards */
-.test-cards-grid {
+.expertise-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.test-card {
+.expertise-card {
   background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 2.5rem;
   text-align: left;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.test-card:hover {
+.expertise-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: #bd5d38;
+  border-color: #141413;
   transform: translateY(-4px);
 }
 
-.test-card-icon {
-  font-size: 3rem;
-  color: #bd5d38;
-  margin-bottom: 1.5rem;
+.expertise-card:hover .expertise-card-icon {
+  color: #343A40;
+  transition: color 0.3s ease;
 }
 
-.test-card-title {
+.expertise-card-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.expertise-card-title {
   font-size: 1.25rem;
   font-weight: 700;
   color: #212529;
@@ -11168,7 +11072,15 @@ section.resume-section .resume-section-content {
   line-height: 1.4;
 }
 
-.test-card-description {
+.expertise-card-cta {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin-top: auto;
+  line-height: 1.4;
+}
+
+.expertise-card-description {
   font-size: 0.95rem;
   color: #6c757d;
   line-height: 1.6;
@@ -11176,13 +11088,13 @@ section.resume-section .resume-section-content {
 }
 
 @media (max-width: 1024px) {
-  .test-cards-grid {
+  .expertise-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .test-cards-grid {
+  .expertise-cards-grid {
     grid-template-columns: 1fr;
   }
 }
