@@ -7678,6 +7678,10 @@ textarea.form-control-lg {
   margin-bottom: 3rem !important;
 }
 
+.mb-6 {
+  margin-bottom: 6rem !important;
+}
+
 .mb-auto {
   margin-bottom: auto !important;
 }
@@ -11068,7 +11072,7 @@ section.resume-section .resume-section-content {
   font-size: 1.25rem;
   font-weight: 700;
   color: #212529;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.75rem 0;
   line-height: 1.4;
 }
 
