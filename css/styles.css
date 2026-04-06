@@ -7846,6 +7846,10 @@ textarea.form-control-lg {
   padding-right: 3rem !important;
 }
 
+.pe-10 {
+  padding-right: 20rem !important;
+}
+
 .pb-0 {
   padding-bottom: 0 !important;
 }
@@ -11077,7 +11081,7 @@ section.resume-section .resume-section-content {
 }
 
 .expertise-card-cta {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #212529;
   margin-top: auto;
