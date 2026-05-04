@@ -2,11 +2,12 @@
 :root {
   --body-color: #e9edf8;
   --body-bg: #040b1b;
-  --accent-color: #4dd0e1;
+  --accent-color: #FE4A00;
   --muted-color: #cfd7e6;
   --surface-color: rgba(255, 255, 255, 0.96);
   --border-color: rgba(255, 255, 255, 0.14);
-  --text-color: #0f172a;
+  --text-color: #e9edf8;
+  --cta-text-color: #e9edf8 ;
 }
 
 *, *::before, *::after {
@@ -20,8 +21,8 @@ html {
 body {
   margin: 0;
   color: var(--body-color);
-  background: radial-gradient(circle at top left, rgba(77, 208, 225, 0.18), transparent 25%),
-              linear-gradient(135deg, #041024 0%, #0a2558 30%, #0b386f 60%, #062b4f 100%);
+  background: radial-gradient(circle at top left, rgba(218, 165, 32, 0.15), transparent 35%),
+              linear-gradient(135deg, #000000 0%, #0a0805 25%, #1a1410 60%, #000000 100%);
   background-attachment: fixed;
   min-height: 100vh;
   font-family: Muli, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -229,7 +230,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 1rem 1.5rem;
   width: 100%;
@@ -237,7 +238,7 @@ p {
 
 .page-content {
   padding: 0;
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -334,7 +335,6 @@ section.resume-section .resume-section-content {
 }
 
 .expertise-card {
-  width: min(100%, 85rem);
   padding: 3rem;
   background: rgba(255, 255, 255, 0.062);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -371,18 +371,25 @@ section.resume-section .resume-section-content {
 }
 
 .expertise-card-cta a {
-  color: var(--accent-color);
+  color: var(--cta-text-color);
   text-decoration: none;
 }
 
 .expertise-card-cta a:hover,
 .expertise-card-cta a:focus {
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
 @media (min-width: 768px) {
   .expertise-cards-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .expertise-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
