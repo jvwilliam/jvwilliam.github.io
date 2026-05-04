@@ -81,92 +81,72 @@ p {
   margin: 0 0 1rem;
 }
 
-.hero-section {
-  padding: 0 1rem;
-  padding-top: 1rem;
+/* ===== HERO SECTION ===== */
+.hero {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   min-height: 100dvh;
+  padding: 2rem 1rem;
   width: 100%;
 }
 
-.hero-section > div {
-  width: min(100%, 85rem);
-  padding: 3rem;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 30px 80px rgba(4, 16, 36, 0.2);
-  border-radius: 2rem;
+.hero__content {
+  width: 100%;
+  max-width: 800px;
   text-align: center;
 }
 
-.hero-section .eyebrow {
+.hero__intro {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 0.85rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: rgba(233, 237, 248, 0.75);
+  font-weight: 600;
 }
 
-.hero-section h2 {
+.hero__title {
   font-size: clamp(2.5rem, 4vw, 4.5rem);
-  line-height: 1.02;
-  margin-bottom: 1.2rem;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
   color: #ffffff;
+  font-weight: 700;
 }
 
-.hero-panel {
-  width: min(100%, 85rem);
-  padding-top: 5rem;
-  padding: 3rem;
-  
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 30px 80px rgba(4, 16, 36, 0.2);
-  border-radius: 2rem;
-  text-align: center;
-
-  min-height: 100vh;
+.hero__subtitle {
+  margin-bottom: 1.5rem;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-panel .eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-  color: rgba(233, 237, 248, 0.75);
+.hero__subtitle h2 {
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  color: var(--accent-color);
+  margin: 0;
 }
 
-.hero-panel h2 {
-  font-size: clamp(2.5rem, 4vw, 4.5rem);
-  line-height: 1.02;
-  margin-bottom: 1.2rem;
-  color: #ffffff;
-}
-
-.hero-section > div h3 {
-  color: #ffffff;
-}
-
-.hero-copy {
-  margin-bottom: 2rem;
-  color: rgba(233, 237, 248, 0.9);
+.hero__copy {
   font-size: 1.05rem;
-  max-width: 54rem;
+  line-height: 1.6;
+  color: rgba(233, 237, 248, 0.9);
+  margin-bottom: 2rem;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero-panel-actions {
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  margin-top: 2rem;
 }
+
 
 .page-title {
   margin-bottom: 0;
