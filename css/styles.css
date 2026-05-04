@@ -81,21 +81,18 @@ p {
   margin: 0 0 1rem;
 }
 
-.page-content {
-  padding: 0;
-}
-
 .hero-section {
   padding: 0 1rem;
-  padding-top: 5rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   min-height: 100dvh;
+  width: 100%;
 }
 
-.hero-panel {
+.hero-section > div {
   width: min(100%, 85rem);
   padding: 3rem;
   background: rgba(255, 255, 255, 0.16);
@@ -104,6 +101,36 @@ p {
   box-shadow: 0 30px 80px rgba(4, 16, 36, 0.2);
   border-radius: 2rem;
   text-align: center;
+}
+
+.hero-section .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  color: rgba(233, 237, 248, 0.75);
+}
+
+.hero-section h2 {
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  line-height: 1.02;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.hero-panel {
+  width: min(100%, 85rem);
+  padding-top: 5rem;
+  padding: 3rem;
+  
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(4, 16, 36, 0.2);
+  border-radius: 2rem;
+  text-align: center;
+
+  min-height: 100vh;
 }
 
 .hero-panel .eyebrow {
@@ -121,17 +148,24 @@ p {
   color: #ffffff;
 }
 
+.hero-section > div h3 {
+  color: #ffffff;
+}
+
 .hero-copy {
   margin-bottom: 2rem;
   color: rgba(233, 237, 248, 0.9);
   font-size: 1.05rem;
   max-width: 54rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-panel-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .page-title {
@@ -320,10 +354,13 @@ section.resume-section .resume-section-content {
 }
 
 .expertise-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.08);
+  width: min(100%, 85rem);
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.062);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(4, 16, 36, 0.2);
+  border-radius: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
