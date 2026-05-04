@@ -22,7 +22,7 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- Custom theme CSS-->
         <link href="css/styles.css" rel="stylesheet" />
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GYYKGJJ93"></script>
@@ -36,56 +36,61 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">JV William</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" title="Profile Photo" alt="JV's profile photo" /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#section-about" data-testid="nav-about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#section-expertise" data-testid="nav-expertise">Expertise</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#section-experience" data-testid="nav-experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#section-competency" data-testid="nav-skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#section-trainings" data-testid="nav-trainings">Trainings</a></li>
-                    
+        <nav class="top-nav">
+            <div class="top-nav-inner">
+                <a class="brand-link js-scroll-trigger" href="#page-top">JV William</a>
+                <ul class="nav-list">
+                    <li class="nav-list-item"><a class="nav-anchor js-scroll-trigger" href="#section-about" data-testid="nav-about">About</a></li>
+                    <li class="nav-list-item"><a class="nav-anchor js-scroll-trigger" href="#section-expertise" data-testid="nav-expertise">Expertise</a></li>
+                    <li class="nav-list-item"><a class="nav-anchor js-scroll-trigger" href="#section-experience" data-testid="nav-experience">Experience</a></li>
+                    <li class="nav-list-item"><a class="nav-anchor js-scroll-trigger" href="#section-competency" data-testid="nav-skills">Skills</a></li>
                 </ul>
             </div>
         </nav>
         <!-- Page Content-->
-        <div class="container-fluid p-0">
+        <div class="page-content">
+            <!-- Hero -->
+            <section class="hero-section" id="section-hero">
+                <div class="hero-panel">
+                    <p class="eyebrow">Future-ready innovation for modern web teams</p>
+                    <h2>Design the QA story your product deserves.</h2>
+                    <p class="hero-copy">Placeholder text for the hero hook: introduce your value, grab attention, and guide visitors into your site with an exciting tech-forward message.</p>
+                    <div class="hero-panel-actions">
+                        <a href="#section-about" class="main-cta-btn js-scroll-trigger">Explore the story</a>
+                    </div>
+                </div>
+            </section>
             <!-- About-->
             <section class="resume-section" id="section-about" data-testid="section-about">
                 <div class="resume-section-content">
-                    <h1 class="mb-0" data-testid="section-about-heading">
+                    <h1 class="page-title" data-testid="section-about-heading">
                         JV William
-                        <span class="text-primary">Andal</span>
+                        <span class="name-highlight">Andal</span>
                     </h1>
-                    <div class="subheading mb-3" data-testid="section-about-subheading">
+                    <div class="subheading section-subheading" data-testid="section-about-subheading">
                         <h3 id="animated-heading"></h3>
                     </div>
                     <!-- Made this copy with ChatGPT 😊 -->
-                    <p class="lead mb-6 pe-10">A QA specialist focusing on Web-Based Application testing for startups and indie teams. I deliver lean, end-to-end web app testing that ensures products are reliable, user-friendly, and built to scale.</p>
+                    <p class="intro-copy">A QA specialist focusing on Web-Based Application testing for startups and indie teams. I deliver lean, end-to-end web app testing that ensures products are reliable, user-friendly, and built to scale.</p>
                     <div class="hero-cta">
                         <a href="#section-cta" class="main-cta-btn js-scroll-trigger" data-testid="hero-cta-cta-button"><strong>Start a Project</strong></a>
                         <a href="#section-expertise" class="main-cta-btn js-scroll-trigger" data-testid="hero-expertise-cta-button"><strong>Explore</strong></a>
                     </div>
                 </div>
             </section>
-            <hr class="m-0" />
+            <hr class="section-divider" />
             <!-- Expertise -->
             <section class="resume-section" id="section-expertise" data-testid="section-expertise">
                 <div class="resume-section-content" id="section-expertise-container" data-testid="section-expertise-container">
-                    <h2 class="mb-3" data-testid="section-expertise-heading">Expertise</h2>
-                    <p class="lead mb-5">Small teams often ship without dedicated QA — leading to production bugs, frustrated users, and costly last-minute fixes.</p>
+                    <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
+                    <p class="section-copy">Small teams often ship without dedicated QA — leading to production bugs, frustrated users, and costly last-minute fixes.</p>
                     <div class="expertise-cards-grid">
                         <div class="expertise-card">
                             <div class="expertise-card-icon">
                                 <i class="fas fa-user-plus"></i>
                             </div>
                             <h3 class="expertise-card-title">Fractional QA Services</h3>
-                            <p class="expertise-card-description mb-3">Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product—quietly raising the bar without slowing your team.</p>
+                            <p class="expertise-card-description">Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product—quietly raising the bar without slowing your team.</p>
                             <h3 class="expertise-card-cta"><a href="https://www.fiverr.com/jvwilliam/test-and-review-your-website#" target="_blank">Learn More</a></h3>
                         </div>
                         <div class="expertise-card">
@@ -93,7 +98,7 @@
                                 <i class="fas fa-bug"></i>
                             </div>
                             <h3 class="expertise-card-title">On-Demand QA Testing & Support</h3>
-                            <p class="expertise-card-description mb-3">Uncover critical issues before they reach your users through precise functional, security, and deep exploratory testing—so every release is seamless, deliberate, and built to scale.</p>
+                            <p class="expertise-card-description">Uncover critical issues before they reach your users through precise functional, security, and deep exploratory testing—so every release is seamless, deliberate, and built to scale.</p>
                             <h3 class="expertise-card-cta"><a href="https://www.fiverr.com/jvwilliam/do-qa-testing-for-your-website#" target="_blank">Learn More</a></h3>
                         </div>
                         <div class="expertise-card">
@@ -101,60 +106,60 @@
                                 <i class="fas fa-cogs"></i>
                             </div>
                             <h3 class="expertise-card-title">End-to-End Test Automation</h3>
-                            <p class="expertise-card-description mb-3">Turn repetitive testing into automated workflows—reducing QA bottlenecks and freeing your team to focus on building, not retesting.</p>
+                            <p class="expertise-card-description">Turn repetitive testing into automated workflows—reducing QA bottlenecks and freeing your team to focus on building, not retesting.</p>
                             <h3 class="expertise-card-cta">Coming Soon!</h3>
                         </div>
                     </div>
-                    <h3 class="mt-5 text-left">Ready to launch your project with confidence? <a href="#section-cta" class="main-cta-btn js-scroll-trigger"><strong>Let's Talk</strong></a></h3>
+                    <h3 class="section-cta-heading">Ready to launch your project with confidence? <a href="#section-cta" class="main-cta-btn js-scroll-trigger"><strong>Let's Talk</strong></a></h3>
                 </div>
             </section>
-            <hr class="m-0" />
+            <hr class="section-divider" />
             <!-- Experience-->
             <section class="resume-section" id="section-experience" data-testid="section-experience">
                 <div class="resume-section-content" id="section-experience-container" data-testid="section-experience-container">
-                    <h2 class="mb-5" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
+                    <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
                 </div>
             </section>
-            <hr class="m-0" />
+            <hr class="section-divider" />
             <!-- Competency & Tools -->
             <section class="resume-section" id="section-competency" data-testid="section-competency">
                 <div class="resume-section-content" id="section-competency-container" data-testid="section-competency-container">
-                    <h2 class="mb-3" id="section-skills-primaryHeading" data-testid="section-skills-primaryHeading">Competencies & Tools</h2>
+                    <h2 class="section-title" id="section-skills-primaryHeading" data-testid="section-skills-primaryHeading">Competencies & Tools</h2>
                     <!-- Skills -->
-                    <div class="subheading mb-3" id="section-core-heading" data-testid="section-core-heading">Core Competencies</div>
+                    <div class="subheading section-subheading" id="section-core-heading" data-testid="section-core-heading">Core Competencies</div>
                     <ul class="fa-ul" id="section-competency-list" data-testid="section-competency-list">
                     </ul>
                     <!-- Programming Languages & Tools -->
-                    <div class="subheading mb-3" id="section-language-heading" data-testid="section-language-heading">Programming Languages & Tools</div>
-                    <ul class="list-inline dev-icons" id="section-language-list" data-testid="section-language-list"> 
+                    <div class="subheading section-subheading" id="section-language-heading" data-testid="section-language-heading">Programming Languages & Tools</div>
+                    <ul class="dev-icons" id="section-language-list" data-testid="section-language-list"> 
                     </ul>
                     <!-- Platforms -->
-                    <div class="subheading mb-3" id="section-platform-heading" data-testid="section-platform-heading">Platforms</div>
-                    <ul class="list-inline dev-icons" id="section-platform-list" data-testid="section-platform-list">
+                    <div class="subheading section-subheading" id="section-platform-heading" data-testid="section-platform-heading">Platforms</div>
+                    <ul class="dev-icons" id="section-platform-list" data-testid="section-platform-list">
                     </ul>
                 </div>
             </section>
-            <hr class="m-0" />
+            <hr class="section-divider" />
             <!-- Learnings-->
             <section class="resume-section" id="section-trainings" data-testid="section-trainings">
                 <div class="resume-section-content" id="section-trainings-container" data-testid="section-trainings-container">
-                    <h2 class="mb-5" id="section-trainings-primaryHeading" data-testid="section-trainings-primaryHeading">Trainings & Certifications</h2>
-                    <div class="subheading mb-3" id="section-certification-heading" data-testid="section-certification-heading">Certifications</div>
+                    <h2 class="section-title" id="section-trainings-primaryHeading" data-testid="section-trainings-primaryHeading">Trainings & Certifications</h2>
+                    <div class="subheading section-subheading" id="section-certification-heading" data-testid="section-certification-heading">Certifications</div>
                     <ul class="fa-ul" id="section-certificate-list" data-testid="section-certificate-list">
                     </ul>
-                    <div class="subheading mb-3" id="section-trainings-heading" data-testid="section-trainings-heading">Trainings</div>
-                    <ul class="fa-ul mb-0" id="section-trainings-list" data-testid="section-trainings-list">
+                    <div class="subheading section-subheading" id="section-trainings-heading" data-testid="section-trainings-heading">Trainings</div>
+                    <ul class="fa-ul section-list" id="section-trainings-list" data-testid="section-trainings-list">
                     </ul>
                 </div>
             </section>
-            <hr class="m-0" />
+            <hr class="section-divider" />
             <!-- Hire Me -->
             <section class="resume-section" id="section-cta" data-testid="section-cta">
                 <div class="resume-section-content" id="section-cta-container" data-testid="section-cta-container">
-                    <h2 class="mb-3" id="section-cta-primaryHeading" data-testid="section-cta-primaryHeading">Shipping a Web App? Let's make sure it's solid!</h2>
-                    <p class="lead mb-4">From functional testing to security-focused assessments, I help teams catch critical issues before users do — so you can launch with confidence.</p>
-                    <p class="lead mb-5">Lead QA for a major international sports organization | 10+ Years Experience | Security-Focused Web Application Testing</p>
-                    <h3 class="mb-3">Let's Connect:</h3>
+                    <h2 class="section-title" id="section-cta-primaryHeading" data-testid="section-cta-primaryHeading">Shipping a Web App? Let's make sure it's solid!</h2>
+                    <p class="section-copy">From functional testing to security-focused assessments, I help teams catch critical issues before users do — so you can launch with confidence.</p>
+                    <p class="section-copy">Lead QA for a major international sports organization | 10+ Years Experience | Security-Focused Web Application Testing</p>
+                    <h3 class="section-subheading">Let's Connect:</h3>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.linkedin.com/in/jvwilliamandal/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="mailto:contact@jvwilliam.com" target="_blank" aria-label="GitHub"><i class="fa fa-envelope"></i></a>
@@ -162,8 +167,6 @@
                 </div>
             </section>              
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
