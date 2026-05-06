@@ -462,7 +462,9 @@ p {
 .footer {
   background: rgba(0, 0, 0, 0.8);
   border-top: 1px solid var(--border-color);
-  padding: 4rem 1rem 2rem;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-top: 3rem;
 }
 
@@ -513,7 +515,7 @@ p {
 .footer__bottom {
   max-width: 1440px;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   color: rgba(233, 237, 248, 0.6);
