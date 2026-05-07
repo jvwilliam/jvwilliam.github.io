@@ -160,7 +160,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // Typing animation for the heading
     const texts = [
         'Web App Testing Specialist',
-        '10+ Years of Experience',
+        '10+ Years Experience in Testing',
         'Helping teams ship bug-free, secure web applications',
         'Shipping confidence through testing'
     ];
