@@ -54,6 +54,25 @@ function renderWorkProfile(workProfile = []) {
     workProfileContainer.innerHTML = html;
 }
 
+function observeTimelineItems() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if (!timelineItems.length) return;
+
+    const observer = new IntersectionObserver((entries, observerRef) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observerRef.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -15% 0px',
+        threshold: 0.2
+    });
+
+    timelineItems.forEach(item => observer.observe(item));
+}
+
 function renderCoreCompetencies(coreCompetencies = []) {
     let html = '';
     coreCompetencies.forEach(({title}) => {
@@ -125,6 +144,7 @@ window.addEventListener('DOMContentLoaded', event => {
       .then((res) => res.json())
       .then((data) => {
         renderWorkProfile(data['workProfile']);
+        observeTimelineItems();
         renderCoreCompetencies(data['coreCompetencies']);
         renderProgrammingLang(data['programmingLang']);
         renderPlatforms(data['platforms']);
