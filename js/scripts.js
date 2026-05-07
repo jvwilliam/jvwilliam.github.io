@@ -21,19 +21,34 @@ function escapeHTML(str) {
 }
 // Section ID pattern - {section}-{sectionName}-{sectionPurporse}
 function renderWorkProfile(workProfile = []) {
-    let html = '<h2 class="mb-5" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>';
-    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}) => {
+    let html = `
+        <div class="timeline-intro">
+            <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
+            <p class="section-copy">A centered career timeline built for clarity: milestones, companies, dates, and impact in a minimal modern layout.</p>
+        </div>
+        <div class="timeline" aria-label="experience timeline">
+    `;
+
+    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}, index) => {
+        const sideClass = index % 2 === 0 ? 'timeline-item left' : 'timeline-item right';
         html += `
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" id="section-experience-workTitle" data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
-                    <div class="subheading mb-3" id="section-experience-companyName" data-testid="section-experience-companyName">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
+            <article class="${sideClass}">
+                <div class="timeline-marker" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 id="section-experience-workTitle" data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
+                            <div class="timeline-company" id="section-experience-companyName" data-testid="section-experience-companyName">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
+                        </div>
+                        <time class="timeline-date">${escapeHTML(duration)}</time>
+                    </div>
                     <p>${escapeHTML(description)}</p>
                 </div>
-                <div class="flex-shrink-0"><span class="text-primary">${escapeHTML(duration)}</span></div>
-            </div>           
+            </article>
         `;
     });
+
+    html += '</div>';
     workProfileContainer.innerHTML = html;
 }
 
