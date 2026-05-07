@@ -321,6 +321,10 @@ p {
   margin-bottom: 1.5rem;
 }
 
+.section-cta {
+  text-align: center;
+}
+
 .section-subheading {
   font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   text-transform: uppercase;
@@ -428,7 +432,6 @@ p {
 }
 
 .expertise-card-cta {
-  text-align: center;
   margin-top: auto;
 }
 
