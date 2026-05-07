@@ -37,10 +37,12 @@ function renderWorkProfile(workProfile = []) {
                 <div class="timeline-content">
                     <div class="timeline-header">
                         <div>
-                            <h3 id="section-experience-workTitle" data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
+                            <div class="timeline-position">
+                                <h3 id="section-experience-workTitle" data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
+                            </div>
                             <div class="timeline-company" id="section-experience-companyName" data-testid="section-experience-companyName">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
-                        </div>
-                        <time class="timeline-date">${escapeHTML(duration)}</time>
+                            <div><time class="timeline-date">${escapeHTML(duration)}</time></div>
+                            </div>
                     </div>
                     <p>${escapeHTML(description)}</p>
                 </div>

@@ -531,31 +531,11 @@ p {
 }
 
 .timeline-item.left .timeline-content {
-  text-align: right;
+  text-align: left;
 }
 
 .timeline-item.right .timeline-content {
   text-align: left;
-}
-
-.timeline-item.left .timeline-content::after,
-.timeline-item.right .timeline-content::after {
-  content: '';
-  position: absolute;
-  top: 1.5rem;
-  width: 0;
-  height: 0;
-  border: 0.75rem solid transparent;
-}
-
-.timeline-item.left .timeline-content::after {
-  right: -1.4rem;
-  border-left-color: rgba(255, 255, 255, 0.06);
-}
-
-.timeline-item.right .timeline-content::after {
-  left: -1.4rem;
-  border-right-color: rgba(255, 255, 255, 0.06);
 }
 
 .timeline-header {
@@ -567,8 +547,16 @@ p {
   margin-bottom: 1rem;
 }
 
-.timeline-header h3 {
+.timeline-position {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
+}
+
+.timeline-header h3 {
+  margin: 0;
   font-size: clamp(1.5rem, 2vw, 1.9rem);
 }
 
