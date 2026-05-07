@@ -22,7 +22,7 @@ function escapeHTML(str) {
 // Section ID pattern - {section}-{sectionName}-{sectionPurporse}
 function renderWorkProfile(workProfile = []) {
     let html = `
-        <div class="timeline-intro">
+        <div class="section-intro">
             <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
             <p class="section-copy">A centered career timeline built for clarity: milestones, companies, dates, and impact in a minimal modern layout.</p>
         </div>

@@ -85,11 +85,6 @@ p {
   margin: 0 0 1rem;
 }
 
-.lead {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
 /* ===== MARGINS ===== */
 
 .mt-0 {
@@ -334,8 +329,15 @@ p {
   letter-spacing: 0.08rem;
 }
 
+.section-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .section-copy,
 .intro-copy {
+  font-size: 1.25rem;
+  font-weight: 300;
   margin-bottom: 1.5rem;
   color: var(--body-color);
 }
@@ -456,11 +458,6 @@ p {
   .expertise-cards-grid {
     grid-template-columns: 1fr;
   }
-}
-
-.timeline-intro {
-  margin-bottom: 2rem;
-  text-align: center;
 }
 
 .timeline {
