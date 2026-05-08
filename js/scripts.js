@@ -98,19 +98,6 @@ function renderExpertise(expertise = []) {
     document.getElementById('section-expertise-container').innerHTML = html;
 }
 
-function renderCoreCompetencies(coreCompetencies = []) {
-    let html = '';
-    coreCompetencies.forEach(({title}) => {
-        html += `
-        <li id="section-competency-item" data-testid="section-competency-item">
-            <span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>
-            ${escapeHTML(title)}
-        </li>
-        `;
-    });
-    competencyListContainer.innerHTML = html;
-}
-
 function renderProgrammingLang(programmingLang = []) {
     let html = '';
     programmingLang.forEach(({title, icon}) => {
@@ -177,7 +164,6 @@ window.addEventListener('DOMContentLoaded', event => {
         renderWorkProfile(data['workProfile']);
         renderExpertise(data['expertise']);
         observeTimelineItems();
-        renderCoreCompetencies(data['coreCompetencies']);
         renderProgrammingLang(data['programmingLang']);
         renderPlatforms(data['platforms']);
         renderCertificates(data['certificate-list']);
