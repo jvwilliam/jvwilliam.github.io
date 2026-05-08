@@ -73,6 +73,31 @@ function observeTimelineItems() {
     timelineItems.forEach(item => observer.observe(item));
 }
 
+function renderExpertise(expertise = []) {
+    let html = `
+        <div class="section-intro">
+            <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
+            <p class="section-copy">Small teams often ship without dedicated QA — leading to production bugs, frustrated users, and costly last-minute fixes.</p>
+        </div>
+        <div class="expertise-cards-grid mb-5">
+    `;
+    
+    expertise.forEach(({title, description, icon}) => {
+        html += `
+            <div class="expertise-card">
+                <div class="expertise-card-icon">
+                    <i class="${escapeHTML(icon)}"></i>
+                </div>
+                <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
+                <p class="expertise-card-description">${escapeHTML(description)}</p>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    document.getElementById('section-expertise-container').innerHTML = html;
+}
+
 function renderCoreCompetencies(coreCompetencies = []) {
     let html = '';
     coreCompetencies.forEach(({title}) => {
@@ -150,6 +175,7 @@ window.addEventListener('DOMContentLoaded', event => {
       .then((res) => res.json())
       .then((data) => {
         renderWorkProfile(data['workProfile']);
+        renderExpertise(data['expertise']);
         observeTimelineItems();
         renderCoreCompetencies(data['coreCompetencies']);
         renderProgrammingLang(data['programmingLang']);

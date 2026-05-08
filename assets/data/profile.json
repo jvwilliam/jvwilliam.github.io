@@ -53,22 +53,26 @@
         {
             "id": 1,
             "title": "Functional Testing & Test Automation",
-            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team."
+            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team.",
+            "icon": "fab fa-microsoft"
         },
         {
             "id": 2,
             "title": "Quality Engineering and Test Management",
-            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team."
+            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team.",
+            "icon": "fab fa-microsoft"
         }, 
         {
             "id": 3,
             "title": "Team Management & Leadership",
-            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting."
+            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting.",
+            "icon": "fab fa-microsoft"
         },
         {
             "id": 4,
             "title": "Web Application Security Testing",
-            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting."
+            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting.",
+            "icon": "fab fa-microsoft"
         }
     ],
     "coreCompetencies" : [
