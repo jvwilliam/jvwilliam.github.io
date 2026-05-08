@@ -53,19 +53,19 @@
         {
             "id": 1,
             "title": "Functional Testing & Test Automation",
-            "description": "From validating business-critical workflows to building maintainable automated test coverage, I focus on delivering stable, high-quality user experiences without slowing down development velocity.",
+            "description": "From validating business-critical workflows to building maintainable automated test coverage, I help teams identify functional issues early through structured manual testing, exploratory testing, and scalable automation strategies that improve release quality and reduce regression risk.",
             "icon": "fa fa-code"
         },
         {
             "id": 2,
             "title": "Quality Engineering and Test Management",
-            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team.",
+            "description": "From defining QA standards and improving collaboration between teams to managing test execution and release readiness, I help organizations establish structured testing practices, improve release workflows, and implement quality strategies that reduce risk across the software development lifecycle.",
             "icon": "fa fa-cogs"
         }, 
         {
             "id": 3,
             "title": "Team Management & Leadership",
-            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting.",
+            "description": "Lead QA initiatives with clear direction, structured collaboration, and a strong quality culture that supports high-performing development teams. I help organizations improve coordination between QA, developers, product owners, and stakeholders to ensure smoother delivery cycles and stronger product outcomes.",
             "icon": "fa fa-users"
         },
         {
