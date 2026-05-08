@@ -124,6 +124,7 @@ function renderPlatforms(platforms = []) {
     platformListContainer.innerHTML = html;
 }
 
+
 function renderCertificates(certList = []) {
     let html = '';
     certList.forEach(({title, institute, year, url}) => {

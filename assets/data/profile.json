@@ -93,26 +93,21 @@
         },
         {
             "id": 4,
-            "title" : "Figma",
-            "icon" : "fab fa-figma"
-        },
-        {
-            "id": 5,
             "title" : "JavaScript",
             "icon" : "fab fa-js-square"
         },
         {
-            "id": 6,
+            "id": 5,
             "title" : "Python",
             "icon" : "fab fa-python"
         },
         {
-            "id": 7,
+            "id": 6,
             "title" : "Jira",
             "icon" : "fab fa-jira"
         },
         {
-            "id": 8,
+            "id": 7,
             "title" : "Node.js",
             "icon" : "fab fa-node-js"
 
@@ -154,7 +149,6 @@
             "title" : "Shopify",
             "icon" : "fab fa-shopify"
         }
-
     ],
     "certificate-list" : [
         {
