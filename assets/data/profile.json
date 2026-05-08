@@ -71,7 +71,7 @@
         {
             "id": 4,
             "title": "Web Application Security Testing",
-            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting.",
+            "description": "From authentication flaws and access control issues to input validation and business logic vulnerabilities, I help teams assess web applications for common vulnerabilities, insecure implementations, and high-risk attack surfaces through practical, security-focused testing aligned with real-world threats.",
             "icon": "fa fa-shield"
         }
     ],

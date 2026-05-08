@@ -335,7 +335,7 @@ p {
 
 .section-intro {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .section-copy,
@@ -376,7 +376,7 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1rem;
   margin: 0;
-  padding: 0;
+  padding-bottom: 2rem;
   list-style: none;
 }
 
