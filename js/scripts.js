@@ -90,7 +90,10 @@ function renderProgrammingLang(programmingLang = []) {
     let html = '';
     programmingLang.forEach(({title, icon}) => {
         html += `
-        <li id="section-language-item" data-testid="section-language-item" class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        <li id="section-language-item" data-testid="section-language-item" class="tool-badge" title="${escapeHTML(title)}">
+            <span class="tool-badge-icon" aria-hidden="true"><i class="${escapeHTML(icon)}"></i></span>
+            <span class="tool-badge-label">${escapeHTML(title)}</span>
+        </li>
         `;
     });
     languageListContainer.innerHTML = html;
@@ -100,7 +103,10 @@ function renderPlatforms(platforms = []) {
     let html = '';
     platforms.forEach(({title, icon}) => {
         html += `
-        <li id="section-platform-item" data-testid="section-platform-item"class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        <li id="section-platform-item" data-testid="section-platform-item" class="tool-badge" title="${escapeHTML(title)}">
+            <span class="tool-badge-icon" aria-hidden="true"><i class="${escapeHTML(icon)}"></i></span>
+            <span class="tool-badge-label">${escapeHTML(title)}</span>
+        </li>
         `;
     });
     platformListContainer.innerHTML = html;

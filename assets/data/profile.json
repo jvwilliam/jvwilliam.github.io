@@ -49,6 +49,28 @@
             "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
         }
     ],
+    "expertise" : [
+        {
+            "id": 1,
+            "title": "Functional Testing & Test Automation",
+            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team."
+        },
+        {
+            "id": 2,
+            "title": "Quality Engineering and Test Management",
+            "description": "Get expert QA leadership without the full-time cost. I define your QA strategy, refine your development workflow, and enforce release standards that scale with your product — quietly raising the bar without slowing your team."
+        }, 
+        {
+            "id": 3,
+            "title": "Team Management & Leadership",
+            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting."
+        },
+        {
+            "id": 4,
+            "title": "Web Application Security Testing",
+            "description": "Turn repetitive testing into automated workflows — reducing QA bottlenecks and freeing your team to focus on building, not retesting."
+        }
+    ],
     "coreCompetencies" : [
         {
             "id": 1,
@@ -102,6 +124,12 @@
             "id": 7,
             "title" : "Jira",
             "icon" : "fab fa-jira"
+        },
+        {
+            "id": 8,
+            "title" : "Node.js",
+            "icon" : "fab fa-node-js"
+
         }
     ],
     "platforms" : [
