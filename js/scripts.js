@@ -165,8 +165,8 @@ window.addEventListener('DOMContentLoaded', event => {
         renderWorkProfile(data['workProfile']);
         renderExpertise(data['expertise']);
         observeTimelineItems();
-        renderProgrammingLang(data['programmingLang']);
-        renderPlatforms(data['platforms']);
+        renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
+        renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
         renderCertificates(data['certificate-list']);
         renderTrainings(data['trainings']);
       })

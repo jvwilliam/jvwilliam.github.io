@@ -103,11 +103,6 @@
         },
         {
             "id": 6,
-            "title" : "Jira",
-            "icon" : "fab fa-jira"
-        },
-        {
-            "id": 7,
             "title" : "Node.js",
             "icon" : "fab fa-node-js"
 
@@ -116,38 +111,48 @@
     "platforms" : [
         {
             "id": 1,
+            "title" : "Jira",
+            "icon" : "fab fa-jira"
+        },
+        {
+            "id": 2,
             "title" : "Android",
             "icon" : "fab fa-android"
         },
         {
-            "id": 2,
+            "id": 3,
             "title" : "Apple",
             "icon" : "fab fa-apple"
         },
         {
-            "id": 3,
+            "id": 4,
             "title" : "Linux",
             "icon" : "fab fa-linux"
         },
         {
-            "id": 4,
+            "id": 5,
             "title" : "Windows",
             "icon" : "fab fa-microsoft"
         },
         {
-            "id": 5,
+            "id": 6,
             "title" : "WordPress",
             "icon" : "fab fa-wordpress"
         },
         {
-            "id": 6,
+            "id": 7,
             "title" : "Magento",
             "icon" : "fab fa-magento"
         },
         {
-            "id": 7,
+            "id": 8,
             "title" : "Shopify",
             "icon" : "fab fa-shopify"
+        },
+        {
+            "id": 9,
+            "title": "Trello",
+            "icon": "fab fa-trello"
         }
     ],
     "certificate-list" : [
