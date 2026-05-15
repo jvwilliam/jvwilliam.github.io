@@ -385,12 +385,39 @@ p {
   align-items: center;
 }
 
-.about-image {
+.about-image-wrapper {
+  position: relative;
   width: 100%;
   max-width: 400px;
+}
+
+.about-image {
+  width: 100%;
   height: auto;
   border-radius: 1rem;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+.about-badge {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 100px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(254, 74, 0, 0.2);
+}
+
+.about-badge-image {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
 }
 
 .about-content-column {
