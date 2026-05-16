@@ -7,6 +7,24 @@
 // Scripts
 // 
 
+// Hamburger Menu Toggle
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const navList = document.getElementById('nav-list');
+
+hamburgerMenu.addEventListener('click', function() {
+  hamburgerMenu.classList.toggle('active');
+  navList.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+const navLinks = navList.querySelectorAll('.nav-anchor');
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    hamburgerMenu.classList.remove('active');
+    navList.classList.remove('active');
+  });
+});
+
 const workProfileContainer = document.getElementById('section-experience-container');
 const competencyListContainer = document.getElementById('section-competency-list');
 const languageListContainer = document.getElementById('section-language-list');
@@ -167,8 +185,8 @@ window.addEventListener('DOMContentLoaded', event => {
         observeTimelineItems();
         renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
         renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
-        renderCertificates(data['certificate-list']);
-        renderTrainings(data['trainings']);
+        //renderCertificates(data['certificate-list']);
+        //renderTrainings(data['trainings']);
       })
       .catch(error => {
         console.error('Failed to load profile data:', error);
