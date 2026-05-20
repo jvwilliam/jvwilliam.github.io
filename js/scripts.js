@@ -1,29 +1,22 @@
-/*!
-* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
 // Hamburger Menu Toggle
 const hamburgerMenu = document.getElementById('hamburger-menu');
 const navList = document.getElementById('nav-list');
 
-hamburgerMenu.addEventListener('click', function() {
-  hamburgerMenu.classList.toggle('active');
-  navList.classList.toggle('active');
-});
-
-// Close menu when a link is clicked
-const navLinks = navList.querySelectorAll('.nav-anchor');
-navLinks.forEach(link => {
-  link.addEventListener('click', function() {
-    hamburgerMenu.classList.remove('active');
-    navList.classList.remove('active');
+if (hamburgerMenu && navList) {
+  hamburgerMenu.addEventListener('click', function() {
+    hamburgerMenu.classList.toggle('active');
+    navList.classList.toggle('active');
   });
-});
+
+  // Close menu when a link is clicked
+  const navLinks = navList.querySelectorAll('.nav-anchor');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      hamburgerMenu.classList.remove('active');
+      navList.classList.remove('active');
+    });
+  });
+}
 
 const workProfileContainer = document.getElementById('section-experience-container');
 const competencyListContainer = document.getElementById('section-competency-list');
@@ -198,8 +191,10 @@ window.addEventListener('DOMContentLoaded', event => {
     const texts = [
         'Web App Testing Specialist',
         '10+ Years Experience in Testing',
+        'Functional, Automation, and Security Testing',
         'Helping teams ship bug-free, secure web applications',
-        'Shipping confidence through testing'
+        'Shipping confidence through testing',
+        'Built for teams without in-house QA'
     ];
     let currentTextIndex = 0;
     let currentCharIndex = 0;
@@ -234,7 +229,6 @@ window.addEventListener('DOMContentLoaded', event => {
     // Start the animation after a short delay
     setTimeout(typeWriter, 1000);
 });
-
 
 
 
