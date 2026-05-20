@@ -88,7 +88,7 @@ function renderExpertise(expertise = []) {
     let html = `
         <div class="section-intro">
             <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
-            <p class="section-copy">Small teams often ship without dedicated QA — leading to production bugs, frustrated users, and costly last-minute fixes.</p>
+            <p class="section-copy">I specialize in web application testing, combining functional QA, test automation, quality strategy, and security–focused validation to help teams build more reliable digital products.</p>
         </div>
         <div class="expertise-cards-grid mb-5">
     `;
