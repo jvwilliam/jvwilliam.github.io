@@ -6,7 +6,7 @@
             "position" : "Game Tester",
             "location" : "Makati · Philippines",
             "duration" : "May 2014 · Dec 2014",
-            "description" : "This marked the beginning of my software testing career. After earning a Bachelor's degree in Information Technology, I started as a game tester, focusing on testing various mobile games across platforms such as Android and iOS. My responsibilities included executing pre-defined test plans and test cases to ensure functionality and quality."
+            "description" : "After earning my Bachelor's degree in Information Technology, I started as a game tester, focusing on testing various mobile games across different platforms such as Android and iOS. My responsibilities included executing pre-defined test plans and test cases to ensure functionality and quality."
         },
         {
             "id" : 2,
@@ -30,7 +30,7 @@
             "position" : "Software QA Tester · Web Application Testing",
             "location" : "Alabang · Philippines",
             "duration" : "Mar 2017 · Mar 2020",
-            "description" : "Transitioning from mobile games and applications to web-based platforms, I have focused primarily on e-commerce projects built with Magento and WordPress (WooCommerce). This allowed me to expand my expertise in testing complex web applications, ensuring seamless user experiences, and optimizing the performance of online retail platforms. This transition also enabled me to delve into test automation using Selenium and later Cypress, as well as explore web application vulnerability testing to enhance overall software quality and security."
+            "description" : "Transitioning from mobile games and applications to web-based platforms, With a domain focused in E-commerce, most of the projects I'm involved are built with Magento and WordPress (WooCommerce). This allowed me to expand my expertise in testing complex web applications, ensuring seamless user experiences, and optimizing the performance of online retail platforms. This transition also enabled me to delve into test automation using Selenium and later Cypress, as well as explore web application vulnerability testing to enhance overall software quality and security."
         },
         {
             "id" : 5,
@@ -49,22 +49,30 @@
             "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
         }
     ],
-    "coreCompetencies" : [
+    "expertise" : [
         {
             "id": 1,
-            "title": "Functional Testing & Test Automation"
+            "title": "Functional Testing & Test Automation",
+            "description": "From validating business-critical workflows to building maintainable automated test coverage, I help teams identify functional issues early through structured manual testing, exploratory testing, and scalable automation strategies that improve release quality and reduce regression risk.",
+            "icon": "fa fa-code"
         },
         {
             "id": 2,
-            "title": "Quality Engineering and Test Management"
-        },
+            "title": "Quality Engineering and Test Management",
+            "description": "From defining QA standards and improving collaboration between teams to managing test execution and release readiness, I help organizations establish structured testing practices, improve release workflows, and implement quality strategies that reduce risk across the software development lifecycle.",
+            "icon": "fa fa-cogs"
+        }, 
         {
             "id": 3,
-            "title": "Team Management & Leadership"
+            "title": "Team Management & Leadership",
+            "description": "Lead QA initiatives with clear direction, structured collaboration, and a strong quality culture that supports high-performing development teams. I help organizations improve coordination between QA, developers, product owners, and stakeholders to ensure smoother delivery cycles and stronger product outcomes.",
+            "icon": "fa fa-users"
         },
         {
             "id": 4,
-            "title": "Web Application Security"
+            "title": "Web Application Security Testing",
+            "description": "From authentication flaws and access control issues to input validation and business logic vulnerabilities, I help teams assess web applications for common vulnerabilities, insecure implementations, and high-risk attack surfaces through practical, security-focused testing aligned with real-world threats.",
+            "icon": "fa fa-shield"
         }
     ],
     "programmingLang" : [
@@ -85,62 +93,67 @@
         },
         {
             "id": 4,
-            "title" : "Figma",
-            "icon" : "fab fa-figma"
-        },
-        {
-            "id": 5,
             "title" : "JavaScript",
             "icon" : "fab fa-js-square"
         },
         {
-            "id": 6,
+            "id": 5,
             "title" : "Python",
             "icon" : "fab fa-python"
         },
         {
-            "id": 7,
-            "title" : "Jira",
-            "icon" : "fab fa-jira"
+            "id": 6,
+            "title" : "Node.js",
+            "icon" : "fab fa-node-js"
+
         }
     ],
     "platforms" : [
         {
             "id": 1,
+            "title" : "Jira",
+            "icon" : "fab fa-jira"
+        },
+        {
+            "id": 2,
             "title" : "Android",
             "icon" : "fab fa-android"
         },
         {
-            "id": 2,
+            "id": 3,
             "title" : "Apple",
             "icon" : "fab fa-apple"
         },
         {
-            "id": 3,
+            "id": 4,
             "title" : "Linux",
             "icon" : "fab fa-linux"
         },
         {
-            "id": 4,
+            "id": 5,
             "title" : "Windows",
             "icon" : "fab fa-microsoft"
         },
         {
-            "id": 5,
+            "id": 6,
             "title" : "WordPress",
             "icon" : "fab fa-wordpress"
         },
         {
-            "id": 6,
+            "id": 7,
             "title" : "Magento",
             "icon" : "fab fa-magento"
         },
         {
-            "id": 7,
+            "id": 8,
             "title" : "Shopify",
             "icon" : "fab fa-shopify"
+        },
+        {
+            "id": 9,
+            "title": "Trello",
+            "icon": "fab fa-trello"
         }
-
     ],
     "certificate-list" : [
         {

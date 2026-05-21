@@ -29,7 +29,7 @@ As part of my continuous learning objectives, I've created this personal website
 This project uses an external [Playwright](https://playwright.dev/) test for automated end-to-end testing. While this project is a static website, its main purpose is to demonstrate the integration of an automated testing framework via a **CI pipeline**. Workflow setup can be viewed in the **playwright.yml** file. While the external playwright repository can be viewed at [jvwilliam-playwright](https://github.com/jvwilliam/jvwilliam-playwright). 
 
 ## License
-Licensed under [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+Licensed under MIT
 
 ## Contact
 Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jvwilliamandal/) or email me at [contact@jvwilliam.com](mailto:contact@jvwilliam.com)

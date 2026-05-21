@@ -1,11 +1,22 @@
-/*!
-* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+// Hamburger Menu Toggle
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const navList = document.getElementById('nav-list');
+
+if (hamburgerMenu && navList) {
+  hamburgerMenu.addEventListener('click', function() {
+    hamburgerMenu.classList.toggle('active');
+    navList.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  const navLinks = navList.querySelectorAll('.nav-anchor');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      hamburgerMenu.classList.remove('active');
+      navList.classList.remove('active');
+    });
+  });
+}
 
 const workProfileContainer = document.getElementById('section-experience-container');
 const competencyListContainer = document.getElementById('section-competency-list');
@@ -21,40 +32,91 @@ function escapeHTML(str) {
 }
 // Section ID pattern - {section}-{sectionName}-{sectionPurporse}
 function renderWorkProfile(workProfile = []) {
-    let html = '<h2 class="mb-5" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>';
-    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}) => {
+    let html = `
+        <div class="section-intro">
+            <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
+            <p class="section-copy">A career timeline highlighting the roles, projects, and QA leadership milestones that shaped my work in testing, automation, and product quality.</p>
+        </div>
+        <div class="timeline" aria-label="experience timeline">
+    `;
+
+    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}, index) => {
+        const sideClass = index % 2 === 0 ? 'timeline-item left' : 'timeline-item right';
         html += `
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" id="section-experience-workTitle" data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
-                    <div class="subheading mb-3" id="section-experience-companyName" data-testid="section-experience-companyName">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
+            <article class="${sideClass}">
+                <div class="timeline-marker" aria-hidden="true"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-position">
+                                <h3 id="section-experience-workTitle" data-testid="section-experience-workTitle">${escapeHTML(position)}</h3>
+                            </div>
+                            <div class="timeline-company" id="section-experience-companyName" data-testid="section-experience-companyName">${escapeHTML(companyName)}${location ? ' · ' + escapeHTML(location) : ''}</div>
+                            <div><time class="timeline-date">${escapeHTML(duration)}</time></div>
+                            </div>
+                    </div>
                     <p>${escapeHTML(description)}</p>
                 </div>
-                <div class="flex-shrink-0"><span class="text-primary">${escapeHTML(duration)}</span></div>
-            </div>           
+            </article>
         `;
     });
+
+    html += '</div>';
     workProfileContainer.innerHTML = html;
 }
 
-function renderCoreCompetencies(coreCompetencies = []) {
-    let html = '';
-    coreCompetencies.forEach(({title}) => {
+function observeTimelineItems() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if (!timelineItems.length) return;
+
+    const observer = new IntersectionObserver((entries, observerRef) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observerRef.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -15% 0px',
+        threshold: 0.2
+    });
+
+    timelineItems.forEach(item => observer.observe(item));
+}
+
+function renderExpertise(expertise = []) {
+    let html = `
+        <div class="section-intro">
+            <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
+            <p class="section-copy">I specialize in modern web application QA: validating critical user flows, building practical test automation, improving quality processes, and identifying risks before release.</p>
+        </div>
+        <div class="expertise-cards-grid mb-5">
+    `;
+    
+    expertise.forEach(({title, description, icon}) => {
         html += `
-        <li id="section-competency-item" data-testid="section-competency-item">
-            <span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>
-            ${escapeHTML(title)}
-        </li>
+            <div class="expertise-card">
+                <div class="expertise-card-icon">
+                    <i class="${escapeHTML(icon)}"></i>
+                </div>
+                <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
+                <p class="expertise-card-description">${escapeHTML(description)}</p>
+            </div>
         `;
     });
-    competencyListContainer.innerHTML = html;
+    
+    html += '</div>';
+    document.getElementById('section-expertise-container').innerHTML = html;
 }
 
 function renderProgrammingLang(programmingLang = []) {
     let html = '';
     programmingLang.forEach(({title, icon}) => {
         html += `
-        <li id="section-language-item" data-testid="section-language-item" class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        <li id="section-language-item" data-testid="section-language-item" class="tool-badge" title="${escapeHTML(title)}">
+            <span class="tool-badge-icon" aria-hidden="true"><i class="${escapeHTML(icon)}"></i></span>
+            <span class="tool-badge-label">${escapeHTML(title)}</span>
+        </li>
         `;
     });
     languageListContainer.innerHTML = html;
@@ -64,11 +126,15 @@ function renderPlatforms(platforms = []) {
     let html = '';
     platforms.forEach(({title, icon}) => {
         html += `
-        <li id="section-platform-item" data-testid="section-platform-item"class="list-inline-item" title="${escapeHTML(title)}"><i class="${escapeHTML(icon)}" aria-label="${escapeHTML(title)}"></i></li>
+        <li id="section-platform-item" data-testid="section-platform-item" class="tool-badge" title="${escapeHTML(title)}">
+            <span class="tool-badge-icon" aria-hidden="true"><i class="${escapeHTML(icon)}"></i></span>
+            <span class="tool-badge-label">${escapeHTML(title)}</span>
+        </li>
         `;
     });
     platformListContainer.innerHTML = html;
 }
+
 
 function renderCertificates(certList = []) {
     let html = '';
@@ -103,37 +169,17 @@ function renderTrainings(trainingList = []) {
 }
 
 window.addEventListener('DOMContentLoaded', event => {
-    // Activate Bootstrap scrollspy on the main nav element
-    const sideNav = document.body.querySelector('#sideNav');
-    if (sideNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#sideNav',
-            rootMargin: '0px 0px -40%',
-        });
-    }
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
     // Fetch and render profile data
     fetch('../assets/data/profile.json')
       .then((res) => res.json())
       .then((data) => {
         renderWorkProfile(data['workProfile']);
-        renderCoreCompetencies(data['coreCompetencies']);
-        renderProgrammingLang(data['programmingLang']);
-        renderPlatforms(data['platforms']);
-        renderCertificates(data['certificate-list']);
-        renderTrainings(data['trainings']);
+        renderExpertise(data['expertise']);
+        observeTimelineItems();
+        renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
+        renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
+        //renderCertificates(data['certificate-list']);
+        //renderTrainings(data['trainings']);
       })
       .catch(error => {
         console.error('Failed to load profile data:', error);
@@ -144,9 +190,11 @@ window.addEventListener('DOMContentLoaded', event => {
     // Typing animation for the heading
     const texts = [
         'Web App Testing Specialist',
-        '10+ Years of Experience',
+        '10+ Years Experience in Testing',
+        'Functional, Automation, and Security Testing',
         'Helping teams ship bug-free, secure web applications',
-        'Shipping confidence through testing'
+        'Shipping confidence through testing',
+        'Built for teams without in-house QA'
     ];
     let currentTextIndex = 0;
     let currentCharIndex = 0;
@@ -181,7 +229,6 @@ window.addEventListener('DOMContentLoaded', event => {
     // Start the animation after a short delay
     setTimeout(typeWriter, 1000);
 });
-
 
 
 
