@@ -35,7 +35,7 @@ function renderWorkProfile(workProfile = []) {
     let html = `
         <div class="section-intro">
             <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
-            <p class="section-copy">A centered career timeline built for clarity: milestones, companies, dates, and impact in a minimal modern layout.</p>
+            <p class="section-copy">A career timeline highlighting the roles, projects, and QA leadership milestones that shaped my work in testing, automation, and product quality.</p>
         </div>
         <div class="timeline" aria-label="experience timeline">
     `;
@@ -88,7 +88,7 @@ function renderExpertise(expertise = []) {
     let html = `
         <div class="section-intro">
             <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
-            <p class="section-copy">I specialize in web application testing, combining functional QA, test automation, quality strategy, and security–focused validation to help teams build more reliable digital products.</p>
+            <p class="section-copy">I specialize in modern web application QA: validating critical user flows, building practical test automation, improving quality processes, and identifying risks before release.</p>
         </div>
         <div class="expertise-cards-grid mb-5">
     `;

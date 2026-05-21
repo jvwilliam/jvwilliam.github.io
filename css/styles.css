@@ -339,10 +339,14 @@ p {
   justify-content: center;
 }
 
-.hero__subtitle h2 {
+.hero__subtitle .hero__subtitle {
   font-size: clamp(1.5rem, 2vw, 2.2rem);
   color: var(--accent-color);
   margin: 0;
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-color);
 }
 
 .hero__copy {
@@ -461,6 +465,7 @@ p {
   position: relative;
   width: 100%;
   max-width: 400px;
+  transform: translateX(50px);
 }
 
 .about-image {
