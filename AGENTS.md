@@ -18,14 +18,13 @@ The site is built with plain HTML, CSS, and JavaScript. It is hosted through Git
 
 ## Repository Workflow
 
-- Always check the current Git branch before making codebase changes.
+- Always check the current Git branch before making codebase changes. If the branch cannot be determined or the repo is in detached HEAD, stop and ask before editing. 
 - Do not touch project files if the current branch is `main` or `master`.
 - If the current branch is `main` or `master`, stop and ask the user to create or switch to a feature branch first.
 - Use feature branches for all edits. Prefer branch names that describe the work, such as `codex/update-agent-instructions` or `codex/seo-copy-update`.
 - Check `git status` before editing so existing user changes are visible.
-- Do not overwrite, revert, or clean up user changes unless the user explicitly asks.
-- Keep commits focused by topic when the user asks for commits.
-- Do not force push, reset hard, delete branches, or rewrite history unless the user explicitly requests it.
+- Never overwrite, reset, revert, or clean up user changes unless the user explicitly asks.
+- Never commit, push, or open a pull request.
 - After changes, summarize what changed and list any verification performed.
 
 ## Guard Rails
