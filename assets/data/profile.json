@@ -49,6 +49,14 @@
             "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
         }
     ],
+    "animatedText" : [
+        "QA for Modern SaaS Teams",
+        "Web App Testing Specialist",
+        "Functional, Automation, and Security Testing",
+        "Helping teams ship bug-free, secure web applications",
+        "Shipping confidence through testing",
+        "Built for teams without in-house QA"
+    ],
     "expertise" : [
         {
             "id": 1,

@@ -178,6 +178,10 @@ window.addEventListener('DOMContentLoaded', event => {
         observeTimelineItems();
         renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
         renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
+
+         // Typing animation for the heading
+        const texts = data['animatedText'].toSorted() || [];
+        startTypingAnimation(texts);
         //renderCertificates(data['certificate-list']);
         //renderTrainings(data['trainings']);
       })
@@ -187,47 +191,40 @@ window.addEventListener('DOMContentLoaded', event => {
         if (workProfileContainer) workProfileContainer.innerHTML = '<p>Failed to load profile data.</p>';
       });
 
-    // Typing animation for the heading
-    const texts = [
-        'Web App Testing Specialist',
-        '10+ Years Experience in Testing',
-        'Functional, Automation, and Security Testing',
-        'Helping teams ship bug-free, secure web applications',
-        'Shipping confidence through testing',
-        'Built for teams without in-house QA'
-    ];
-    let currentTextIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 50; // ms per character
-    const deletingSpeed = 50;
-    const pauseTime = 2000; // pause before deleting
-    const animatedHeading = document.getElementById('animated-heading');
+    function startTypingAnimation(texts = [], animatedHeading = document.getElementById('animated-heading')) {
+        if (!animatedHeading) return;
 
-    function typeWriter() {
-        const currentText = texts[currentTextIndex];
-        if (isDeleting) {
-            animatedHeading.textContent = currentText.substring(0, currentCharIndex--);
-            if (currentCharIndex < 0) {
-                isDeleting = false;
-                currentTextIndex = (currentTextIndex + 1) % texts.length;
-                setTimeout(typeWriter, 500); // pause before next text
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 50; // ms per character
+        const deletingSpeed = 50;
+        const pauseTime = 2000; // pause before deleting
+
+        function typeWriter() {
+            const currentText = texts[currentTextIndex];
+            if (isDeleting) {
+                animatedHeading.textContent = currentText.substring(0, currentCharIndex--);
+                if (currentCharIndex < 0) {
+                    isDeleting = false;
+                    currentTextIndex = (currentTextIndex + 1) % texts.length;
+                    setTimeout(typeWriter, 500); // pause before next text
+                } else {
+                    setTimeout(typeWriter, deletingSpeed);
+                }
             } else {
-                setTimeout(typeWriter, deletingSpeed);
-            }
-        } else {
-            animatedHeading.textContent = currentText.substring(0, currentCharIndex++);
-            if (currentCharIndex > currentText.length) {
-                isDeleting = true;
-                setTimeout(typeWriter, pauseTime);
-            } else {
-                setTimeout(typeWriter, typingSpeed);
+                animatedHeading.textContent = currentText.substring(0, currentCharIndex++);
+                if (currentCharIndex > currentText.length) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, pauseTime);
+                } else {
+                    setTimeout(typeWriter, typingSpeed);
+                }
             }
         }
-    }
-
     // Start the animation after a short delay
     setTimeout(typeWriter, 1000);
+    }
 });
 
 
