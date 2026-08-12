@@ -19,7 +19,7 @@ if (hamburgerMenu && navList) {
 }
 
 const workProfileContainer = document.getElementById('section-experience-container');
-const competencyListContainer = document.getElementById('section-competency-list');
+const expertiseContainer = document.getElementById('section-expertise-container');
 const languageListContainer = document.getElementById('section-language-list');
 const platformListContainer = document.getElementById('section-platform-list');
 const certContainer = document.getElementById('section-certificate-list');
@@ -32,6 +32,8 @@ function escapeHTML(str) {
 }
 // Section ID pattern - {section}-{sectionName}-{sectionPurporse}
 function renderWorkProfile(workProfile = []) {
+    if (!workProfileContainer) return;
+
     let html = `
         <div class="section-intro">
             <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
@@ -85,6 +87,8 @@ function observeTimelineItems() {
 }
 
 function renderExpertise(expertise = []) {
+    if (!expertiseContainer) return;
+
     let html = `
         <div class="section-intro">
             <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
@@ -106,10 +110,12 @@ function renderExpertise(expertise = []) {
     });
     
     html += '</div>';
-    document.getElementById('section-expertise-container').innerHTML = html;
+    expertiseContainer.innerHTML = html;
 }
 
 function renderProgrammingLang(programmingLang = []) {
+    if (!languageListContainer) return;
+
     let html = '';
     programmingLang.forEach(({title, icon}) => {
         html += `
@@ -123,6 +129,8 @@ function renderProgrammingLang(programmingLang = []) {
 }
 
 function renderPlatforms(platforms = []) {
+    if (!platformListContainer) return;
+
     let html = '';
     platforms.forEach(({title, icon}) => {
         html += `
@@ -137,6 +145,8 @@ function renderPlatforms(platforms = []) {
 
 
 function renderCertificates(certList = []) {
+    if (!certContainer) return;
+
     let html = '';
     certList.forEach(({title, institute, year, url}) => {
         html += `
@@ -153,6 +163,8 @@ function renderCertificates(certList = []) {
 }
 
 function renderTrainings(trainingList = []) {
+    if (!trainingContainer) return;
+
     let html = '';
     trainingList.slice().reverse().forEach(({title, institute, year, url}) => {
         html += `
@@ -170,7 +182,7 @@ function renderTrainings(trainingList = []) {
 
 window.addEventListener('DOMContentLoaded', event => {
     // Fetch and render profile data
-    fetch('../assets/data/profile.json')
+    fetch('/assets/data/profile.json')
       .then((res) => res.json())
       .then((data) => {
         renderWorkProfile(data['workProfile']);
@@ -187,12 +199,11 @@ window.addEventListener('DOMContentLoaded', event => {
       })
       .catch(error => {
         console.error('Failed to load profile data:', error);
-        // Optionally show a user-friendly message in the UI
-        if (workProfileContainer) workProfileContainer.innerHTML = '<p>Failed to load profile data.</p>';
       });
 
     function startTypingAnimation(texts = [], animatedHeading = document.getElementById('animated-heading')) {
         if (!animatedHeading) return;
+        if (!texts.length) return;
 
         let currentTextIndex = 0;
         let currentCharIndex = 0;
@@ -226,6 +237,5 @@ window.addEventListener('DOMContentLoaded', event => {
     setTimeout(typeWriter, 1000);
     }
 });
-
 
 
