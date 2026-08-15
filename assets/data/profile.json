@@ -6,7 +6,7 @@
             "position" : "Game Tester",
             "location" : "Makati · Philippines",
             "duration" : "May 2014 · Dec 2014",
-            "description" : "After earning my Bachelor's degree in Information Technology, I started as a game tester, focusing on testing various mobile games across different platforms such as Android and iOS. My responsibilities included executing pre-defined test plans and test cases to ensure functionality and quality."
+            "description" : "I began my QA career testing mobile games across Android and iOS. I executed test cases, reported functional issues, and helped verify that releases met expected quality standards."
         },
         {
             "id" : 2,
@@ -14,7 +14,7 @@
             "position" : "Resource Management Staff",
             "location" : "Makati · Philippines",
             "duration" : "Jan 2015 · Dec 2015",
-            "description" : "After spending some time as a game tester. I applied for a lateral movement as a Resource Management Staff. As a Resource Management Staff or RMS, part of my responsibility is to ensure that the test build installed on the test devices are correct. As an RMS, we are also responsible for keeping the safety & security of the devices."
+            "description" : "I supported QA operations by managing test builds, preparing devices, and ensuring testers had the correct versions and environments for execution. This role gave me early experience with test readiness, device security, and QA process discipline."
         }, 
         {
             "id" : 3,
@@ -22,7 +22,7 @@
             "position" : "QA Tester III",
             "location" : "Makati · Philippines",
             "duration" : "Jan 2016 · Mar 2017",
-            "description" : "As a QA Tester 3, I led a team of up to five skilled game testers, managing 2-3 projects simultaneously. My primary responsibilities included executing comprehensive test plans for mobile applications and games, utilizing QA tools and frameworks such as Jira and Appium to ensure quality and efficiency. I also mentored junior testers, conducted thorough reviews of their work to uphold standards, and verified the accuracy of test results to ensure project success."
+            "description" : "I led a small team of game testers while managing QA coverage across multiple mobile app and game projects. My work included test planning, task coordination, Jira-based tracking, Appium-supported testing, review of test results, and mentoring junior testers."
         },
         {
             "id" : 4,
@@ -30,7 +30,7 @@
             "position" : "Software QA Tester · Web Application Testing",
             "location" : "Alabang · Philippines",
             "duration" : "Mar 2017 · Mar 2020",
-            "description" : "Transitioning from mobile games and applications to web-based platforms, With a domain focused in E-commerce, most of the projects I'm involved are built with Magento and WordPress (WooCommerce). This allowed me to expand my expertise in testing complex web applications, ensuring seamless user experiences, and optimizing the performance of online retail platforms. This transition also enabled me to delve into test automation using Selenium and later Cypress, as well as explore web application vulnerability testing to enhance overall software quality and security."
+            "description" : "I moved from mobile testing into complex web application QA, with a focus on ecommerce projects built on Magento and WordPress/WooCommerce. This role strengthened my experience in functional testing, regression testing, Selenium and Cypress automation, and web application security testing."
         },
         {
             "id" : 5,
@@ -38,15 +38,15 @@
             "position" : "Team Lead · Quality Management",
             "location" : "Irvine California · US (Remote)",
             "duration" : "Jun 2020 · May 2024",
-            "description" : "My career highlight so far. At 500 Designs, I was able to apply the full breadth of my testing expertise. My most notable achievement was building a QA team from the ground up and establishing a robust QA framework that became the foundation for the team's and organization's success. In my role as Team Lead, I developed deep expertise in leadership and team management. I effectively drove success by setting clear objectives and key results for each team member, aligning their efforts with broader organizational goals to achieve outstanding outcomes."
+            "description" : "At 500 Designs, I built a QA team from the ground up and helped establish testing processes that supported multiple active client projects. I led QA planning, team coordination, test execution, and release readiness, giving development teams a stronger quality framework as project demands scaled."
         },
         {
             "id" : 6,
             "companyName" : "Norlinq Ltd",
             "position" : "Test Engineer · Web Application Testing",
             "location" : "Abu Dhabi · United Arab Emirates",
-            "duration" : "May 2024 · Present",
-            "description" : "As the lead QA for a globally recognized international organization. I oversee the quality assurance lifecycle for high-impact features, ensuring seamless functionality and performance of web applications used by millions worldwide. My expertise lies in developing test strategies, creating and maintaining comprehensive end-to-end automation test suites, and collaborating across teams to uphold the rigorous standards of a high-profile organization."
+            "duration" : "Mar 2024 · Present",
+            "description" : "I lead QA for high-impact web application features used by a large global audience. My work includes planning test strategies, validating critical user flows, maintaining end-to-end automation coverage, and collaborating with product and development teams to reduce release risk."
         }
     ],
     "animatedText" : [
@@ -290,6 +290,3 @@
         
     ]
 }
-
-
-    

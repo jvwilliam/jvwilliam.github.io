@@ -298,7 +298,7 @@ p {
 }
 
 /* ===== HERO SECTION ===== */
-.hero {
+.homepage-hero {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -306,6 +306,22 @@ p {
   min-height: 100dvh;
   padding: 2rem 1rem;
   width: 100%;
+}
+
+.landing-hero {
+  display: grid;
+  place-items: center;
+  padding: clamp(4rem, 8vw, 7rem) 1rem;
+  width: 100%;
+}
+
+.landing-hero .resume-section-content {
+  width: 100%;
+}
+
+.landing-hero .hero__content {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__content {

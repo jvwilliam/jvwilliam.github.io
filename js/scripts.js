@@ -40,7 +40,7 @@ function renderWorkProfile(workProfile = []) {
     let html = `
         <div class="section-intro">
             <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
-            <p class="section-copy">A career timeline highlighting the roles, projects, and QA leadership milestones that shaped my work in testing, automation, and product quality.</p>
+            <p class="section-copy">A decade-long QA journey across web applications, test automation, team leadership, and release support for software teams with changing project demands.</p>
         </div>
         <div class="timeline" aria-label="experience timeline">
     `;
