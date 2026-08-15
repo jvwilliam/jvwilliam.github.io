@@ -711,14 +711,28 @@ p {
   display: flex;
   width: 100%;
   margin-bottom: 3rem;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.timeline-item.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.timeline-item--hidden {
+  display: none;
+}
+
+.timeline-item--fade-in {
+  animation: timelineFadeIn 0.55s ease both;
+}
+
+@keyframes timelineFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .timeline-item.left {
@@ -815,6 +829,32 @@ p {
   line-height: 1.75;
 }
 
+.timeline-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.timeline-show-more {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--cta-text-color);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.timeline-show-more:hover,
+.timeline-show-more:focus {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.timeline-show-more:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 0.35rem;
+}
+
 @media (max-width: 1024px) {
   .timeline-content {
     width: min(100%, 40rem);
@@ -841,6 +881,11 @@ p {
     text-align: left;
   }
 
+  .timeline-item--hidden,
+  .timeline-item[hidden] {
+    display: none;
+  }
+
   .timeline-item:last-child {
     margin-bottom: 0;
   }
@@ -858,6 +903,12 @@ p {
 
   .timeline-content::after {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-item--fade-in {
+    animation: none;
   }
 }
 

@@ -34,6 +34,9 @@ function escapeHTML(str) {
 function renderWorkProfile(workProfile = []) {
     if (!workProfileContainer) return;
 
+    const visibleExperienceCount = 3;
+    const orderedWorkProfile = workProfile.slice().reverse();
+
     let html = `
         <div class="section-intro">
             <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
@@ -42,10 +45,14 @@ function renderWorkProfile(workProfile = []) {
         <div class="timeline" aria-label="experience timeline">
     `;
 
-    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}, index) => {
+    orderedWorkProfile.forEach(({position, companyName, location, duration, description}, index) => {
         const sideClass = index % 2 === 0 ? 'timeline-item left' : 'timeline-item right';
+        const isInitiallyHidden = index >= visibleExperienceCount;
+        const itemClass = `${sideClass}${isInitiallyHidden ? ' timeline-item--hidden' : ''}`;
+        const hiddenAttribute = isInitiallyHidden ? ' hidden' : '';
+
         html += `
-            <article class="${sideClass}">
+            <article class="${itemClass}"${hiddenAttribute}>
                 <div class="timeline-marker" aria-hidden="true"></div>
                 <div class="timeline-content">
                     <div class="timeline-header">
@@ -64,26 +71,39 @@ function renderWorkProfile(workProfile = []) {
     });
 
     html += '</div>';
+
+    if (orderedWorkProfile.length > visibleExperienceCount) {
+        html += `
+            <div class="timeline-actions">
+                <button class="timeline-show-more" type="button" id="section-experience-showMore" data-testid="section-experience-showMore" aria-controls="section-experience-container" aria-expanded="false">
+                    Show More
+                </button>
+            </div>
+        `;
+    }
+
     workProfileContainer.innerHTML = html;
+    setupExperienceShowMore();
 }
 
-function observeTimelineItems() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if (!timelineItems.length) return;
+function setupExperienceShowMore() {
+    if (!workProfileContainer) return;
 
-    const observer = new IntersectionObserver((entries, observerRef) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observerRef.unobserve(entry.target);
-            }
+    const showMoreButton = document.getElementById('section-experience-showMore');
+    if (!showMoreButton) return;
+
+    showMoreButton.addEventListener('click', () => {
+        const hiddenTimelineItems = workProfileContainer.querySelectorAll('.timeline-item[hidden]');
+
+        hiddenTimelineItems.forEach(item => {
+            item.hidden = false;
+            item.classList.remove('timeline-item--hidden');
+            item.classList.add('timeline-item--fade-in');
         });
-    }, {
-        rootMargin: '0px 0px -15% 0px',
-        threshold: 0.2
-    });
 
-    timelineItems.forEach(item => observer.observe(item));
+        showMoreButton.setAttribute('aria-expanded', 'true');
+        showMoreButton.closest('.timeline-actions')?.remove();
+    });
 }
 
 function renderExpertise(expertise = []) {
@@ -181,13 +201,14 @@ function renderTrainings(trainingList = []) {
 }
 
 window.addEventListener('DOMContentLoaded', event => {
+    setupExperienceShowMore();
+
     // Fetch and render profile data
     fetch('/assets/data/profile.json')
       .then((res) => res.json())
       .then((data) => {
         renderWorkProfile(data['workProfile']);
         renderExpertise(data['expertise']);
-        observeTimelineItems();
         renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
         renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
 
@@ -237,5 +258,3 @@ window.addEventListener('DOMContentLoaded', event => {
     setTimeout(typeWriter, 1000);
     }
 });
-
-
