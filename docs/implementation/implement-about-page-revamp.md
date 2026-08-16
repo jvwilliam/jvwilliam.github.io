@@ -1,5 +1,7 @@
 # Implement About Page Revamp
 
+**Status**: Completed
+
 ## Objective
 
 Create a static dedicated About page at `/about/` that contains the existing About, Experience, and Tools & Technologies content, while keeping the home page focused on the service offer and primary conversion path.

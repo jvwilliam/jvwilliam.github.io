@@ -1,5 +1,7 @@
 # About Page Revamp
 
+**Status**: Active
+
 ## Product Outcome
 
 Create a dedicated About page that gives visitors a deeper view of JV William Andal's background, experience, and working toolkit without overloading the home page. The home page should remain focused on the service offer, while the About page should support trust-building for startup founders, product owners, engineering leads, and small web product teams evaluating QA support.
