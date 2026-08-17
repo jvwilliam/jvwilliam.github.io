@@ -136,25 +136,47 @@ p {
 }
 
 .main-cta-btn {
+  position: relative;
   display: inline-block;
   font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.4rem, 1.5vw, 2rem);
   color: var(--text-color);
-  text-decoration: underline transparent;
+  text-decoration: none;
   text-transform: uppercase;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 5px;
+  --cta-underline-offset: -5px;
+  --cta-underline-thickness: 3px;
   border-radius: 50px;
   font-weight: 700;
-  transition: color 0.3s ease, text-decoration-color 0.3s ease-in-out;
+  transition: color 0.3s ease;
   background: transparent;
   line-height: 1.2;
+}
+
+.main-cta-btn::after,
+.cta-section__button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--cta-underline-offset);
+  height: var(--cta-underline-thickness);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .main-cta-btn:hover,
 .main-cta-btn:focus {
   color: var(--accent-color);
-  text-decoration-color: currentColor;
+  text-decoration: none;
+}
+
+.main-cta-btn:hover::after,
+.main-cta-btn:focus::after,
+.cta-section__button:hover::after,
+.cta-section__button:focus::after {
+  transform: scaleX(1);
 }
 
 .top-nav {
@@ -208,16 +230,39 @@ p {
 }
 
 .top-nav .nav-anchor {
+  position: relative;
   display: inline-block;
   font-weight: 600;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
   color: var(--nav-text-color);
+  text-decoration: none;
+  --cta-underline-offset: -5px;
+  --cta-underline-thickness: 2px;
 }
 
 .top-nav .nav-anchor:hover,
 .top-nav .nav-anchor:focus {
   color: var(--accent-color);
+  text-decoration: none;
+}
+
+.top-nav .nav-anchor:not(.nav-anchor--cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--cta-underline-offset);
+  height: var(--cta-underline-thickness);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.top-nav .nav-anchor:not(.nav-anchor--cta):hover::after,
+.top-nav .nav-anchor:not(.nav-anchor--cta):focus::after {
+  transform: scaleX(1);
 }
 
 .top-nav .nav-anchor--cta {
@@ -893,6 +938,60 @@ p {
   outline-offset: 0.35rem;
 }
 
+/* ===== CTA SECTION ===== */
+.cta-section {
+  display: grid;
+  align-items: center;
+  min-height: 300px;
+  padding: clamp(1rem, 1rem, 1rem);
+  background: transparent;
+}
+
+.cta-section__inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cta-section__heading {
+  max-width: 760px;
+  color: #ffffff;
+  font-size: 3.25rem;
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.cta-section__button {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  color: var(--accent-color);
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  --cta-underline-offset: -10px;
+  --cta-underline-thickness: 4px;
+  transition: color 0.3s ease;
+}
+
+.cta-section__button:hover,
+.cta-section__button:focus {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.cta-section__button:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 0.35rem;
+}
+
 @media (max-width: 1024px) {
   .timeline-content {
     width: min(100%, 40rem);
@@ -942,11 +1041,40 @@ p {
   .timeline-content::after {
     display: none;
   }
+
+  .cta-section {
+    min-height: 300px;
+    padding: clamp(1rem, 1rem, 1rem);
+  }
+
+  .cta-section__inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-content: center;
+  }
+
+  .cta-section__heading {
+    max-width: 100%;
+    font-size: 2.45rem;
+  }
+
+  .cta-section__button {
+    justify-self: start;
+    font-size: 1.85rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .timeline-item--fade-in {
     animation: none;
+  }
+
+  .main-cta-btn,
+  .main-cta-btn::after,
+  .cta-section__button,
+  .cta-section__button::after,
+  .top-nav .nav-anchor:not(.nav-anchor--cta)::after {
+    transition: none;
   }
 }
 
