@@ -950,12 +950,15 @@ p {
 .cta-section__inner {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2rem;
+  grid-template-columns: minmax(0, 760px) auto;
+  column-gap: 2rem;
+  row-gap: 1rem;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cta-section__heading {
+  grid-column: 1;
   max-width: 760px;
   color: #ffffff;
   font-size: 3.25rem;
@@ -963,8 +966,20 @@ p {
   line-height: 1.08;
 }
 
+.cta-section__copy {
+  grid-column: 1;
+  max-width: 680px;
+  margin: 0;
+  color: rgba(233, 237, 248, 0.86);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
 .cta-section__button {
   position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
   display: inline-block;
   padding: 0;
   background: transparent;
@@ -1051,6 +1066,7 @@ p {
     grid-template-columns: 1fr;
     gap: 1.75rem;
     align-content: center;
+    justify-content: start;
   }
 
   .cta-section__heading {
@@ -1059,6 +1075,8 @@ p {
   }
 
   .cta-section__button {
+    grid-column: 1;
+    grid-row: auto;
     justify-self: start;
     font-size: 1.85rem;
   }
