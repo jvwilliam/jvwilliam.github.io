@@ -4,7 +4,7 @@
 
 ## Objective
 
-Refine the About page CTA layout so the supporting copy and `Let's Talk` action feel connected, while preserving the current open-section design, site typography, and CTA underline interaction.
+Refine the About page CTA layout so the heading, supporting copy, and `Let's Talk` action follow a natural reading path, while preserving the current open-section design, site typography, and CTA underline interaction.
 
 This is an implementation handoff document. It defines the desired change; it does not implement it.
 
@@ -16,23 +16,7 @@ The About page CTA currently includes:
 - Supporting copy: `Need help covering a release, validating critical flows, or strengthening test coverage? Let's discuss where QA support can make the biggest impact.`
 - CTA link: `Let's Talk`
 
-The CSS places the heading and copy in the left column and the CTA link in the right column. The CTA link currently spans both rows:
-
-```css
-.cta-section__button {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  justify-self: end;
-}
-```
-
-This keeps the desktop layout clean, but the action can feel visually detached from the supporting copy because the reader scans the heading and paragraph on the left, then has to jump to the right-side action.
-
-## Recommended Change
-
-Keep the two-column desktop layout, but reposition the CTA link so it aligns with the supporting copy instead of spanning the full heading/copy block.
-
-Recommended desktop placement:
+The CSS places the heading and copy in the left column and the CTA link in the right column. A later adjustment moved the CTA link to the second row:
 
 ```css
 .cta-section__button {
@@ -43,7 +27,40 @@ Recommended desktop placement:
 }
 ```
 
-This keeps the heading dominant while making the action feel like the natural next step after the paragraph.
+This still feels visually awkward because the CTA is a text-style link, not a filled button. Placing a lightweight text CTA far right makes it feel detached and underpowered. The reader scans the heading and paragraph on the left, then has to jump to a separate right-side action.
+
+## Recommended Change
+
+Use a single-column CTA composition. Place the CTA link directly under the supporting copy on the left.
+
+Recommended layout:
+
+```text
+Flexible QA Support When Your Team Needs It
+
+Need help covering a release, validating critical flows, or strengthening test coverage? Let's discuss where QA support can make the biggest impact.
+
+Let's Talk
+```
+
+Recommended CSS direction:
+
+```css
+.cta-section__inner {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: start;
+  row-gap: 1rem;
+}
+
+.cta-section__button {
+  grid-column: 1;
+  grid-row: auto;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+```
+
+This makes the CTA feel like the natural next step after the copy. It also matches the homepage hero CTA pattern better because the no-border text link works strongest when it follows the content it completes.
 
 ## Scope
 
@@ -59,19 +76,17 @@ This keeps the heading dominant while making the action feel like the natural ne
   - `section-cta-contactLink`
 - Keep the current open-section treatment; do not add a card, border, translucent panel, or filled CTA button.
 - Preserve the current pseudo-element underline hover behavior for CTA links.
-- Keep the desktop layout as two columns:
-  - Left column: heading and supporting copy.
-  - Right column: CTA link.
-- Position the CTA link on the second row, aligned with the supporting copy.
-- Preserve mobile stacking order:
+- Use a single-column CTA layout on desktop and mobile:
   - Heading.
   - Supporting copy.
   - CTA link.
+- Position the CTA link directly under the supporting copy.
+- Keep the CTA left-aligned.
 
 ### Should Have
 
 - Keep spacing tight enough that the CTA feels connected to the copy.
-- Keep the CTA right-aligned on desktop and left-aligned on mobile.
+- Use a modest top margin on the CTA link if needed to separate it from the paragraph.
 - Ensure the CTA does not overlap or visually collide with long heading/copy text.
 - Keep the section responsive across common desktop, tablet, and mobile widths.
 
@@ -85,8 +100,8 @@ This keeps the heading dominant while making the action feel like the natural ne
 
 ## Acceptance Criteria
 
-- Given a desktop viewport, when the About page CTA is viewed, then the heading and supporting copy appear stacked in the left column.
-- Given a desktop viewport, when the About page CTA is viewed, then the `Let's Talk` link appears in the right column aligned with the supporting copy row.
+- Given a desktop viewport, when the About page CTA is viewed, then the heading, supporting copy, and `Let's Talk` link appear in a single left-aligned column.
+- Given a desktop viewport, when the About page CTA is viewed, then the `Let's Talk` link appears directly under the supporting copy.
 - Given a mobile viewport, when the About page CTA is viewed, then the heading, supporting copy, and CTA link stack in a readable single-column order.
 - Given a user hovers or focuses the CTA link, then only the custom pseudo-element underline appears.
 - Given a keyboard user tabs to the CTA link, then focus remains visible.
@@ -94,21 +109,31 @@ This keeps the heading dominant while making the action feel like the natural ne
 
 ## Suggested CSS Direction
 
-Adjust the CTA button grid placement from spanning two rows to occupying the second row:
+Change the CTA section from a left-content/right-action grid to a single-column layout:
 
 ```css
+.cta-section__inner {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: start;
+  row-gap: 1rem;
+}
+
 .cta-section__button {
-  grid-column: 2;
-  grid-row: 2;
-  align-self: end;
-  justify-self: end;
+  grid-column: 1;
+  grid-row: auto;
+  justify-self: start;
+  margin-top: 0.5rem;
 }
 ```
 
-Keep or confirm the mobile override resets the placement:
+Keep or simplify the mobile override so it does not fight the desktop layout:
 
 ```css
 @media (max-width: 768px) {
+  .cta-section__inner {
+    grid-template-columns: 1fr;
+  }
+
   .cta-section__button {
     grid-column: 1;
     grid-row: auto;
