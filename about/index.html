@@ -12,7 +12,7 @@
         <meta property="og:url" content="https://jvwilliam.com/about/" />
         <meta property="og:site_name" content="JV William Andal" />
         <meta property="og:image" content="https://jvwilliam.com/assets/img/og-image.png"/>
-        <title>About JV William Andal | QA Testing Specialist</title>
+        <title>JV William Andal | QA Testing Specialist</title>
         <link rel="canonical" href="https://jvwilliam.com/about/" />
         <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
@@ -95,12 +95,31 @@
         </nav>
         <!-- Page Content-->
         <div class="page-content">
-            <!-- Hero -->
-            <section class="landing-hero" id="about-hero-section" data-testid="about-hero-section">
-                <div class="resume-section-content" id="about-hero-section-container" data-testid="about-hero-section-container">
-                    <div class="hero__content">
-                        <h1 class="hero__title" id="section-about-intro-primaryHeading" data-testid="section-about-intro-primaryHeading">Flexible QA Support When Your Team Needs It</h1>
-                        <p class="section-copy">Scale your testing support up or down as project demands change. I help small software teams catch critical bugs, improve test coverage, and release with confidence without the cost of hiring a full-time QA team.</p>
+            <!-- About Me Section -->
+            <section class="section" id="about-me-section" data-testid="about-me-section">
+                <div class="about-container">
+                    <div class="about-image-column">
+                        <div class="about-image-wrapper">
+                            <img src="../assets/img/profile-no-bg.png" alt="JV William Andal" class="about-image" />
+                            <a href="http://scr.istqb.org/?name=JV+William+Andal&number=460717&orderBy=firstName&orderDirection=ASC&dateStart=&dateEnd=&expiryStart=&expiryEnd=&certificationBody=&examProvider=&certificationLevel=&country=&resultsPerPage=25" target="_blank" rel="noopener noreferrer" style="text-decoration : none">
+                                <div class="about-badge">
+                                    <img src="../assets/img/istqb.svg" alt="ISTQB Certified" class="about-badge-image" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="about-content-column">
+                        <h1 class="page-title" data-testid="section-about-heading">
+                            JV William
+                            <span class="name-highlight">Andal</span>
+                        </h1>
+                        <p class="intro-copy">I'm an ISTQB Certified QA tester helping small development teams improve product quality without building a full in-house QA team.</p>
+                        <p class="intro-copy">I provide flexible web application testing support for teams that need extra QA capacity during busy releases, active client projects, or periods of growth.</p>
+                        <h2 class="connect-heading">Let's Connect:</h2>
+                        <div class="social-icons">
+                            <a class="social-icon" href="https://www.linkedin.com/in/jvwilliamandal/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="social-icon" href="mailto:contact@jvwilliam.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class="fa fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -290,36 +309,15 @@
                 </div>
             </section>
             <hr class="section-divider" />
-            <!-- About Me Section -->
-            <section class="section" id="about-me-section" data-testid="about-me-section">
-                <div class="about-container">
-                    <div class="about-image-column">
-                        <div class="about-image-wrapper">
-                            <img src="../assets/img/profile-no-bg.png" alt="JV William Andal" class="about-image" />
-                            <a href="http://scr.istqb.org/?name=JV+William+Andal&number=460717&orderBy=firstName&orderDirection=ASC&dateStart=&dateEnd=&expiryStart=&expiryEnd=&certificationBody=&examProvider=&certificationLevel=&country=&resultsPerPage=25" target="_blank" rel="noopener noreferrer" style="text-decoration : none">
-                                <div class="about-badge">
-                                    <img src="../assets/img/istqb.svg" alt="ISTQB Certified" class="about-badge-image" />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="about-content-column">
-                        <h2 class="page-title" data-testid="section-about-heading">
-                            JV William
-                            <span class="name-highlight">Andal</span>
-                        </h2>
-                        <p class="intro-copy">I’m an ISTQB Certified QA tester helping small development teams improve product quality without building a full in-house QA team.</p>
-                        <p class="intro-copy">I provide flexible web application testing support for teams that need extra QA capacity during busy releases, active client projects, or periods of growth.</p>
-                        <h2 class="connect-heading">Let's Connect:</h2>
-                        <div class="social-icons">
-                            <a class="social-icon" href="https://www.linkedin.com/in/jvwilliamandal/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="social-icon" href="mailto:contact@jvwilliam.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class="fa fa-envelope"></i></a>
-                        </div>
-                    </div>
+            <!-- Call to Action -->
+            <section class="cta-section" id="section-cta" data-testid="section-cta" data-cta-key="about">
+                <div class="cta-section__inner" id="section-cta-container" data-testid="section-cta-container">
+                    <h2 class="cta-section__heading" id="section-cta-primaryHeading" data-testid="section-cta-primaryHeading">Flexible QA Support for Growing Teams</h2>
+                    <p class="cta-section__copy" data-testid="section-cta-copy">Need help covering a release, validating critical flows, or strengthening test coverage? Let's discuss where QA support can make the biggest impact.</p>
+                    <a class="cta-section__button" href="mailto:contact@jvwilliam.com" data-testid="section-cta-contactLink">Let's Talk</a>
                 </div>
             </section>
         </div>
-
         <!-- Footer -->
         <footer class="footer">
             <div class="footer__bottom">

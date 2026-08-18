@@ -24,6 +24,7 @@ const languageListContainer = document.getElementById('section-language-list');
 const platformListContainer = document.getElementById('section-platform-list');
 const certContainer = document.getElementById('section-certificate-list');
 const trainingContainer = document.getElementById('section-trainings-list');
+const ctaSections = document.querySelectorAll('[data-cta-key]');
 
 
 // Utility: Safely escape HTML (for user-generated content)
@@ -200,8 +201,38 @@ function renderTrainings(trainingList = []) {
     trainingContainer.innerHTML = html;
 }
 
+function renderCtas(ctas = {}) {
+    if (!ctaSections.length) return;
+
+    ctaSections.forEach(section => {
+        const key = section.dataset.ctaKey;
+        const cta = ctas[key];
+        if (!cta) return;
+
+        const heading = section.querySelector('[data-testid="section-cta-primaryHeading"]');
+        const copy = section.querySelector('[data-testid="section-cta-copy"]');
+        const link = section.querySelector('[data-testid="section-cta-contactLink"]');
+
+        if (heading && cta.heading) heading.textContent = cta.heading;
+        if (copy && cta.copy) copy.textContent = cta.copy;
+        if (link && cta.linkLabel) link.textContent = cta.linkLabel;
+        if (link && cta.href) link.href = cta.href;
+    });
+}
+
 window.addEventListener('DOMContentLoaded', event => {
     setupExperienceShowMore();
+
+    if (ctaSections.length) {
+        fetch('/assets/data/cta.json')
+          .then((res) => res.json())
+          .then((data) => {
+            renderCtas(data);
+          })
+          .catch(error => {
+            console.error('Failed to load CTA data:', error);
+          });
+    }
 
     // Fetch and render profile data
     fetch('/assets/data/profile.json')
