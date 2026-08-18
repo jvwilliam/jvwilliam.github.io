@@ -25,6 +25,7 @@ const platformListContainer = document.getElementById('section-platform-list');
 const certContainer = document.getElementById('section-certificate-list');
 const trainingContainer = document.getElementById('section-trainings-list');
 const ctaSections = document.querySelectorAll('[data-cta-key]');
+const mailtoPresetLinks = document.querySelectorAll('[data-mailto-key]');
 
 
 // Utility: Safely escape HTML (for user-generated content)
@@ -201,6 +202,20 @@ function renderTrainings(trainingList = []) {
     trainingContainer.innerHTML = html;
 }
 
+function buildMailtoHref(href, subject, body) {
+    if (!href) return '';
+    if (!subject && !body) return href;
+
+    const [baseHref, queryString = ''] = href.split('?');
+    const params = new URLSearchParams(queryString);
+
+    if (subject) params.set('subject', subject);
+    if (body) params.set('body', body);
+
+    const renderedParams = params.toString();
+    return renderedParams ? `${baseHref}?${renderedParams}` : baseHref;
+}
+
 function renderCtas(ctas = {}) {
     if (!ctaSections.length) return;
 
@@ -216,18 +231,32 @@ function renderCtas(ctas = {}) {
         if (heading && cta.heading) heading.textContent = cta.heading;
         if (copy && cta.copy) copy.textContent = cta.copy;
         if (link && cta.linkLabel) link.textContent = cta.linkLabel;
-        if (link && cta.href) link.href = cta.href;
+        if (link && cta.href) link.href = buildMailtoHref(cta.href, cta.subject, cta.body);
+    });
+}
+
+function renderMailtoPresetLinks(presets = {}) {
+    if (!mailtoPresetLinks.length) return;
+
+    mailtoPresetLinks.forEach(link => {
+        const key = link.dataset.mailtoKey;
+        const preset = presets[key];
+        if (!preset?.href) return;
+
+        link.href = buildMailtoHref(preset.href, preset.subject, preset.body);
+        if (preset.linkLabel) link.textContent = preset.linkLabel;
     });
 }
 
 window.addEventListener('DOMContentLoaded', event => {
     setupExperienceShowMore();
 
-    if (ctaSections.length) {
+    if (ctaSections.length || mailtoPresetLinks.length) {
         fetch('/assets/data/cta.json')
           .then((res) => res.json())
           .then((data) => {
             renderCtas(data);
+            renderMailtoPresetLinks(data);
           })
           .catch(error => {
             console.error('Failed to load CTA data:', error);

@@ -1,6 +1,6 @@
 # Reusable CTA Section
 
-**Status**: Implemented
+**Status**: Completed
 
 ## Objective
 
