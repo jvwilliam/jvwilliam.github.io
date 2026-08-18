@@ -153,7 +153,8 @@ p {
 }
 
 .main-cta-btn::after,
-.cta-section__button::after {
+.cta-section__button::after,
+.top-nav .nav-anchor:not(.nav-anchor--cta)::after {
   content: "";
   position: absolute;
   left: 0;
@@ -175,7 +176,9 @@ p {
 .main-cta-btn:hover::after,
 .main-cta-btn:focus::after,
 .cta-section__button:hover::after,
-.cta-section__button:focus::after {
+.cta-section__button:focus::after,
+.top-nav .nav-anchor:not(.nav-anchor--cta):hover::after,
+.top-nav .nav-anchor:not(.nav-anchor--cta):focus::after {
   transform: scaleX(1);
 }
 
@@ -238,31 +241,13 @@ p {
   color: var(--nav-text-color);
   text-decoration: none;
   --cta-underline-offset: -5px;
-  --cta-underline-thickness: 2px;
+  --cta-underline-thickness: 3px;
 }
 
 .top-nav .nav-anchor:hover,
 .top-nav .nav-anchor:focus {
   color: var(--accent-color);
   text-decoration: none;
-}
-
-.top-nav .nav-anchor:not(.nav-anchor--cta)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: var(--cta-underline-offset);
-  height: var(--cta-underline-thickness);
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.top-nav .nav-anchor:not(.nav-anchor--cta):hover::after,
-.top-nav .nav-anchor:not(.nav-anchor--cta):focus::after {
-  transform: scaleX(1);
 }
 
 .top-nav .nav-anchor--cta {
