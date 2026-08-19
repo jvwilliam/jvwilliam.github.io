@@ -1,6 +1,6 @@
 # Reposition About Page CTA
 
-**Status**: Ready for implementation
+**Status**: Completed
 
 ## Objective
 

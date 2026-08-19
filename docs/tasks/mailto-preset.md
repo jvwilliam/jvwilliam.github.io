@@ -1,6 +1,6 @@
 # Mailto Preset Content
 
-**Status**: Implemented
+**Status**: Completed
 
 ## Objective
 
