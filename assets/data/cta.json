@@ -1,23 +1,34 @@
 {
-  "about": {
-    "heading": "Flexible QA Support for Growing Teams",
-    "copy": "Need help covering a release, validating critical flows, or strengthening test coverage? Let's discuss where QA support can make the biggest impact.",
-    "linkLabel": "Let's Talk",
-    "href": "mailto:contact@jvwilliam.com",
-    "subject": "QA support inquiry",
-    "body": "Hi JV,\n\nI'd like to discuss flexible QA support for an upcoming release or project.\n\nProject/context:\nTimeline:\nAreas where QA support may help:\n\nThanks,"
+  "mailtoPresets": {
+    "qaSupport": {
+      "href": "mailto:contact@jvwilliam.com",
+      "subject": "QA support inquiry",
+      "body": "Hi JV,\n\nI'd like to discuss QA support for my web application.\n\nProject/context:\nTimeline:\nWhat we need help testing:\n\nThanks,"
+    }
   },
-  "home": {
-    "heading": "Ship Reliable Web Apps With Practical QA Support",
-    "copy": "Get focused testing support for critical flows, regression coverage, and release confidence.",
-    "linkLabel": "Let's Talk",
-    "href": "mailto:contact@jvwilliam.com",
-    "subject": "QA support inquiry",
-    "body": "Hi JV,\n\nI'd like to discuss QA support for my web application.\n\nProject/context:\nTimeline:\nWhat we need help testing:\n\nThanks,"
+  "ctas": {
+    "about": {
+      "heading": "Flexible QA Support for Growing Teams",
+      "copy": "Need help covering a release, validating critical flows, or strengthening test coverage? Let's discuss where QA support can make the biggest impact.",
+      "linkLabel": "Let's Talk",
+      "mailtoPreset": "qaSupport"
+    },
+    "home": {
+      "heading": "Ship Reliable Web Apps With Practical QA Support",
+      "copy": "Get focused testing support for critical flows, regression coverage, and release confidence.",
+      "linkLabel": "Let's Talk",
+      "mailtoPreset": "qaSupport"
+    }
   },
-  "navContact": {
-    "href": "mailto:contact@jvwilliam.com",
-    "subject": "QA support inquiry",
-    "body": "Hi JV,\n\nI'd like to discuss QA support for my web application.\n\nProject/context:\nTimeline:\nWhat we need help testing:\n\nThanks,"
+  "links": {
+    "aboutConnect": {
+      "mailtoPreset": "qaSupport"
+    },
+    "homeHero": {
+      "mailtoPreset": "qaSupport"
+    },
+    "navContact": {
+      "mailtoPreset": "qaSupport"
+    }
   }
 }

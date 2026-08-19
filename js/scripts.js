@@ -216,7 +216,14 @@ function buildMailtoHref(href, subject, body) {
     return renderedParams ? `${baseHref}?${renderedParams}` : baseHref;
 }
 
-function renderCtas(ctas = {}) {
+function resolveMailtoPreset(item = {}, mailtoPresets = {}) {
+    const preset = item.mailtoPreset ? mailtoPresets[item.mailtoPreset] : item;
+    if (!preset?.href) return '';
+
+    return buildMailtoHref(preset.href, preset.subject, preset.body);
+}
+
+function renderCtas(ctas = {}, mailtoPresets = {}) {
     if (!ctaSections.length) return;
 
     ctaSections.forEach(section => {
@@ -231,20 +238,24 @@ function renderCtas(ctas = {}) {
         if (heading && cta.heading) heading.textContent = cta.heading;
         if (copy && cta.copy) copy.textContent = cta.copy;
         if (link && cta.linkLabel) link.textContent = cta.linkLabel;
-        if (link && cta.href) link.href = buildMailtoHref(cta.href, cta.subject, cta.body);
+        if (link) {
+            const href = resolveMailtoPreset(cta, mailtoPresets);
+            if (href) link.href = href;
+        }
     });
 }
 
-function renderMailtoPresetLinks(presets = {}) {
+function renderMailtoPresetLinks(links = {}, mailtoPresets = {}) {
     if (!mailtoPresetLinks.length) return;
 
     mailtoPresetLinks.forEach(link => {
         const key = link.dataset.mailtoKey;
-        const preset = presets[key];
-        if (!preset?.href) return;
+        const linkConfig = links[key];
+        if (!linkConfig) return;
 
-        link.href = buildMailtoHref(preset.href, preset.subject, preset.body);
-        if (preset.linkLabel) link.textContent = preset.linkLabel;
+        const href = resolveMailtoPreset(linkConfig, mailtoPresets);
+        if (href) link.href = href;
+        if (linkConfig.linkLabel) link.textContent = linkConfig.linkLabel;
     });
 }
 
@@ -255,8 +266,8 @@ window.addEventListener('DOMContentLoaded', event => {
         fetch('/assets/data/cta.json')
           .then((res) => res.json())
           .then((data) => {
-            renderCtas(data);
-            renderMailtoPresetLinks(data);
+            renderCtas(data.ctas, data.mailtoPresets);
+            renderMailtoPresetLinks(data.links, data.mailtoPresets);
           })
           .catch(error => {
             console.error('Failed to load CTA data:', error);
