@@ -19,11 +19,13 @@ if (hamburgerMenu && navList) {
 }
 
 const workProfileContainer = document.getElementById('section-experience-container');
-const competencyListContainer = document.getElementById('section-competency-list');
+const expertiseContainer = document.getElementById('section-expertise-container');
 const languageListContainer = document.getElementById('section-language-list');
 const platformListContainer = document.getElementById('section-platform-list');
 const certContainer = document.getElementById('section-certificate-list');
 const trainingContainer = document.getElementById('section-trainings-list');
+const ctaSections = document.querySelectorAll('[data-cta-key]');
+const mailtoPresetLinks = document.querySelectorAll('[data-mailto-key]');
 
 
 // Utility: Safely escape HTML (for user-generated content)
@@ -32,18 +34,27 @@ function escapeHTML(str) {
 }
 // Section ID pattern - {section}-{sectionName}-{sectionPurporse}
 function renderWorkProfile(workProfile = []) {
+    if (!workProfileContainer) return;
+
+    const visibleExperienceCount = 3;
+    const orderedWorkProfile = workProfile.slice().reverse();
+
     let html = `
         <div class="section-intro">
             <h2 class="section-title" id="section-experience-primaryHeading" data-testid="section-experience-primaryHeading">Experience</h2>
-            <p class="section-copy">A career timeline highlighting the roles, projects, and QA leadership milestones that shaped my work in testing, automation, and product quality.</p>
+            <p class="section-copy">A decade-long QA journey across web applications, test automation, team leadership, and release support for software teams with changing project demands.</p>
         </div>
         <div class="timeline" aria-label="experience timeline">
     `;
 
-    workProfile.slice().reverse().forEach(({position, companyName, location, duration, description}, index) => {
+    orderedWorkProfile.forEach(({position, companyName, location, duration, description}, index) => {
         const sideClass = index % 2 === 0 ? 'timeline-item left' : 'timeline-item right';
+        const isInitiallyHidden = index >= visibleExperienceCount;
+        const itemClass = `${sideClass}${isInitiallyHidden ? ' timeline-item--hidden' : ''}`;
+        const hiddenAttribute = isInitiallyHidden ? ' hidden' : '';
+
         html += `
-            <article class="${sideClass}">
+            <article class="${itemClass}"${hiddenAttribute}>
                 <div class="timeline-marker" aria-hidden="true"></div>
                 <div class="timeline-content">
                     <div class="timeline-header">
@@ -62,29 +73,44 @@ function renderWorkProfile(workProfile = []) {
     });
 
     html += '</div>';
+
+    if (orderedWorkProfile.length > visibleExperienceCount) {
+        html += `
+            <div class="timeline-actions">
+                <button class="timeline-show-more" type="button" id="section-experience-showMore" data-testid="section-experience-showMore" aria-controls="section-experience-container" aria-expanded="false">
+                    Show More
+                </button>
+            </div>
+        `;
+    }
+
     workProfileContainer.innerHTML = html;
+    setupExperienceShowMore();
 }
 
-function observeTimelineItems() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if (!timelineItems.length) return;
+function setupExperienceShowMore() {
+    if (!workProfileContainer) return;
 
-    const observer = new IntersectionObserver((entries, observerRef) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observerRef.unobserve(entry.target);
-            }
+    const showMoreButton = document.getElementById('section-experience-showMore');
+    if (!showMoreButton) return;
+
+    showMoreButton.addEventListener('click', () => {
+        const hiddenTimelineItems = workProfileContainer.querySelectorAll('.timeline-item[hidden]');
+
+        hiddenTimelineItems.forEach(item => {
+            item.hidden = false;
+            item.classList.remove('timeline-item--hidden');
+            item.classList.add('timeline-item--fade-in');
         });
-    }, {
-        rootMargin: '0px 0px -15% 0px',
-        threshold: 0.2
-    });
 
-    timelineItems.forEach(item => observer.observe(item));
+        showMoreButton.setAttribute('aria-expanded', 'true');
+        showMoreButton.closest('.timeline-actions')?.remove();
+    });
 }
 
 function renderExpertise(expertise = []) {
+    if (!expertiseContainer) return;
+
     let html = `
         <div class="section-intro">
             <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
@@ -106,10 +132,12 @@ function renderExpertise(expertise = []) {
     });
     
     html += '</div>';
-    document.getElementById('section-expertise-container').innerHTML = html;
+    expertiseContainer.innerHTML = html;
 }
 
 function renderProgrammingLang(programmingLang = []) {
+    if (!languageListContainer) return;
+
     let html = '';
     programmingLang.forEach(({title, icon}) => {
         html += `
@@ -123,6 +151,8 @@ function renderProgrammingLang(programmingLang = []) {
 }
 
 function renderPlatforms(platforms = []) {
+    if (!platformListContainer) return;
+
     let html = '';
     platforms.forEach(({title, icon}) => {
         html += `
@@ -137,6 +167,8 @@ function renderPlatforms(platforms = []) {
 
 
 function renderCertificates(certList = []) {
+    if (!certContainer) return;
+
     let html = '';
     certList.forEach(({title, institute, year, url}) => {
         html += `
@@ -153,6 +185,8 @@ function renderCertificates(certList = []) {
 }
 
 function renderTrainings(trainingList = []) {
+    if (!trainingContainer) return;
+
     let html = '';
     trainingList.slice().reverse().forEach(({title, institute, year, url}) => {
         html += `
@@ -168,14 +202,84 @@ function renderTrainings(trainingList = []) {
     trainingContainer.innerHTML = html;
 }
 
+function buildMailtoHref(href, subject, body) {
+    if (!href) return '';
+    if (!subject && !body) return href;
+
+    const [baseHref, queryString = ''] = href.split('?');
+    const params = new URLSearchParams(queryString);
+
+    if (subject) params.set('subject', subject);
+    if (body) params.set('body', body);
+
+    const renderedParams = params.toString();
+    return renderedParams ? `${baseHref}?${renderedParams}` : baseHref;
+}
+
+function resolveMailtoPreset(item = {}, mailtoPresets = {}) {
+    const preset = item.mailtoPreset ? mailtoPresets[item.mailtoPreset] : item;
+    if (!preset?.href) return '';
+
+    return buildMailtoHref(preset.href, preset.subject, preset.body);
+}
+
+function renderCtas(ctas = {}, mailtoPresets = {}) {
+    if (!ctaSections.length) return;
+
+    ctaSections.forEach(section => {
+        const key = section.dataset.ctaKey;
+        const cta = ctas[key];
+        if (!cta) return;
+
+        const heading = section.querySelector('[data-testid="section-cta-primaryHeading"]');
+        const copy = section.querySelector('[data-testid="section-cta-copy"]');
+        const link = section.querySelector('[data-testid="section-cta-contactLink"]');
+
+        if (heading && cta.heading) heading.textContent = cta.heading;
+        if (copy && cta.copy) copy.textContent = cta.copy;
+        if (link && cta.linkLabel) link.textContent = cta.linkLabel;
+        if (link) {
+            const href = resolveMailtoPreset(cta, mailtoPresets);
+            if (href) link.href = href;
+        }
+    });
+}
+
+function renderMailtoPresetLinks(links = {}, mailtoPresets = {}) {
+    if (!mailtoPresetLinks.length) return;
+
+    mailtoPresetLinks.forEach(link => {
+        const key = link.dataset.mailtoKey;
+        const linkConfig = links[key];
+        if (!linkConfig) return;
+
+        const href = resolveMailtoPreset(linkConfig, mailtoPresets);
+        if (href) link.href = href;
+        if (linkConfig.linkLabel) link.textContent = linkConfig.linkLabel;
+    });
+}
+
 window.addEventListener('DOMContentLoaded', event => {
+    setupExperienceShowMore();
+
+    if (ctaSections.length || mailtoPresetLinks.length) {
+        fetch('/assets/data/cta.json')
+          .then((res) => res.json())
+          .then((data) => {
+            renderCtas(data.ctas, data.mailtoPresets);
+            renderMailtoPresetLinks(data.links, data.mailtoPresets);
+          })
+          .catch(error => {
+            console.error('Failed to load CTA data:', error);
+          });
+    }
+
     // Fetch and render profile data
-    fetch('../assets/data/profile.json')
+    fetch('/assets/data/profile.json')
       .then((res) => res.json())
       .then((data) => {
         renderWorkProfile(data['workProfile']);
         renderExpertise(data['expertise']);
-        observeTimelineItems();
         renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
         renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
 
@@ -187,12 +291,11 @@ window.addEventListener('DOMContentLoaded', event => {
       })
       .catch(error => {
         console.error('Failed to load profile data:', error);
-        // Optionally show a user-friendly message in the UI
-        if (workProfileContainer) workProfileContainer.innerHTML = '<p>Failed to load profile data.</p>';
       });
 
     function startTypingAnimation(texts = [], animatedHeading = document.getElementById('animated-heading')) {
         if (!animatedHeading) return;
+        if (!texts.length) return;
 
         let currentTextIndex = 0;
         let currentCharIndex = 0;
@@ -226,6 +329,3 @@ window.addEventListener('DOMContentLoaded', event => {
     setTimeout(typeWriter, 1000);
     }
 });
-
-
-
