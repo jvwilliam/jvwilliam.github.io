@@ -1,7 +1,7 @@
 @charset "UTF-8";
 :root {
   --body-color: #e9edf8;
-  --body-bg: #040b1b;
+  --body-bg: #0A0805;
   --accent-color: #FE4A00;
   --muted-color: #cfd7e6;
   --surface-color: rgba(255, 255, 255, 0.96);
@@ -704,15 +704,22 @@ p {
 }
 
 .expertise-card-icon {
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #f4f1ed;
+  background-color: transparent;
   color: var(--accent-color);
   border-radius: 1rem;
   margin-bottom: 1rem;
+}
+
+.expertise-card-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .expertise-card-title {

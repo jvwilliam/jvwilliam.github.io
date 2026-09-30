@@ -62,25 +62,25 @@
             "id": 1,
             "title": "Functional Testing & Test Automation",
             "description": "From validating business-critical workflows to building maintainable automated test coverage, I help teams identify functional issues early through structured manual testing, exploratory testing, and scalable automation strategies that improve release quality and reduce regression risk.",
-            "icon": "fa fa-code"
+            "icon": "assets/img/expertise_icons/functional-testing.png"
         },
         {
             "id": 2,
             "title": "Quality Engineering and Test Management",
             "description": "From defining QA standards and improving collaboration between teams to managing test execution and release readiness, I help organizations establish structured testing practices, improve release workflows, and implement quality strategies that reduce risk across the software development lifecycle.",
-            "icon": "fa fa-cogs"
+            "icon": "assets/img/expertise_icons/quality-engineering.png"
         }, 
         {
             "id": 3,
             "title": "Team Management & Leadership",
             "description": "Lead QA initiatives with clear direction, structured collaboration, and a strong quality culture that supports high-performing development teams. I help organizations improve coordination between QA, developers, product owners, and stakeholders to ensure smoother delivery cycles and stronger product outcomes.",
-            "icon": "fa fa-users"
+            "icon": "assets/img/expertise_icons/management-leadership.png"
         },
         {
             "id": 4,
             "title": "Web Application Security Testing",
             "description": "From authentication flaws and access control issues to input validation and business logic vulnerabilities, I help teams assess web applications for common vulnerabilities, insecure implementations, and high-risk attack surfaces through practical, security-focused testing aligned with real-world threats.",
-            "icon": "fa fa-shield"
+            "icon": "assets/img/expertise_icons/web-sec.png"
         }
     ],
     "programmingLang" : [

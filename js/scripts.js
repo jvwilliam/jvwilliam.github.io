@@ -123,7 +123,7 @@ function renderExpertise(expertise = []) {
         html += `
             <div class="expertise-card">
                 <div class="expertise-card-icon">
-                    <i class="${escapeHTML(icon)}"></i>
+                    <img src="${escapeHTML(icon)}" alt="" width="64" height="64"></img>
                 </div>
                 <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
                 <p class="expertise-card-description">${escapeHTML(description)}</p>
