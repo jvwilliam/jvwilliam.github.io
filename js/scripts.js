@@ -122,10 +122,12 @@ function renderExpertise(expertise = []) {
     expertise.forEach(({title, description, icon}) => {
         html += `
             <div class="expertise-card">
-                <div class="expertise-card-icon">
-                    <img src="${escapeHTML(icon)}" alt="" width="64" height="64"></img>
+                <div class="expertise-card-header">
+                    <div class="expertise-card-icon">
+                        <img src="${escapeHTML(icon)}" alt="" width="64" height="64"></img>
+                    </div>
+                    <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
                 </div>
-                <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
                 <p class="expertise-card-description">${escapeHTML(description)}</p>
             </div>
         `;

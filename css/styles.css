@@ -697,22 +697,21 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.expertise-card:hover {
-  transform: translateY(-0.25rem);
-  border-color: rgba(254, 74, 0, 0.35);
-  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.12);
+.expertise-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 .expertise-card-icon {
-  width: 5rem;
-  height: 5rem;
+  flex: 0 0 3.125rem;
+  width: 3.125rem;
+  height: 3.125rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  color: var(--accent-color);
-  border-radius: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .expertise-card-icon img {
@@ -723,12 +722,18 @@ p {
 }
 
 .expertise-card-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0rem;
 }
 
 .expertise-card-description {
   margin-bottom: 1.5rem;
   color: var(--muted-color);
+}
+
+.expertise-card:hover {
+  transform: translateY(-0.25rem);
+  border-color: rgba(254, 74, 0, 0.35);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.12);
 }
 
 .expertise-card-cta {
