@@ -46,7 +46,7 @@
             "position" : "Test Engineer · Web Application Testing",
             "location" : "Abu Dhabi · United Arab Emirates",
             "duration" : "Mar 2024 · Present",
-            "description" : "I lead QA for high-impact web application features used by a large global audience. My work includes planning test strategies, validating critical user flows, maintaining end-to-end automation coverage, and collaborating with product and development teams to reduce release risk."
+            "description" : "I lead QA for high-impact web application features used by a large global sports federation. My responsibilities include developing test strategies, performing functional and exploratory testing, validating critical user workflows, developing and maintaining end-to-end test automation, and collaborating with product and development teams to identify risks and improve release quality."
         }
     ],
     "animatedText" : [
@@ -87,7 +87,7 @@
         {
             "id": 1,
             "title" : "git",
-            "icon" : "fab fa-git-square"
+            "icon" : "fab fa-git"
         },
         {
             "id": 2,
@@ -161,6 +161,11 @@
             "id": 9,
             "title": "Trello",
             "icon": "fab fa-trello"
+        },
+        {
+            "id": 10,
+            "title": "GitHub",
+            "icon": "fab fa-github"
         }
     ],
     "certificate-list" : [
