@@ -16,16 +16,52 @@ The site is built with plain HTML, CSS, and JavaScript. It is hosted through Git
 - `assets/img/` contains profile images, favicons, Open Graph image assets, and site manifest assets.
 - `.github/workflows/playwright.yml` runs external Playwright tests from `jvwilliam/jvwilliam-playwright`.
 
-## Repository Workflow
+## Repository / Branch Workflow
+The user owns and manages the Git branch workflows. Branches are read-only from the agent's perspective. 
 
-- Always check the current Git branch before making codebase changes. If the branch cannot be determined or the repo is in detached HEAD, stop and ask before editing. 
+Agents must never: 
+- Create, switch, rename, merge, rebase, or delete branches. 
+- Create, move, remove, or manage Git worktrees. 
+- Checkout another branch or commit. 
 - Do not touch project files if the current branch is `main` or `master`.
 - If the current branch is `main` or `master`, stop and ask the user to create or switch to a feature branch first.
-- Use feature branches for all edits. Prefer branch names that describe the work, such as `codex/update-agent-instructions` or `codex/seo-copy-update`.
 - Check `git status` before editing so existing user changes are visible.
 - Never overwrite, reset, revert, or clean up user changes unless the user explicitly asks.
-- Never commit, push, or open a pull request.
+- Commit, push, or open a pull request.
 - After changes, summarize what changed and list any verification performed.
+
+The user will perform all branch changes, commits, pushes, merges, rebases, and pull-request operations. 
+
+### Before implementation changes
+Before making any implementation change, inspect the current branch and working tree using read-only Git commands such as: 
+```
+git branch --show-current
+git branch --short --branch
+```
+Then follow these rules: 
+1. If the current branch is `main` or `master`, stop before editing and ask the user to create and switch to an implementation branch. 
+2. If another branch is already checked out, inspect and check if there are existing changes. If there are existing changes, confirm if the user wants to continue to that branch. If no changes exists, continue on that branch.
+3. Always preserve existing changes if user chooses to continue on a branch with existing changes.  Do not overwrite, discard, reset, clean, stash, or revert the existing changes. 
+4. Do not require a particular implementation-branch name. 
+5. Do not ask the user to rename an acceptable existing branch. 
+6. Do not move or attempt to move the task to another branch. 
+7. If there is no current branch, the repository is unaivalable, or the branch state cannot be determined, stop before implementation and ask the user to establish and check out an implementation branch.
+8. If existing changes overlap the intended implementation and cannot be safely preserved, stop and ask the user how to proceed. 
+
+Branch inspection is a safety check, not permission to modify Git state. 
+
+
+### Work that does not require an implementation branch
+The following work does not require the user to create or switch to a new branch: 
+- Product discovery, documentation, or feature/user story definition. 
+- Architecture analysis, decision, documentation or review. 
+- Security analysis, documentation, or review. 
+- QA planning, test execution, test analysis, or reporting. 
+- Repository inspection and diagnostic investigation that do not modify files. 
+
+These activities may proceed on main, master, or another branch. Agents may create or update non-implementation artifacts such as specifications, decision records, test plans, and review reports when the user has requested them. 
+
+If any of these activities expands into implementation - such as changing runtime code, tests, assets, dependencies, build configuration, or application behavior - perform the branch and working-tree first and apply the implementation rules above. 
 
 ## Guard Rails
 
@@ -90,3 +126,18 @@ Before finishing changes, verify:
 - No test selectors were renamed unintentionally.
 - External links still point to the intended destinations.
 - Responsive layout works on mobile and desktop widths.
+
+## Change Handoff
+After making authorized implementation changes: 
+- Leave all changes uncommitted. 
+- Report the files changes and the validations performed (if applicable).
+- Clearly identify any remaining risks, failures, or follow-up work (if any).
+- Hand control back to the user for branch/repository operations. 
+
+## Completion Report
+Always Summarize: 
+- What changed. 
+- Which tests or builds were executed and their results (if applicable).
+- Any remaining ambuguities, limitation, or follow-up work.
+- The active branch name.
+- Include the skill used. (ex. Skill used: Product Strategy Specialist).
