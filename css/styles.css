@@ -889,7 +889,8 @@ p {
 }
 
 .timeline-company {
-  color: var(--muted-color);
+  color: var(--accent-color);
+  font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.03rem;
 }
