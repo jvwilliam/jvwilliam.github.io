@@ -117,8 +117,12 @@ function renderExpertise(expertise = []) {
         </div>
         <div class="expertise-cards-grid mb-5">
     `;
+
+    const orderedExpertise = [...expertise].sort(
+        (a, b) => Number(a.id) - Number(b.id)
+    );
     
-    expertise.forEach(({title, description, icon, isPlaceholder}, index) => {
+    orderedExpertise.forEach(({title, description, icon, isPlaceholder}, index) => {
         const modifiers = [
             index === 0 ? 'expertise-card--featured' : '',
             isPlaceholder ? 'expertise-card--placeholder' : ''

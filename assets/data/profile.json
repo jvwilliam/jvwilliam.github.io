@@ -72,6 +72,12 @@
         },
         {
             "id": 3,
+            "title": "Quality Engineering",
+            "description": "Establish practical QA standards, coordinate test execution, and improve release readiness across the software lifecycle.",
+            "icon": "assets/img/expertise_icons/quality-engineering.png"
+        },
+        {
+            "id": 5,
             "title": "Fractional QA Support",
             "description": "Get experienced QA support without adding a full-time role. Set testing priorities, improve release readiness, and build a practical quality process around your team’s needs.",
             "icon": "assets/img/expertise_icons/management-leadership.png"
@@ -80,12 +86,6 @@
             "id": 4,
             "title": "AI Agent Testing",
             "description": "Use AI agents to explore application workflows, run repeatable checks, and surface defects faster. Build agent-driven testing flows with clear validation criteria and reviewable results.",
-            "icon": "assets/img/expertise_icons/quality-engineering.png"
-        },
-        {
-            "id": 5,
-            "title": "Quality Engineering",
-            "description": "Establish practical QA standards, coordinate test execution, and improve release readiness across the software lifecycle.",
             "icon": "assets/img/expertise_icons/quality-engineering.png"
         }
     ],

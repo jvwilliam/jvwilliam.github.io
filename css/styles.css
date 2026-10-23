@@ -688,12 +688,12 @@ p {
 .expertise-card {
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 1.8rem 2rem;
   background: rgba(255, 255, 255, 0.062);
   border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(18px);
   box-shadow: 0 30px 80px rgba(4, 16, 36, 0.2);
-  border-radius: 2rem;
+  border-radius: 1.75rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
