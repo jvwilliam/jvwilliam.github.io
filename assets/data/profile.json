@@ -60,27 +60,33 @@
     "expertise" : [
         {
             "id": 1,
-            "title": "Functional Testing & Test Automation",
-            "description": "From validating business-critical workflows to building maintainable automated test coverage, I help teams identify functional issues early through structured manual testing, exploratory testing, and scalable automation strategies that improve release quality and reduce regression risk.",
+            "title": "Front-End & Functional Testing",
+            "description": "Validate critical user journeys, uncover defects early, and build maintainable automated tests that reduce regression risk.",
             "icon": "assets/img/expertise_icons/functional-testing.png"
         },
         {
             "id": 2,
-            "title": "Quality Engineering and Test Management",
-            "description": "From defining QA standards and improving collaboration between teams to managing test execution and release readiness, I help organizations establish structured testing practices, improve release workflows, and implement quality strategies that reduce risk across the software development lifecycle.",
-            "icon": "assets/img/expertise_icons/quality-engineering.png"
-        }, 
+            "title": "Web Application Security Testing",
+            "description": "Assess authentication, access control, input handling, and business logic to uncover common vulnerabilities and security risks.",
+            "icon": "assets/img/expertise_icons/web-sec.png"
+        },
         {
             "id": 3,
-            "title": "Team Management & Leadership",
-            "description": "Lead QA initiatives with clear direction, structured collaboration, and a strong quality culture that supports high-performing development teams. I help organizations improve coordination between QA, developers, product owners, and stakeholders to ensure smoother delivery cycles and stronger product outcomes.",
+            "title": "Fractional QA Support",
+            "description": "Get experienced QA support without adding a full-time role. Set testing priorities, improve release readiness, and build a practical quality process around your team’s needs.",
             "icon": "assets/img/expertise_icons/management-leadership.png"
         },
         {
             "id": 4,
-            "title": "Web Application Security Testing",
-            "description": "From authentication flaws and access control issues to input validation and business logic vulnerabilities, I help teams assess web applications for common vulnerabilities, insecure implementations, and high-risk attack surfaces through practical, security-focused testing aligned with real-world threats.",
-            "icon": "assets/img/expertise_icons/web-sec.png"
+            "title": "AI Agent Testing",
+            "description": "Use AI agents to explore application workflows, run repeatable checks, and surface defects faster. Build agent-driven testing flows with clear validation criteria and reviewable results.",
+            "icon": "assets/img/expertise_icons/quality-engineering.png"
+        },
+        {
+            "id": 5,
+            "title": "Quality Engineering",
+            "description": "Establish practical QA standards, coordinate test execution, and improve release readiness across the software lifecycle.",
+            "icon": "assets/img/expertise_icons/quality-engineering.png"
         }
     ],
     "programmingLang" : [

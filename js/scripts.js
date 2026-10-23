@@ -118,17 +118,26 @@ function renderExpertise(expertise = []) {
         <div class="expertise-cards-grid mb-5">
     `;
     
-    expertise.forEach(({title, description, icon}) => {
+    expertise.forEach(({title, description, icon, isPlaceholder}, index) => {
+        const modifiers = [
+            index === 0 ? 'expertise-card--featured' : '',
+            isPlaceholder ? 'expertise-card--placeholder' : ''
+        ].filter(Boolean).join(' ');
+        const iconMarkup = icon
+            ? `<img src="${escapeHTML(icon)}" alt="" width="64" height="64">`
+            : '';
+        const placeholderIconClass = icon ? '' : ' expertise-card-icon--placeholder';
+
         html += `
-            <div class="expertise-card">
+            <article class="expertise-card ${modifiers}">
                 <div class="expertise-card-header">
-                    <div class="expertise-card-icon">
-                        <img src="${escapeHTML(icon)}" alt="" width="64" height="64"></img>
+                    <div class="expertise-card-icon${placeholderIconClass}"${icon ? '' : ' aria-hidden="true"'}>
+                        ${iconMarkup}
                     </div>
                     <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
                 </div>
                 <p class="expertise-card-description">${escapeHTML(description)}</p>
-            </div>
+            </article>
         `;
     });
     
