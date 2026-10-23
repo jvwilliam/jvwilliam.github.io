@@ -81,6 +81,11 @@ h3 {
   font-size: clamp(1.4rem, 1.5vw, 2rem);
 }
 
+h4 {
+  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  line-height: 1.2;
+}
+
 p {
   margin: 0 0 1rem;
 }
@@ -1123,8 +1128,9 @@ p {
 
 .service-package-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 460px));
   gap: 1.5rem;
+  justify-content: center;
 }
 
 .service-package-card {
@@ -1143,18 +1149,18 @@ p {
 .service-package-card__price { margin-bottom: 0; color: #fff; font: 700 2.25rem/1.05 "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
 .service-package-card__price small { display: block; margin-top: .25rem; color: var(--muted-color); font: 400 .9rem/1.4 Muli, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
 .service-package-card__description { margin: 1.25rem 0 0; color: var(--muted-color); font-size: 1rem; }
-.service-package-card__list-title { margin: 1.35rem 0 .55rem; color: #fff; font-size: .8rem; letter-spacing: .05rem; text-transform: uppercase; }
+.service-package-card__list-title { margin: 1.35rem 0 .55rem; color: #fff; letter-spacing: .04rem; }
 .service-package-card__list { display: grid; gap: .45rem; margin: 0; padding: 0; color: var(--muted-color); font-size: 1rem; line-height: 1.5; list-style: none; }
 .service-package-card__list li::before { content: "— "; color: var(--accent-color); }
 .service-package-card__link { position: relative; align-self: flex-start; margin-top: auto; padding-top: 1.5rem; color: var(--cta-text-color); font: 700 1.45rem/1.15 "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; text-decoration: none; text-transform: uppercase; transition: color .3s ease; }
+.service-package-card__link svg { display: inline-block; width: .72em; height: .72em; margin-left: .2em; vertical-align: -.05em; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .service-package-card__link::after { content: ""; position: absolute; right: 0; bottom: var(--cta-underline-offset, -5px); left: 0; height: var(--cta-underline-thickness, 3px); background: var(--accent-color); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
 .service-package-card__link:hover,
 .service-package-card__link:focus { color: var(--accent-color); text-decoration: none; }
 .service-package-card__link:hover::after,
 .service-package-card__link:focus::after { transform: scaleX(1); }
 .service-package-card__link:focus-visible { outline: 3px solid var(--accent-color); outline-offset: .35rem; }
-.services-start-note { margin: 1.5rem 0 0; padding-left: .9rem; border-left: 2px solid var(--accent-color); color: var(--muted-color); font-size: .9rem; }
-.services-pricing-note { margin: 1rem 0 0; color: rgba(233, 237, 248, .65); font-size: .75rem; }
+.services-start-note { max-width: 56rem; margin: 1.5rem auto 0; color: var(--muted-color); font-size: .9rem; text-align: center; }
 
 .services-process {
   display: grid;
@@ -1254,7 +1260,7 @@ p {
 .footer__bottom {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   color: rgba(233, 237, 248, 0.6);
   font-size: 0.9rem;
