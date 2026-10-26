@@ -61,7 +61,7 @@
         {
             "id": 1,
             "title": "Front-End & Functional Testing",
-            "description": "Validate critical user journeys, uncover defects early, and build maintainable automated tests that reduce regression risk.",
+            "description": "Ensure a reliable user experience by catching critical defects early, validating key workflows, and automating regression checks to reduce release risks and costly production issues.",
             "icon": "assets/img/expertise_icons/functional-testing.png"
         },
         {
@@ -77,15 +77,15 @@
             "icon": "assets/img/expertise_icons/quality-engineering.png"
         },
         {
-            "id": 5,
+            "id": 4,
             "title": "Fractional QA Support",
             "description": "Get experienced QA support without adding a full-time role. Set testing priorities, improve release readiness, and build a practical quality process around your team’s needs.",
             "icon": "assets/img/expertise_icons/management-leadership.png"
         },
         {
-            "id": 4,
-            "title": "AI Agent Testing",
-            "description": "Use AI agents to explore application workflows, run repeatable checks, and surface defects faster. Build agent-driven testing flows with clear validation criteria and reviewable results.",
+            "id": 5,
+            "title": "AI-Assisted QA & Testing",
+            "description": "Leverage AI to accelerate test design, improve test coverage, and streamline automation. Combine AI-assisted analysis with proven QA practices to identify defects and deliver reliable, actionable test results.",
             "icon": "assets/img/expertise_icons/quality-engineering.png"
         }
     ],
