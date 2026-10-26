@@ -113,22 +113,35 @@ function renderExpertise(expertise = []) {
     let html = `
         <div class="section-intro">
             <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
-            <p class="section-copy">I specialize in modern web application QA: validating critical user flows, building practical test automation, improving quality processes, and identifying risks before release.</p>
+            <p class="section-copy">Modern web application QA focused on reliable user experiences, smarter test automation, and lower release risks.</p>
         </div>
         <div class="expertise-cards-grid mb-5">
     `;
+
+    const orderedExpertise = [...expertise].sort(
+        (a, b) => Number(a.id) - Number(b.id)
+    );
     
-    expertise.forEach(({title, description, icon}) => {
+    orderedExpertise.forEach(({title, description, icon, isPlaceholder}, index) => {
+        const modifiers = [
+            index === 0 ? 'expertise-card--featured' : '',
+            isPlaceholder ? 'expertise-card--placeholder' : ''
+        ].filter(Boolean).join(' ');
+        const iconMarkup = icon
+            ? `<img src="${escapeHTML(icon)}" alt="" width="64" height="64">`
+            : '';
+        const placeholderIconClass = icon ? '' : ' expertise-card-icon--placeholder';
+
         html += `
-            <div class="expertise-card">
+            <article class="expertise-card ${modifiers}">
                 <div class="expertise-card-header">
-                    <div class="expertise-card-icon">
-                        <img src="${escapeHTML(icon)}" alt="" width="64" height="64"></img>
+                    <div class="expertise-card-icon${placeholderIconClass}"${icon ? '' : ' aria-hidden="true"'}>
+                        ${iconMarkup}
                     </div>
                     <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
                 </div>
                 <p class="expertise-card-description">${escapeHTML(description)}</p>
-            </div>
+            </article>
         `;
     });
     
