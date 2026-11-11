@@ -121,6 +121,18 @@ function renderExpertise(expertise = []) {
     const orderedExpertise = [...expertise].sort(
         (a, b) => Number(a.id) - Number(b.id)
     );
+
+    const heroExpertise = document.getElementById('hero-expertise');
+    const heroExpertiseList = document.getElementById('hero-expertise-list');
+    if (heroExpertise && heroExpertiseList) {
+        heroExpertiseList.replaceChildren();
+        orderedExpertise.forEach(({title}) => {
+            const item = document.createElement('li');
+            item.textContent = title;
+            heroExpertiseList.appendChild(item);
+        });
+        heroExpertise.hidden = orderedExpertise.length === 0;
+    }
     
     orderedExpertise.forEach(({title, description, icon, isPlaceholder}, index) => {
         const modifiers = [
