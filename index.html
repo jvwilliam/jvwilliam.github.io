@@ -113,8 +113,9 @@
                     <div class="hero__content">
                         <p class="hero__intro">Ship reliable web apps without building a full QA team</p>
                         <h1 class="hero__title">QA Testing for Small Web Product Teams</h1>
-                        <div class="hero__subtitle" data-testid="moving-text">
-                            <p class="hero__subtitle hero__subtitle" id="animated-heading"></p>
+                        <div class="hero__subtitle" data-testid="moving-text" aria-live="off">
+                            <p class="hero__subtitle hero__subtitle--slot is-active" id="animated-heading"></p>
+                            <p class="hero__subtitle hero__subtitle--slot" id="animated-heading-next" aria-hidden="true"></p>
                         </div>
                         <p class="hero__copy">Helping development teams catch critical bugs before release, automate high-risk user journeys, and ship reliable web applications with confidence.</p>
                         <div class="hero__actions">
