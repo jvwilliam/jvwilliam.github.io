@@ -1,16 +1,13 @@
 @charset "UTF-8";
 :root {
   --body-color: #e9edf8;
-  --body-bg: #0A0805;
   --accent-color: #FE4A00;
   --muted-color: #cfd7e6;
-  --surface-color: rgba(255, 255, 255, 0.96);
   --border-color: rgba(255, 255, 255, 0.14);
   --nav-text-color: #040b1b;
   --text-color: #e9edf8;
   --cta-text-color: #e9edf8;
   --lead-font-size: 1.25rem;
-  --body-font-size: 1.05rem;
 }
 
 *, *::before, *::after {
@@ -414,7 +411,6 @@ p {
   font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--accent-color);
 }
 
 .homepage-hero .hero__subtitle {
@@ -530,10 +526,6 @@ p {
 
 .credibility-teaser__inner .section-copy {
   margin-bottom: 0;
-}
-
-.section-divider {
-  margin: 0 0 0 0;
 }
 
 .social-icons {
