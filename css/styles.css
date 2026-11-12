@@ -16,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -1177,7 +1178,7 @@ p {
 
   .cta-section__button {
     margin-top: 0;
-    font-size: 1.85rem;
+    font-size: 1rem;
   }
 }
 
