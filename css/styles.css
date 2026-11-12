@@ -238,7 +238,7 @@ p {
   color: var(--nav-text-color);
   text-decoration: none;
   --cta-underline-offset: -5px;
-  --cta-underline-thickness: 3px;
+  --cta-underline-thickness: 4px;
 }
 
 .top-nav .nav-anchor:hover,
@@ -1009,7 +1009,7 @@ p {
   cursor: pointer;
   text-transform: uppercase;
   --cta-underline-offset: -5px;
-  --cta-underline-thickness: 3px;
+  --cta-underline-thickness: 4px;
 }
 
 .timeline-show-more::after {
@@ -1199,7 +1199,6 @@ p {
 .footer {
   background: #070c10;
   border-top: 1px solid var(--border-color);
-  padding: 1rem 1rem 0;
 }
 
 .footer__content {
@@ -1208,6 +1207,11 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
+}
+
+.footer__copy {
+  margin: 0;
+  padding-bottom: 0;
 }
 
 .footer__section {
@@ -1249,7 +1253,7 @@ p {
 .footer__bottom {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   color: rgba(233, 237, 248, 0.6);
   font-size: 0.9rem;
