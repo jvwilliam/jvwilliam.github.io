@@ -999,6 +999,7 @@ p {
 }
 
 .timeline-show-more {
+  position: relative;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1006,12 +1007,32 @@ p {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  text-transform: uppercase;
+  --cta-underline-offset: -5px;
+  --cta-underline-thickness: 3px;
+}
+
+.timeline-show-more::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--cta-underline-offset);
+  height: var(--cta-underline-thickness);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .timeline-show-more:hover,
 .timeline-show-more:focus {
   color: var(--accent-color);
-  text-decoration: underline;
+}
+
+.timeline-show-more:hover::after,
+.timeline-show-more:focus::after {
+  transform: scaleX(1);
 }
 
 .timeline-show-more:focus-visible {
