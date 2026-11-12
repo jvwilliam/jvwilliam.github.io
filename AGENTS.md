@@ -104,6 +104,66 @@ If any of these activities expands into implementation - such as changing runtim
 - Avoid unnecessary dependencies.
 - Keep comments useful and brief.
 
+## CSS Reuse, Consistency, and Refactoring Rules
+The existing CSS codebase is the source of truth. Always prioritize reusing and improving existing styles over introducing new CSS rules. 
+
+### Mandatory Rules
+1. Inspect Before Creating
+    - Before writing any CSS, inspect the existing stylesheets, components, design tokens, utility classes, and CSS architecture. 
+    - Search for existing selectors, classes, variables, and component styles that already achieve the required appearance or behavior. 
+    - Understand how existing styles are organized before making changes. 
+2. Reuse Existing CSS
+    - Reuse existing CSS classes, design tokens, variables, and component styles whenever possible. 
+    - If an existing selector can accommodate the requested change, modify that selector instead of creating another one. 
+    - Avoid creating new classes when an existing class can be extended or reused without introducing unintended side effects. 
+3. Refactor Instead of Duplicating
+    - Never introduce duplicate CSS declarations or selectors unnecessarily.
+    - If similar CSS rules already exist, evaluate whether they should be consolidated into a shared rule. 
+    - Update the original declaration instead of appending another override at the bottom of a stylesheet. 
+    - Remove obsolete or conflicting declarations when refactoring. 
+    - Preserve the existing design system and visual consistency. 
+4. Avoid CSS Overrides and Patches
+    - Do not solve styling problems by repeatedly appending new CSS rules. 
+    - Avoid unnecessary specificity escalation, excessive !important declarations, and redundant selectors. 
+    - Do not introduce additional media queries if an existing responsive rules can be updated. 
+    - Avoid creating multiple rules for the same selector across different stylesheets unless the existing architecture intentionally requires it. 
+5. Respect Component and Styling Architecture
+    - Follow the existing naming conventions and CSS organization. 
+    - Keep styles scoped appropriately to their intended components. 
+    - Avoid introducing global styles that unintentionally affect unrelated components. 
+    - Use existing CSS variables and design tokens for colors, spacing, typography, borders, and other shared properties. 
+6. New CSS Required Justification
+    - Introduce new CSS selectors or declarations only when existing styles cannot reasonably accommodate the requirement. 
+    - Before introducing new styles, verify that an equivalent implementation does not already exist. 
+    - Prefer extending reusable components or styles over creating isolated implementations. 
+    - If a new rule is neccesary, ensure it does not duplicate existing functionality. 
+
+### No CSS Patching Policy
+When a styling requirement is not satisfied: 
+1. Investigate why the existing CSS is not producing the expected result. 
+2. Identify the original declaration responsible for the behavior. 
+3. Determine whether the issue is caused by specificity, inheritance, cascade order, component structure, or responsive rules. 
+4. Fix the underlying cause at its source. 
+5. Do not append another CSS rules simply to override the existing implementation. 
+
+Appending CSS overrides without investigating the original implementation is considered incorrect solution unless explicitly justified by the existing architecture. 
+
+
+### Required Validation Before Completion
+Before considering a frontend styling task complete: 
+
+- Review all modified CSS files. 
+- Check for duplicates selectors and declarations. 
+- Check for conflicting or redundant overrides. 
+- Verify that existing responsive styles remain consistent.
+- Confirm that shared components have not been unintentionally affected. 
+- Remove obsolete CSS introduced or made unneccesary by the changes. 
+- Verify the final appearance and behavior. 
+
+**Important**: A visually correct implementation is not sufficient if it introduces unneccesary CSS duplication or technical debt. 
+
+The objective is to maintain a clean, reusable, consistent, and maintenable CSS while satisfying the requested UI requirements.
+
 ## Verification
 
 This project does not currently require a package install or local build step.
