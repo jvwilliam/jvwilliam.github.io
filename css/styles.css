@@ -1,13 +1,14 @@
 @charset "UTF-8";
 :root {
-  --body-color: #e9edf8;
-  --accent-color: #FE4A00;
-  --muted-color: #cfd7e6;
-  --border-color: rgba(255, 255, 255, 0.14);
-  --nav-text-color: #040b1b;
-  --text-color: #e9edf8;
-  --cta-text-color: #e9edf8;
+  --body-color: #ecf2f6;
+  --accent-color: #fa6b37;
+  --muted-color: #b8c4cc;
+  --border-color: rgba(188, 207, 219, 0.18);
+  --nav-text-color: #ecf2f6;
+  --text-color: #ecf2f6;
+  --cta-text-color: #ecf2f6;
   --lead-font-size: 1.25rem;
+  --mobile-nav-menu-color: #ecf2f6;
 }
 
 *, *::before, *::after {
@@ -21,8 +22,8 @@ html {
 body {
   margin: 0;
   color: var(--body-color);
-  background: radial-gradient(circle at top left, rgba(218, 165, 32, 0.15), transparent 35%),
-              linear-gradient(135deg, #000000 0%, #0a0805 25%, #1a1410 60%, #000000 100%);
+  background: radial-gradient(ellipse at 82% 18%, rgba(22, 48, 58, 0.92), transparent 42%),
+              linear-gradient(135deg, #070c10 0%, #0b1218 48%, #111a21 100%);            
   background-attachment: fixed;
   min-height: 100vh;
   font-family: Muli, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -185,8 +186,10 @@ p {
   left: 0;
   right: 0;
   z-index: 50;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(11, 18, 24, 0.94);
+  border-bottom: 1px solid rgba(188, 207, 219, 0.15);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(14px);
 }
 
 .top-nav-inner {
@@ -209,11 +212,6 @@ p {
 .top-nav .brand-link:hover,
 .top-nav .brand-link:focus {
   text-decoration: none;
-}
-
-.top-nav {
-  background: rgba(255,255,255,0.96);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
 .top-nav .nav-list {
@@ -251,14 +249,14 @@ p {
   padding: 0.55rem 1rem;
   border-radius: 999px;
   background: var(--accent-color);
-  color: #ffffff;
-  box-shadow: 0 10px 24px rgba(254, 74, 0, 0.24);
+  color: #17110e;
+  box-shadow: none;
 }
 
 .top-nav .nav-anchor--cta:hover,
 .top-nav .nav-anchor--cta:focus {
   color: #ffffff;
-  background: #000000;
+  background: #c94b21;
   text-decoration: none;
 }
 
@@ -275,7 +273,7 @@ p {
 .hamburger-menu span {
   width: 25px;
   height: 3px;
-  background-color: var(--nav-text-color);
+  background-color: var(--mobile-nav-menu-color);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -314,12 +312,12 @@ p {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: #111a21;
+    border-bottom: 1px solid #33414a;
     gap: 0;
     width: 100%;
     padding: 1rem;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
   }
 
   .top-nav .nav-list.active {
@@ -327,7 +325,7 @@ p {
   }
 
   .top-nav .nav-list-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(188, 207, 219, 0.12);
   }
 
   .top-nav .nav-list-item:last-child {
@@ -1122,47 +1120,6 @@ p {
 }
 
 /* ===== DARK CONVERSION DESIGN ===== */
-body {
-  color: #ecf2f6;
-  background: radial-gradient(ellipse at 82% 18%, rgba(22, 48, 58, 0.92), transparent 42%),
-              linear-gradient(135deg, #070c10 0%, #0b1218 48%, #111a21 100%);
-  --body-color: #ecf2f6;
-  --body-bg: #0b1218;
-  --accent-color: #fa6b37;
-  --muted-color: #b8c4cc;
-  --border-color: rgba(188, 207, 219, 0.18);
-  --nav-text-color: #ecf2f6;
-  --text-color: #ecf2f6;
-  --cta-text-color: #ecf2f6;
-}
-
-.top-nav {
-  background: rgba(11, 18, 24, 0.94);
-  border-bottom-color: rgba(188, 207, 219, 0.15);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(14px);
-}
-
-.top-nav .brand-link,
-.top-nav .nav-anchor {
-  color: #ecf2f6;
-}
-
-.top-nav .nav-anchor--cta {
-  color: #17110e;
-  background: #fa6b37;
-  box-shadow: none;
-}
-
-.top-nav .nav-anchor--cta:hover,
-.top-nav .nav-anchor--cta:focus {
-  color: #ffffff;
-  background: #c94b21;
-}
-
-.hamburger-menu span {
-  background-color: #ecf2f6;
-}
 
 .homepage-hero {
   min-height: clamp(38rem, calc(100svh - 5.5rem), 48rem);
@@ -1395,15 +1352,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .top-nav .nav-list {
-    background: #111a21;
-    border-bottom-color: #33414a;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
-  }
-
-  .top-nav .nav-list-item {
-    border-bottom-color: rgba(188, 207, 219, 0.12);
-  }
 
   .hero-layout {
     grid-template-columns: 1fr;
