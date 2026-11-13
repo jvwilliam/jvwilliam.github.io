@@ -102,7 +102,7 @@
                     <li class="nav-list-item"><a class="nav-anchor js-scroll-trigger" href="#section-expertise" data-testid="nav-expertise">Expertise</a></li>
                     <li class="nav-list-item"><a class="nav-anchor" href="/services/" data-testid="nav-services">Services</a></li>
                     <li class="nav-list-item"><a class="nav-anchor" href="/about/" data-testid="nav-about">About</a></li>
-                    <li class="nav-list-item"><a class="nav-anchor nav-anchor--cta" href="mailto:contact@jvwilliam.com" data-testid="nav-contact" data-mailto-key="navContact">Contact</a></li>
+                    <li class="nav-list-item"><a class="nav-anchor nav-anchor--cta cta-button" href="mailto:contact@jvwilliam.com" data-testid="nav-contact" data-mailto-key="navContact">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -110,17 +110,24 @@
         <div class="page-content">
             <!-- Hero -->
             <section class="hero homepage-hero" id="section-hero">
-                <div class="hero__content">
-                    <p class="hero__intro">Ship reliable web apps without building a full QA team</p>
-                    <h1 class="hero__title">QA Testing for Small Web Product Teams</h1>
-                    <div class="hero__subtitle" data-testid="moving-text">
-                        <p class="hero__subtitle hero__subtitle" id="animated-heading"></p>
+                <div class="hero-layout">
+                    <div class="hero__content">
+                        <p class="hero__intro">Ship reliable web apps without building a full QA team</p>
+                        <h1 class="hero__title">QA Testing for Small Web Product Teams</h1>
+                        <div class="hero__subtitle" data-testid="moving-text" aria-live="off">
+                            <p class="hero__subtitle hero__subtitle--slot is-active" id="animated-heading"></p>
+                            <p class="hero__subtitle hero__subtitle--slot" id="animated-heading-next" aria-hidden="true"></p>
+                        </div>
+                        <p class="hero__copy">Helping development teams catch critical bugs before release, automate high-risk user journeys, and ship reliable web applications with confidence.</p>
+                        <div class="hero__actions">
+                            <a href="mailto:contact@jvwilliam.com" target="_blank" rel="noopener noreferrer" class="main-cta-btn cta-button js-scroll-trigger" data-testid="hero-cta-talk-button" data-mailto-key="homeHero"><strong>Let's Talk</strong></a>
+                            <a href="#section-expertise" class="main-cta-btn cta-button js-scroll-trigger" data-testid="hero-expertise-cta-button"><strong>View Expertise</strong></a>
+                        </div>
                     </div>
-                    <p class="hero__copy">I help startups and indie teams catch critical bugs, strengthen test coverage, and release with confidence through functional testing, automation, and web app security testing</p>
-                    <div class="hero__actions">
-                        <a href="mailto:contact@jvwilliam.com" target="_blank" rel="noopener noreferrer" class="main-cta-btn js-scroll-trigger" data-testid="hero-cta-talk-button" data-mailto-key="homeHero"><strong>Let's Talk</strong></a>
-                        <a href="#section-expertise" class="main-cta-btn js-scroll-trigger" data-testid="hero-expertise-cta-button"><strong>View Expertise</strong></a>
-                    </div>
+                    <aside class="hero-expertise" id="hero-expertise" aria-labelledby="hero-expertise-heading" hidden>
+                        <h2 id="hero-expertise-heading">Expertise</h2>
+                        <ul id="hero-expertise-list"></ul>
+                    </aside>
                 </div>
             </section>
             <hr class="section-divider" />
@@ -132,38 +139,49 @@
                         <p class="section-copy">I specialize in modern web application QA: validating critical user flows, building practical test automation, improving quality processes, and identifying risks before release.</p>
                     </div>
                     <div class="expertise-cards-grid mb-5">
-                        <div class="expertise-card">
+                        <article class="expertise-card expertise-card--featured">
                             <div class="expertise-card-header">
                                 <div class="expertise-card-icon">
-                                    <img src="assets/img/expertise_icons/management-leadership.png" alt="" width="64" height="64">
+                                    <img src="assets/img/expertise_icons/functional-testing.png" alt="" width="64" height="64">
                                 </div>
                                 <h3 class="expertise-card-title">Functional Testing & Test Automation</h3>
                             </div>
                             <p class="expertise-card-description">From validating business-critical workflows to building maintainable automated test coverage, I help teams identify functional issues early through structured manual testing, exploratory testing, and scalable automation strategies that improve release quality and reduce regression risk.</p>
-                        </div>
-                        <div class="expertise-card">
+                        </article>
+                        <article class="expertise-card">
                             <div class="expertise-card-header">
                                 <div class="expertise-card-icon">
-                                    <img src="assets/img/expertise_icons/management-leadership.png" alt="" width="64" height="64"></i>
+                                    <img src="assets/img/expertise_icons/quality-engineering.png" alt="" width="64" height="64">
                                 </div>
                                 <h3 class="expertise-card-title">Quality Engineering and Test Management</h3>
                             </div>
                             <p class="expertise-card-description">From defining QA standards and improving collaboration between teams to managing test execution and release readiness, I help organizations establish structured testing practices, improve release workflows, and implement quality strategies that reduce risk across the software development lifecycle.</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-card-icon">
-                                <img src="assets/img/expertise_icons/management-leadership.png" alt="" width="64" height="64">
+                        </article>
+                        <article class="expertise-card">
+                            <div class="expertise-card-header">
+                                <div class="expertise-card-icon">
+                                    <img src="assets/img/expertise_icons/management-leadership.png" alt="" width="64" height="64">
+                                </div>
+                                <h3 class="expertise-card-title">Team Management & Leadership</h3>
                             </div>
-                            <h3 class="expertise-card-title">Team Management & Leadership</h3>
                             <p class="expertise-card-description">Lead QA initiatives with clear direction, structured collaboration, and a strong quality culture that supports high-performing development teams. I help organizations improve coordination between QA, developers, product owners, and stakeholders to ensure smoother delivery cycles and stronger product outcomes.</p>
-                        </div>
-                        <div class="expertise-card">
-                            <div class="expertise-card-icon">
-                                <img src="assets/img/expertise_icons/web-sec.png" alt="" width="64" height="64">
+                        </article>
+                        <article class="expertise-card">
+                            <div class="expertise-card-header">
+                                <div class="expertise-card-icon">
+                                    <img src="assets/img/expertise_icons/web-sec.png" alt="" width="64" height="64">
+                                </div>
+                                <h3 class="expertise-card-title">Web Application Security Testing</h3>
                             </div>
-                            <h3 class="expertise-card-title">Web Application Security Testing</h3>
                             <p class="expertise-card-description">From authentication flaws and access control issues to input validation and business logic vulnerabilities, I help teams assess web applications for common vulnerabilities, insecure implementations, and high-risk attack surfaces through practical, security-focused testing aligned with real-world threats.</p>
-                        </div>
+                        </article>
+                        <article class="expertise-card expertise-card--placeholder">
+                            <div class="expertise-card-header">
+                                <div class="expertise-card-icon expertise-card-icon--placeholder" aria-hidden="true"></div>
+                                <h3 class="expertise-card-title">Your next expertise</h3>
+                            </div>
+                            <p class="expertise-card-description">Reserved for a future expertise area. Replace this card with an approved title and description when ready.</p>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -173,14 +191,14 @@
                 <div class="cta-section__inner" id="section-cta-container" data-testid="section-cta-container">
                     <h2 class="cta-section__heading" id="section-cta-primaryHeading" data-testid="section-cta-primaryHeading">Ship Reliable Web Apps With Practical QA Support</h2>
                     <p class="cta-section__copy" data-testid="section-cta-copy">Get focused testing support for critical flows, regression coverage, and release confidence.</p>
-                    <a class="cta-section__button" href="mailto:contact@jvwilliam.com" target="_blank" data-testid="section-cta-contactLink">Let's Talk</a>
+                    <a class="cta-section__button cta-button" href="mailto:contact@jvwilliam.com" target="_blank" data-testid="section-cta-contactLink">Let's Talk</a>
                 </div>
             </section>
         </div>
         <!-- Footer -->
         <footer class="footer">
             <div class="footer__bottom">
-                <p>&copy; 2026 JV William Andal. All rights reserved.</p>
+                <p class="footer__copy">&copy; 2027 JV William Andal. All rights reserved.</p>
             </div>
         </footer>
         <script src="js/scripts.js"></script>

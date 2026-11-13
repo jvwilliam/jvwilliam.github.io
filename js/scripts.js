@@ -113,22 +113,47 @@ function renderExpertise(expertise = []) {
     let html = `
         <div class="section-intro">
             <h2 class="section-title" data-testid="section-expertise-heading">Expertise</h2>
-            <p class="section-copy">I specialize in modern web application QA: validating critical user flows, building practical test automation, improving quality processes, and identifying risks before release.</p>
+            <p class="section-copy">Modern web application QA focused on reliable user experiences, smarter test automation, and lower release risks.</p>
         </div>
         <div class="expertise-cards-grid mb-5">
     `;
+
+    const orderedExpertise = [...expertise].sort(
+        (a, b) => Number(a.id) - Number(b.id)
+    );
+
+    const heroExpertise = document.getElementById('hero-expertise');
+    const heroExpertiseList = document.getElementById('hero-expertise-list');
+    if (heroExpertise && heroExpertiseList) {
+        heroExpertiseList.replaceChildren();
+        orderedExpertise.forEach(({title}) => {
+            const item = document.createElement('li');
+            item.textContent = title;
+            heroExpertiseList.appendChild(item);
+        });
+        heroExpertise.hidden = orderedExpertise.length === 0;
+    }
     
-    expertise.forEach(({title, description, icon}) => {
+    orderedExpertise.forEach(({title, description, icon, isPlaceholder}, index) => {
+        const modifiers = [
+            index === 0 ? 'expertise-card--featured' : '',
+            isPlaceholder ? 'expertise-card--placeholder' : ''
+        ].filter(Boolean).join(' ');
+        const iconMarkup = icon
+            ? `<img src="${escapeHTML(icon)}" alt="" width="64" height="64">`
+            : '';
+        const placeholderIconClass = icon ? '' : ' expertise-card-icon--placeholder';
+
         html += `
-            <div class="expertise-card">
+            <article class="expertise-card ${modifiers}">
                 <div class="expertise-card-header">
-                    <div class="expertise-card-icon">
-                        <img src="${escapeHTML(icon)}" alt="" width="64" height="64"></img>
+                    <div class="expertise-card-icon${placeholderIconClass}"${icon ? '' : ' aria-hidden="true"'}>
+                        ${iconMarkup}
                     </div>
                     <h3 class="expertise-card-title">${escapeHTML(title)}</h3>
                 </div>
                 <p class="expertise-card-description">${escapeHTML(description)}</p>
-            </div>
+            </article>
         `;
     });
     
@@ -284,9 +309,9 @@ window.addEventListener('DOMContentLoaded', event => {
         renderProgrammingLang(data['programmingLang'].toSorted((a, b) => a.title.localeCompare(b.title)));
         renderPlatforms(data['platforms'].toSorted((a, b) => a.title.localeCompare(b.title)));
 
-         // Typing animation for the heading
+         // Crossfade the supporting hero text
         const texts = data['animatedText'].toSorted() || [];
-        startTypingAnimation(texts);
+        startCrossfadeAnimation(texts);
         //renderCertificates(data['certificate-list']);
         //renderTrainings(data['trainings']);
       })
@@ -294,39 +319,61 @@ window.addEventListener('DOMContentLoaded', event => {
         console.error('Failed to load profile data:', error);
       });
 
-    function startTypingAnimation(texts = [], animatedHeading = document.getElementById('animated-heading')) {
-        if (!animatedHeading) return;
-        if (!texts.length) return;
+    function startCrossfadeAnimation(texts = []) {
+        const slots = [
+            document.getElementById('animated-heading'),
+            document.getElementById('animated-heading-next')
+        ];
+        const phrases = texts.filter(text => typeof text === 'string' && text.trim());
+        if (slots.some(slot => !slot) || !phrases.length) return;
 
-        let currentTextIndex = 0;
-        let currentCharIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 50; // ms per character
-        const deletingSpeed = 50;
-        const pauseTime = 2000; // pause before deleting
+        const [firstSlot, secondSlot] = slots;
+        firstSlot.textContent = phrases[0];
+        firstSlot.classList.add('is-active');
+        firstSlot.setAttribute('aria-hidden', 'false');
+        secondSlot.textContent = '';
+        secondSlot.classList.remove('is-active');
+        secondSlot.setAttribute('aria-hidden', 'true');
 
-        function typeWriter() {
-            const currentText = texts[currentTextIndex];
-            if (isDeleting) {
-                animatedHeading.textContent = currentText.substring(0, currentCharIndex--);
-                if (currentCharIndex < 0) {
-                    isDeleting = false;
-                    currentTextIndex = (currentTextIndex + 1) % texts.length;
-                    setTimeout(typeWriter, 500); // pause before next text
-                } else {
-                    setTimeout(typeWriter, deletingSpeed);
-                }
-            } else {
-                animatedHeading.textContent = currentText.substring(0, currentCharIndex++);
-                if (currentCharIndex > currentText.length) {
-                    isDeleting = true;
-                    setTimeout(typeWriter, pauseTime);
-                } else {
-                    setTimeout(typeWriter, typingSpeed);
-                }
-            }
-        }
-    // Start the animation after a short delay
-    setTimeout(typeWriter, 1000);
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (phrases.length < 2 || motionPreference.matches) return;
+
+        let activeSlotIndex = 0;
+        let phraseIndex = 0;
+        const fadeDuration = 400;
+        const rotationInterval = 4500;
+
+        const intervalId = window.setInterval(() => {
+            const previousSlot = slots[activeSlotIndex];
+            const nextSlotIndex = 1 - activeSlotIndex;
+            const nextSlot = slots[nextSlotIndex];
+
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            nextSlot.textContent = phrases[phraseIndex];
+
+            window.requestAnimationFrame(() => {
+                nextSlot.classList.add('is-active');
+                nextSlot.setAttribute('aria-hidden', 'false');
+                previousSlot.classList.remove('is-active');
+                previousSlot.setAttribute('aria-hidden', 'true');
+            });
+
+            window.setTimeout(() => {
+                previousSlot.textContent = '';
+            }, fadeDuration);
+
+            activeSlotIndex = nextSlotIndex;
+        }, rotationInterval);
+
+        motionPreference.addEventListener('change', event => {
+            if (!event.matches) return;
+
+            window.clearInterval(intervalId);
+            slots.forEach((slot, index) => {
+                slot.textContent = index === 0 ? phrases[0] : '';
+                slot.classList.toggle('is-active', index === 0);
+                slot.setAttribute('aria-hidden', String(index !== 0));
+            });
+        });
     }
 });

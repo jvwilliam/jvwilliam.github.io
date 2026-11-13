@@ -6,7 +6,7 @@
             "position" : "Game Tester",
             "location" : "Makati · Philippines",
             "duration" : "May 2014 · Dec 2014",
-            "description" : "I began my QA career testing mobile games across Android and iOS. I executed test cases, reported functional issues, and helped verify that releases met expected quality standards."
+            "description" : "Began QA career testing mobile games across Android and iOS. Executed test cases, reported functional issues, and helped verify that releases met expected quality standards."
         },
         {
             "id" : 2,
@@ -14,7 +14,7 @@
             "position" : "Resource Management Staff",
             "location" : "Makati · Philippines",
             "duration" : "Jan 2015 · Dec 2015",
-            "description" : "I supported QA operations by managing test builds, preparing devices, and ensuring testers had the correct versions and environments for execution. This role gave me early experience with test readiness, device security, and QA process discipline."
+            "description" : "Supported QA operations by managing test builds, preparing devices, and ensuring testers had the correct versions and environments for execution. This role gave me early experience with test readiness, device security, and QA process discipline."
         }, 
         {
             "id" : 3,
@@ -22,7 +22,7 @@
             "position" : "QA Tester III",
             "location" : "Makati · Philippines",
             "duration" : "Jan 2016 · Mar 2017",
-            "description" : "I led a small team of game testers while managing QA coverage across multiple mobile app and game projects. My work included test planning, task coordination, Jira-based tracking, Appium-supported testing, review of test results, and mentoring junior testers."
+            "description" : "Led a small team of game testers while managing QA coverage across multiple mobile app and game projects. Responsibilities included test planning, task coordination, Jira-based tracking, Appium-supported testing, review of test results, and mentoring junior testers."
         },
         {
             "id" : 4,
@@ -30,7 +30,7 @@
             "position" : "Software QA Tester · Web Application Testing",
             "location" : "Alabang · Philippines",
             "duration" : "Mar 2017 · Mar 2020",
-            "description" : "I moved from mobile testing into complex web application QA, with a focus on ecommerce projects built on Magento and WordPress/WooCommerce. This role strengthened my experience in functional testing, regression testing, Selenium and Cypress automation, and web application security testing."
+            "description" : "Transitioned from mobile testing into complex web application testing, with a focus on ecommerce projects built on Magento and WordPress/WooCommerce. This role strengthened my experience in functional testing, regression testing, Selenium and Cypress automation, and web application security testing."
         },
         {
             "id" : 5,
@@ -38,7 +38,7 @@
             "position" : "Team Lead · Quality Management",
             "location" : "Irvine California · US (Remote)",
             "duration" : "Jun 2020 · May 2024",
-            "description" : "At 500 Designs, I built a QA team from the ground up and helped establish testing processes that supported multiple active client projects. I led QA planning, team coordination, test execution, and release readiness, giving development teams a stronger quality framework as project demands scaled."
+            "description" : "Built a QA team from the ground up and helped establish testing processes that supported multiple active client projects. Led the QA planning, team coordination, test execution, and release readiness, giving development teams a stronger quality framework as project demands scaled."
         },
         {
             "id" : 6,
@@ -46,7 +46,7 @@
             "position" : "Test Engineer · Web Application Testing",
             "location" : "Abu Dhabi · United Arab Emirates",
             "duration" : "Mar 2024 · Present",
-            "description" : "I lead QA for high-impact web application features used by a large global sports federation. My responsibilities include developing test strategies, performing functional and exploratory testing, validating critical user workflows, developing and maintaining end-to-end test automation, and collaborating with product and development teams to identify risks and improve release quality."
+            "description" : "Leads the QA activities for high-impact web application features used by a large global sports federation. My responsibilities include developing test strategies, performing functional and exploratory testing, validating critical user workflows, developing and maintaining end-to-end test automation, and collaborating with product and development teams to identify risks and improve release quality."
         }
     ],
     "animatedText" : [
@@ -60,27 +60,33 @@
     "expertise" : [
         {
             "id": 1,
-            "title": "Functional Testing & Test Automation",
-            "description": "From validating business-critical workflows to building maintainable automated test coverage, I help teams identify functional issues early through structured manual testing, exploratory testing, and scalable automation strategies that improve release quality and reduce regression risk.",
+            "title": "Front-End & Functional Testing",
+            "description": "Ensure a reliable user experience by catching critical defects early, validating key workflows, and automating regression checks to reduce release risks and costly production issues.",
             "icon": "assets/img/expertise_icons/functional-testing.png"
         },
         {
             "id": 2,
-            "title": "Quality Engineering and Test Management",
-            "description": "From defining QA standards and improving collaboration between teams to managing test execution and release readiness, I help organizations establish structured testing practices, improve release workflows, and implement quality strategies that reduce risk across the software development lifecycle.",
-            "icon": "assets/img/expertise_icons/quality-engineering.png"
-        }, 
+            "title": "Web Application Security Testing",
+            "description": "Assess authentication, access control, input handling, and business logic to uncover common vulnerabilities and security risks.",
+            "icon": "assets/img/expertise_icons/web-sec.png"
+        },
         {
             "id": 3,
-            "title": "Team Management & Leadership",
-            "description": "Lead QA initiatives with clear direction, structured collaboration, and a strong quality culture that supports high-performing development teams. I help organizations improve coordination between QA, developers, product owners, and stakeholders to ensure smoother delivery cycles and stronger product outcomes.",
-            "icon": "assets/img/expertise_icons/management-leadership.png"
+            "title": "Quality Engineering",
+            "description": "Establish practical QA standards, coordinate test execution, and improve release readiness across the software lifecycle.",
+            "icon": "assets/img/expertise_icons/quality-engineering.png"
         },
         {
             "id": 4,
-            "title": "Web Application Security Testing",
-            "description": "From authentication flaws and access control issues to input validation and business logic vulnerabilities, I help teams assess web applications for common vulnerabilities, insecure implementations, and high-risk attack surfaces through practical, security-focused testing aligned with real-world threats.",
-            "icon": "assets/img/expertise_icons/web-sec.png"
+            "title": "Fractional QA Support",
+            "description": "Get experienced QA support without adding a full-time role. Set testing priorities, improve release readiness, and build a practical quality process around your team’s needs.",
+            "icon": "assets/img/expertise_icons/management-leadership.png"
+        },
+        {
+            "id": 5,
+            "title": "AI-Assisted QA & Testing",
+            "description": "Leverage AI to accelerate test design, improve test coverage, and streamline automation. Combine AI-assisted analysis with proven QA practices to identify defects and deliver reliable, actionable test results.",
+            "icon": "assets/img/expertise_icons/quality-engineering.png"
         }
     ],
     "programmingLang" : [
