@@ -791,10 +791,6 @@ p {
   border-radius: 12px;
 }
 
-.expertise-card--featured {
-  border-top: 3px solid var(--accent-color);
-}
-
 .expertise-card-header {
   display: flex;
   flex-direction: column;
